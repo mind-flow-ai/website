@@ -1941,9 +1941,12 @@
 
     <script>
         // Stealth gate
-        function checkGate() {
+        async function checkGate() {
             const input = document.getElementById('gateInput').value;
-            if (input === atob('bWluZGZsb3dfc3RlYWx0aA==')) {
+            const data = new TextEncoder().encode(input);
+            const buf = await crypto.subtle.digest('SHA-256', data);
+            const hash = Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+            if (hash === '9497b9993a3d0029409db004ee92295f45b650c2e0d215124b375ac00c61e4ff') {
                 document.getElementById('stealthGate').classList.add('unlocked');
                 document.body.classList.remove('gated');
                 sessionStorage.setItem('mf_access', '1');
