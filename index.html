@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MindFlow.ai — ML-Accelerated Power Grid Optimization</title>
-    <meta name="description" content="MindFlow.ai delivers order-of-magnitude speedups for Security-Constrained Unit Commitment (SCUC) using graph neural networks — without sacrificing feasibility or market accuracy.">
+    <title>MindFlow.ai — AI for Power Grid Operations</title>
+    <meta name="description" content="MindFlow.ai builds AI systems for power grid optimization — from unit commitment to asset inspection. Deep domain expertise. Production-proven.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -20,6 +20,8 @@
             --green-dim: #059669;
             --blue: #3b82f6;
             --purple: #8b5cf6;
+            --amber: #f59e0b;
+            --amber-dim: #d97706;
             --text-primary: #f1f5f9;
             --text-secondary: #94a3b8;
             --text-muted: #64748b;
@@ -262,6 +264,28 @@
             border-top: 1px solid var(--border);
         }
 
+        .hero-metrics-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        .hero-metrics-wrap {
+            margin-top: 64px;
+            padding-top: 40px;
+            border-top: 1px solid var(--border);
+        }
+
+        .hero-metrics-row {
+            display: flex;
+            gap: 48px;
+            margin-top: 16px;
+        }
+
         .hero-metric .number {
             font-family: 'JetBrains Mono', monospace;
             font-size: 2rem;
@@ -306,43 +330,294 @@
             line-height: 1.7;
         }
 
-        /* ── Problem ── */
-        #problem {
+        /* ── Vision Section ── */
+        #vision {
             background: var(--bg-secondary);
             border-top: 1px solid var(--border);
             border-bottom: 1px solid var(--border);
         }
 
-        .problem-grid {
+        .vision-content {
+            max-width: 720px;
+            margin-bottom: 64px;
+        }
+
+        .vision-content p {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .vision-content p strong {
+            color: var(--text-primary);
+        }
+
+        .value-chain {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 48px;
-            align-items: center;
-        }
-
-        .problem-points {
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-        }
-
-        .problem-point {
-            display: flex;
-            gap: 16px;
-            padding: 20px;
-            border-radius: 12px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2px;
+            border-radius: 16px;
+            overflow: hidden;
             border: 1px solid var(--border);
+        }
+
+        .value-chain-step {
             background: var(--bg-card);
+            padding: 32px 24px;
+            text-align: center;
+            position: relative;
             transition: all 0.3s;
         }
 
-        .problem-point:hover {
-            border-color: var(--cyan-dim);
+        .value-chain-step:hover {
             background: var(--bg-card-hover);
         }
 
-        .problem-icon {
-            flex-shrink: 0;
+        .value-chain-step::after {
+            content: '';
+            position: absolute;
+            right: -1px;
+            top: 30%;
+            height: 40%;
+            width: 2px;
+            background: linear-gradient(180deg, transparent, var(--cyan-dim), transparent);
+        }
+
+        .value-chain-step:last-child::after {
+            display: none;
+        }
+
+        .chain-icon {
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+        }
+
+        .value-chain-step h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .value-chain-step p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        /* ── Products / Capabilities ── */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .product-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 36px;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .product-card:hover {
+            border-color: var(--cyan-dim);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .product-card.flagship {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 36px;
+            align-items: center;
+        }
+
+        .maturity-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            border-radius: 100px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .maturity-badge::before {
+            content: '';
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+        }
+
+        .badge-shipped {
+            background: rgba(52, 211, 153, 0.12);
+            color: var(--green);
+            border: 1px solid rgba(52, 211, 153, 0.25);
+        }
+
+        .badge-shipped::before {
+            background: var(--green);
+        }
+
+        .badge-research {
+            background: rgba(59, 130, 246, 0.12);
+            color: var(--blue);
+            border: 1px solid rgba(59, 130, 246, 0.25);
+        }
+
+        .badge-research::before {
+            background: var(--blue);
+        }
+
+        .badge-proven {
+            background: rgba(139, 92, 246, 0.12);
+            color: var(--purple);
+            border: 1px solid rgba(139, 92, 246, 0.25);
+        }
+
+        .badge-proven::before {
+            background: var(--purple);
+        }
+
+        .badge-experience {
+            background: rgba(245, 158, 11, 0.12);
+            color: var(--amber);
+            border: 1px solid rgba(245, 158, 11, 0.25);
+        }
+
+        .badge-experience::before {
+            background: var(--amber);
+        }
+
+        .product-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .product-card > p,
+        .product-card-content > p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .product-highlights {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .product-highlights li {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            padding-left: 20px;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        .product-highlights li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 7px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--cyan-dim);
+        }
+
+        .product-card .tech-tag {
+            display: inline-block;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 6px;
+            margin-top: 16px;
+            margin-right: 6px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+        }
+
+        .product-stat {
+            display: flex;
+            gap: 24px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+        }
+
+        .product-stat-item .stat-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--cyan);
+        }
+
+        .product-stat-item .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        .product-card-screenshot {
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .product-card-screenshot img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ── Technology Section ── */
+        #technology {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .tech-intro {
+            max-width: 720px;
+            margin-bottom: 56px;
+        }
+
+        .tech-intro p {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .tech-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 28px;
+            transition: all 0.3s;
+        }
+
+        .tech-card:hover {
+            border-color: var(--cyan-dim);
+        }
+
+        .tech-card-icon {
             width: 40px;
             height: 40px;
             border-radius: 10px;
@@ -350,130 +625,45 @@
             align-items: center;
             justify-content: center;
             font-size: 1.2rem;
-            background: rgba(239, 68, 68, 0.1);
-            border: 1px solid rgba(239, 68, 68, 0.2);
+            margin-bottom: 16px;
+            background: var(--glow-cyan);
+            border: 1px solid rgba(34, 211, 238, 0.15);
         }
 
-        .problem-point h3 {
+        .tech-card h3 {
             font-size: 1rem;
             font-weight: 600;
-            margin-bottom: 4px;
+            margin-bottom: 8px;
+            color: var(--text-primary);
         }
 
-        .problem-point p {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            line-height: 1.5;
-        }
-
-        .problem-stat-box {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 40px;
-            text-align: center;
-        }
-
-        .problem-stat-box .big-number {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 4rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #ef4444, #f97316);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1;
-        }
-
-        .problem-stat-box .stat-desc {
-            font-size: 1rem;
-            color: var(--text-secondary);
-            margin-top: 12px;
-            line-height: 1.5;
-        }
-
-        .problem-stat-box .stat-context {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-top: 24px;
-            padding-top: 24px;
-            border-top: 1px solid var(--border);
-            line-height: 1.6;
-        }
-
-        /* ── Solution / Pipeline ── */
-        .pipeline {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            margin-bottom: 64px;
-        }
-
-        .pipeline-step {
-            position: relative;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 32px;
-            transition: all 0.3s;
-        }
-
-        .pipeline-step:hover {
-            border-color: var(--cyan-dim);
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        .step-number {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 32px;
-            height: 32px;
-            border-radius: 8px;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.85rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
-
-        .step-1 .step-number { background: rgba(59, 130, 246, 0.15); color: var(--blue); border: 1px solid rgba(59, 130, 246, 0.3); }
-        .step-2 .step-number { background: rgba(139, 92, 246, 0.15); color: var(--purple); border: 1px solid rgba(139, 92, 246, 0.3); }
-        .step-3 .step-number { background: rgba(52, 211, 153, 0.15); color: var(--green); border: 1px solid rgba(52, 211, 153, 0.3); }
-
-        .pipeline-step h3 {
-            font-size: 1.15rem;
-            font-weight: 700;
-            margin-bottom: 12px;
-        }
-
-        .pipeline-step p {
+        .tech-card p {
             font-size: 0.9rem;
             color: var(--text-secondary);
             line-height: 1.6;
         }
 
-        .pipeline-step .tech-tag {
-            display: inline-block;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.75rem;
-            padding: 4px 10px;
-            border-radius: 6px;
-            margin-top: 16px;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid var(--border);
-            color: var(--text-muted);
+        .tech-founder-note {
+            margin-top: 48px;
+            padding: 28px 32px;
+            background: linear-gradient(135deg, rgba(34, 211, 238, 0.05), rgba(52, 211, 153, 0.03));
+            border: 1px solid var(--cyan-dim);
+            border-radius: 12px;
         }
 
-        .pipeline-connector {
-            display: none;
+        .tech-founder-note p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
         }
 
-        /* ── Results ── */
-        #results {
-            background: var(--bg-secondary);
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
+        .tech-founder-note strong {
+            color: var(--text-primary);
+        }
+
+        /* ── Dashboard Showcase (Results) ── */
+        #dashboard {
+            /* no special background — default bg-primary */
         }
 
         .results-grid {
@@ -537,78 +727,289 @@
             font-size: 0.8rem;
         }
 
-        /* ── Differentiators ── */
-        .diff-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-        }
-
-        .diff-card {
-            background: var(--bg-card);
+        /* ── Screenshot showcase ── */
+        .screenshot-showcase {
+            margin-top: 64px;
+            border-radius: 16px;
+            overflow: hidden;
             border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 28px;
-            transition: all 0.3s;
+            background: var(--bg-card);
         }
 
-        .diff-card:hover {
-            border-color: var(--cyan-dim);
-        }
-
-        .diff-card h3 {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: var(--text-primary);
-        }
-
-        .diff-card p {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-
-        .diff-icon {
-            width: 36px;
-            height: 36px;
-            border-radius: 8px;
+        .screenshot-tabs {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.1rem;
-            margin-bottom: 16px;
-            background: var(--glow-cyan);
-            border: 1px solid rgba(34, 211, 238, 0.15);
+            gap: 0;
+            border-bottom: 1px solid var(--border);
+            overflow-x: auto;
+            scrollbar-width: none;
         }
 
-        /* ── Market ── */
-        #market {
+        .screenshot-tabs::-webkit-scrollbar { display: none; }
+
+        .screenshot-tab {
+            padding: 12px 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            background: none;
+            border: none;
+            border-bottom: 2px solid transparent;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s;
+        }
+
+        .screenshot-tab:hover {
+            color: var(--text-secondary);
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .screenshot-tab.active {
+            color: var(--cyan);
+            border-bottom-color: var(--cyan);
+        }
+
+        .screenshot-viewer {
+            position: relative;
+            background: #0d1117;
+        }
+
+        .screenshot-viewer img {
+            width: 100%;
+            height: auto;
+            display: none;
+        }
+
+        .screenshot-viewer img.active {
+            display: block;
+        }
+
+        .screenshot-caption {
+            padding: 16px 24px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border);
+            display: none;
+        }
+
+        .screenshot-caption.active {
+            display: block;
+        }
+
+        /* ── Research & Publications ── */
+        #research {
             background: var(--bg-secondary);
             border-top: 1px solid var(--border);
             border-bottom: 1px solid var(--border);
         }
 
-        .market-segments {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
+        .publications-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            max-width: 860px;
         }
 
-        .market-card {
+        .pub-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: 12px;
             padding: 28px;
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
             transition: all 0.3s;
         }
 
-        .market-card:hover {
+        .pub-card:hover {
             border-color: var(--cyan-dim);
-            transform: translateY(-2px);
         }
 
-        .market-card .count {
+        .pub-icon {
+            flex-shrink: 0;
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .pub-icon.award {
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+        }
+
+        .pub-icon.paper {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .pub-icon.patent {
+            background: rgba(52, 211, 153, 0.1);
+            border: 1px solid rgba(52, 211, 153, 0.2);
+        }
+
+        .pub-content h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .pub-content .pub-meta {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .pub-content .pub-meta em {
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        .pub-content p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .pub-highlight {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            padding: 3px 10px;
+            border-radius: 100px;
+            margin-top: 10px;
+        }
+
+        .pub-highlight.edelman {
+            background: rgba(245, 158, 11, 0.12);
+            color: var(--amber);
+            border: 1px solid rgba(245, 158, 11, 0.25);
+        }
+
+        .pub-highlight.patent-pending {
+            background: rgba(52, 211, 153, 0.12);
+            color: var(--green);
+            border: 1px solid rgba(52, 211, 153, 0.25);
+        }
+
+        .pub-total {
+            margin-top: 32px;
+            padding: 20px 28px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            max-width: 860px;
+        }
+
+        .pub-total .total-number {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--cyan);
+        }
+
+        .pub-total .total-text {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* ── Founder ── */
+        .founder-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 56px;
+            align-items: start;
+        }
+
+        .founder-bio h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .founder-bio .founder-title {
+            font-size: 0.95rem;
+            color: var(--cyan);
+            margin-bottom: 20px;
+        }
+
+        .founder-bio p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .founder-roles {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 28px;
+        }
+
+        .founder-role {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            padding: 16px 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+
+        .founder-role:hover {
+            border-color: var(--cyan-dim);
+        }
+
+        .role-years {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            white-space: nowrap;
+            padding-top: 2px;
+            min-width: 72px;
+        }
+
+        .role-info h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .role-info p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        .founder-credentials {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .credential-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            transition: all 0.3s;
+        }
+
+        .credential-card:hover {
+            border-color: var(--cyan-dim);
+        }
+
+        .credential-card .cred-value {
             font-family: 'JetBrains Mono', monospace;
             font-size: 1.5rem;
             font-weight: 700;
@@ -616,19 +1017,19 @@
             margin-bottom: 4px;
         }
 
-        .market-card h3 {
-            font-size: 0.95rem;
+        .credential-card h4 {
+            font-size: 0.9rem;
             font-weight: 600;
-            margin-bottom: 8px;
+            margin-bottom: 4px;
         }
 
-        .market-card p {
-            font-size: 0.85rem;
+        .credential-card p {
+            font-size: 0.8rem;
             color: var(--text-muted);
             line-height: 1.5;
         }
 
-        /* ── IP / Roadmap ── */
+        /* ── Roadmap ── */
         .roadmap {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -754,157 +1155,38 @@
             color: var(--text-secondary);
         }
 
-        /* ── Responsive ── */
-        @media (max-width: 1024px) {
-            .results-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .market-segments {
-                grid-template-columns: repeat(2, 1fr);
-            }
+        /* ── Hero layout ── */
+        .hero-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
         }
 
-        @media (max-width: 768px) {
-            .mobile-toggle {
-                display: block;
-            }
-
-            nav {
-                display: none;
-                position: absolute;
-                top: 72px;
-                left: 0;
-                right: 0;
-                background: var(--bg-primary);
-                border-bottom: 1px solid var(--border);
-                padding: 16px;
-            }
-
-            nav.open {
-                display: block;
-            }
-
-            nav ul {
-                flex-direction: column;
-                gap: 4px;
-            }
-
-            nav a {
-                display: block;
-                padding: 12px 16px;
-            }
-
-            .hero-metrics {
-                flex-direction: column;
-                gap: 24px;
-            }
-
-            .problem-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .pipeline {
-                grid-template-columns: 1fr;
-            }
-
-            .results-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .diff-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .market-segments {
-                grid-template-columns: 1fr;
-            }
-
-            .roadmap {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-inner {
-                flex-direction: column;
-                gap: 16px;
-                text-align: center;
-            }
-
-            .hero-actions {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-        }
-
-        /* ── Screenshot showcase ── */
-        .screenshot-showcase {
-            margin-top: 64px;
-            border-radius: 16px;
+        .hero-screenshot {
+            border-radius: 12px;
             overflow: hidden;
             border: 1px solid var(--border);
-            background: var(--bg-card);
-        }
-
-        .screenshot-tabs {
-            display: flex;
-            gap: 0;
-            border-bottom: 1px solid var(--border);
-            overflow-x: auto;
-            scrollbar-width: none;
-        }
-
-        .screenshot-tabs::-webkit-scrollbar { display: none; }
-
-        .screenshot-tab {
-            padding: 12px 20px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            color: var(--text-muted);
-            background: none;
-            border: none;
-            border-bottom: 2px solid transparent;
-            cursor: pointer;
-            white-space: nowrap;
-            transition: all 0.2s;
-        }
-
-        .screenshot-tab:hover {
-            color: var(--text-secondary);
-            background: rgba(255, 255, 255, 0.02);
-        }
-
-        .screenshot-tab.active {
-            color: var(--cyan);
-            border-bottom-color: var(--cyan);
-        }
-
-        .screenshot-viewer {
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.5),
+                0 0 40px rgba(34, 211, 238, 0.05);
             position: relative;
-            background: #0d1117;
         }
 
-        .screenshot-viewer img {
+        .hero-screenshot img {
             width: 100%;
             height: auto;
-            display: none;
-        }
-
-        .screenshot-viewer img.active {
             display: block;
         }
 
-        .screenshot-caption {
-            padding: 16px 24px;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            border-top: 1px solid var(--border);
-            display: none;
+        .hero-screenshot .glow-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(34, 211, 238, 0.08), transparent 60%);
+            pointer-events: none;
         }
 
-        .screenshot-caption.active {
-            display: block;
-        }
-
-        /* ── Inline screenshot (used in sections) ── */
+        /* ── Inline screenshot ── */
         .section-screenshot {
             margin-top: 48px;
             border-radius: 12px;
@@ -951,37 +1233,7 @@
             z-index: 2;
         }
 
-        /* ── Hero screenshot float ── */
-        .hero-layout {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 48px;
-            align-items: center;
-        }
-
-        .hero-screenshot {
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid var(--border);
-            box-shadow:
-                0 20px 60px rgba(0, 0, 0, 0.5),
-                0 0 40px rgba(34, 211, 238, 0.05);
-            position: relative;
-        }
-
-        .hero-screenshot img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .hero-screenshot .glow-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(34, 211, 238, 0.08), transparent 60%);
-            pointer-events: none;
-        }
-
+        /* ── Responsive ── */
         @media (max-width: 1024px) {
             .hero-layout {
                 grid-template-columns: 1fr;
@@ -989,11 +1241,101 @@
             .hero-screenshot {
                 max-width: 600px;
             }
+            .results-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .value-chain {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .product-card.flagship {
+                grid-template-columns: 1fr;
+            }
+            .founder-layout {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                position: absolute;
+                top: 72px;
+                left: 0;
+                right: 0;
+                background: var(--bg-primary);
+                border-bottom: 1px solid var(--border);
+                padding: 16px;
+            }
+
+            nav.open {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 4px;
+            }
+
+            nav a {
+                display: block;
+                padding: 12px 16px;
+            }
+
+            .hero-metrics-row {
+                flex-direction: column;
+                gap: 24px;
+            }
+
+            .value-chain {
+                grid-template-columns: 1fr;
+            }
+
+            .value-chain-step::after {
+                display: none;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .product-card.flagship {
+                grid-template-columns: 1fr;
+            }
+
+            .tech-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .roadmap {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
             .screenshot-showcase {
                 margin-top: 40px;
+            }
+
+            .pub-card {
+                flex-direction: column;
+                gap: 12px;
             }
         }
 
@@ -1008,9 +1350,118 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* ── Stealth Gate ── */
+        .stealth-gate {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: var(--bg-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .stealth-gate.unlocked {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .stealth-gate-inner {
+            text-align: center;
+            max-width: 400px;
+            padding: 24px;
+        }
+
+        .stealth-gate-inner img {
+            height: 56px;
+            margin-bottom: 32px;
+            opacity: 0.8;
+        }
+
+        .stealth-gate-inner h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .stealth-gate-inner p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 28px;
+        }
+
+        .gate-input-wrap {
+            display: flex;
+            gap: 10px;
+        }
+
+        .gate-input-wrap input {
+            flex: 1;
+            padding: 12px 16px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            color: var(--text-primary);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .gate-input-wrap input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .gate-input-wrap input:focus {
+            border-color: var(--cyan-dim);
+        }
+
+        .gate-input-wrap button {
+            padding: 12px 24px;
+            border-radius: 10px;
+            border: none;
+            background: linear-gradient(135deg, var(--cyan-dim), var(--green-dim));
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .gate-input-wrap button:hover {
+            box-shadow: 0 0 20px var(--glow-cyan);
+        }
+
+        .gate-error {
+            color: #ef4444;
+            font-size: 0.8rem;
+            margin-top: 12px;
+            min-height: 1.2em;
+        }
+
+        body.gated {
+            overflow: hidden;
+        }
     </style>
 </head>
-<body>
+<body class="gated">
+
+    <!-- Stealth Gate -->
+    <div class="stealth-gate" id="stealthGate">
+        <div class="stealth-gate-inner">
+            <img src="logo/mindflow2.png" alt="MindFlow.ai">
+            <h2>Invitation Only</h2>
+            <p>MindFlow.ai is currently in stealth mode. Enter your access code to continue.</p>
+            <div class="gate-input-wrap">
+                <input type="password" id="gateInput" placeholder="Access code" autocomplete="off">
+                <button onclick="checkGate()">Enter</button>
+            </div>
+            <div class="gate-error" id="gateError"></div>
+        </div>
+    </div>
 
     <!-- Header -->
     <header>
@@ -1021,11 +1472,12 @@
             <button class="mobile-toggle" onclick="document.querySelector('nav').classList.toggle('open')" aria-label="Toggle menu">&#9776;</button>
             <nav>
                 <ul>
-                    <li><a href="#problem">Problem</a></li>
-                    <li><a href="#solution">Solution</a></li>
-                    <li><a href="#results">Results</a></li>
-                    <li><a href="#differentiators">Why Us</a></li>
-                    <li><a href="#market">Market</a></li>
+                    <li><a href="#vision">Vision</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#technology">Technology</a></li>
+                    <li><a href="#dashboard">Dashboard</a></li>
+                    <li><a href="#research">Research</a></li>
+                    <li><a href="#founder">Founder</a></li>
                     <li><a href="#contact" class="nav-cta">Contact</a></li>
                 </ul>
             </nav>
@@ -1041,130 +1493,217 @@
             <div class="container">
                 <div class="hero-layout">
                     <div class="hero-content">
-                        <div class="hero-badge">Patent Pending</div>
+                        <div class="hero-badge">AI for the Power Grid</div>
                         <h1>
-                            <span class="gradient-text">10x faster</span> power grid<br>
-                            optimization — with zero<br>
-                            feasibility trade-offs
+                            <span class="gradient-text">AI that understands</span><br>
+                            the grid
                         </h1>
                         <p class="hero-sub">
-                            MindFlow.ai uses graph neural networks to accelerate Security-Constrained Unit Commitment (SCUC), enabling grid operators to solve 10x more scenarios within market deadlines.
+                            MindFlow.ai builds AI systems for power grid optimization &mdash; from unit commitment to asset inspection. Deep domain expertise. Production-proven.
                         </p>
                         <div class="hero-actions">
-                            <a href="#solution" class="btn btn-primary">See How It Works</a>
-                            <a href="#results" class="btn btn-secondary">View Benchmarks</a>
+                            <a href="#products" class="btn btn-primary">Explore Capabilities</a>
+                            <a href="#dashboard" class="btn btn-secondary">View Dashboard</a>
                         </div>
                     </div>
                     <div class="hero-screenshot fade-in">
-                        <img src="screenshots/overview.png" alt="SCUC Dashboard — generation dispatch overview with KPIs, fuel mix, and load curve">
+                        <img src="screenshots/overview.png" alt="SCUC Dashboard -- generation dispatch overview with KPIs, fuel mix, and load curve">
                         <div class="glow-overlay"></div>
                     </div>
                 </div>
-                <div class="hero-metrics">
-                    <div class="hero-metric">
-                        <div class="number">10.2x</div>
-                        <div class="label">Mean speedup</div>
-                    </div>
-                    <div class="hero-metric">
-                        <div class="number">100%</div>
-                        <div class="label">Feasibility rate</div>
-                    </div>
-                    <div class="hero-metric">
-                        <div class="number">1.9%</div>
-                        <div class="label">Avg. cost gap</div>
-                    </div>
-                    <div class="hero-metric">
-                        <div class="number">~31s</div>
-                        <div class="label">Solve time (2000-bus)</div>
+                <div class="hero-metrics-wrap">
+                    <div class="hero-metrics-label">Flagship: SCUC Acceleration</div>
+                    <div class="hero-metrics-row">
+                        <div class="hero-metric">
+                            <div class="number">10.2x</div>
+                            <div class="label">Mean speedup</div>
+                        </div>
+                        <div class="hero-metric">
+                            <div class="number">100%</div>
+                            <div class="label">Feasibility rate</div>
+                        </div>
+                        <div class="hero-metric">
+                            <div class="number">1.9%</div>
+                            <div class="label">Avg. cost gap</div>
+                        </div>
+                        <div class="hero-metric">
+                            <div class="number">~31s</div>
+                            <div class="label">Solve time (2000-bus)</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Problem -->
-        <section id="problem">
+        <!-- Vision -->
+        <section id="vision">
             <div class="container">
-                <span class="section-label">The Bottleneck</span>
-                <h2 class="section-title">Grid operators are running out of time</h2>
+                <span class="section-label">Our Vision</span>
+                <h2 class="section-title">The grid is transforming. Its tools must too.</h2>
+                <div class="vision-content">
+                    <p>
+                        The power grid is undergoing the biggest transformation in a century &mdash; renewables, distributed energy resources, electrification, and increasing extreme weather events. Yet the computational tools that run it were built for a simpler era.
+                    </p>
+                    <p>
+                        <strong>MindFlow.ai brings modern AI to every layer of grid operations.</strong> From generation scheduling to transmission monitoring to customer-level analytics, the grid's hardest problems share common structure: network topology, physics constraints, time-series data, and combinatorial optimization.
+                    </p>
+                    <p>
+                        Modern AI &mdash; graph neural networks, computer vision, foundation models &mdash; can accelerate all of them. But only when paired with deep domain expertise.
+                    </p>
+                </div>
+                <div class="value-chain fade-in">
+                    <div class="value-chain-step">
+                        <div class="chain-icon">&#9889;</div>
+                        <h3>Generation</h3>
+                        <p>Unit commitment, hydro scheduling, dispatch optimization</p>
+                    </div>
+                    <div class="value-chain-step">
+                        <div class="chain-icon">&#128268;</div>
+                        <h3>Transmission</h3>
+                        <p>Congestion management, N-1 security, network flows</p>
+                    </div>
+                    <div class="value-chain-step">
+                        <div class="chain-icon">&#127760;</div>
+                        <h3>Distribution</h3>
+                        <p>Topology discovery, asset inspection, fault detection</p>
+                    </div>
+                    <div class="value-chain-step">
+                        <div class="chain-icon">&#128200;</div>
+                        <h3>Customer</h3>
+                        <p>Smart meter analytics, theft detection, load profiling</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products / Capabilities -->
+        <section id="products">
+            <div class="container">
+                <span class="section-label">Products &amp; Capabilities</span>
+                <h2 class="section-title">AI across the grid value chain</h2>
                 <p class="section-desc">
-                    Day-ahead energy markets have fixed deadlines. As renewables grow, operators need to evaluate hundreds of scenarios — but current solvers can't keep up.
+                    One shipped product, backed by a deep bench of production-proven experience across power systems, optimization, and machine learning.
                 </p>
-                <div class="problem-grid">
-                    <div class="problem-points">
-                        <div class="problem-point fade-in">
-                            <div class="problem-icon">&#9201;</div>
-                            <div>
-                                <h3>Rigid Market Deadlines</h3>
-                                <p>ISOs must clear day-ahead markets on a fixed schedule. The optimization window doesn't expand as grids get more complex.</p>
+                <div class="products-grid">
+
+                    <!-- Flagship: SCUC -->
+                    <div class="product-card flagship fade-in">
+                        <div class="product-card-content">
+                            <span class="maturity-badge badge-shipped">Shipped &middot; Patent Pending</span>
+                            <h3>Grid Optimization (SCUC)</h3>
+                            <p>ML-accelerated Security-Constrained Unit Commitment. A three-stage pipeline uses graph neural networks to predict generator commitments and screen transmission constraints, dramatically reducing the problem before the solver even starts.</p>
+                            <ul class="product-highlights">
+                                <li>GNN commitment prediction with calibrated confidence</li>
+                                <li>Congestion-aware line screening (~89% constraint reduction)</li>
+                                <li>Solver-agnostic: HiGHS, Gurobi, or CPLEX</li>
+                                <li>100% feasibility &mdash; ML guides, the solver decides</li>
+                            </ul>
+                            <div class="product-stat">
+                                <div class="product-stat-item">
+                                    <div class="stat-value">10.2x</div>
+                                    <div class="stat-label">Mean speedup</div>
+                                </div>
+                                <div class="product-stat-item">
+                                    <div class="stat-value">100%</div>
+                                    <div class="stat-label">Feasibility</div>
+                                </div>
+                                <div class="product-stat-item">
+                                    <div class="stat-value">1.9%</div>
+                                    <div class="stat-label">Cost gap</div>
+                                </div>
                             </div>
                         </div>
-                        <div class="problem-point fade-in">
-                            <div class="problem-icon">&#9889;</div>
-                            <div>
-                                <h3>Renewable Uncertainty</h3>
-                                <p>40%+ renewable mandates by 2035 mean wind and solar forecast uncertainty is exploding — requiring 10-100x more scenarios to manage risk.</p>
-                            </div>
-                        </div>
-                        <div class="problem-point fade-in">
-                            <div class="problem-icon">&#128200;</div>
-                            <div>
-                                <h3>Problem Scale</h3>
-                                <p>A realistic 2,000-bus SCUC instance has thousands of binary variables, 3,200+ transmission constraints, and 24 hourly periods.</p>
-                            </div>
+                        <div class="product-card-screenshot">
+                            <img src="screenshots/gnn_attention.png" alt="GNN attention weights visualized on the transmission network">
                         </div>
                     </div>
-                    <div class="problem-stat-box fade-in">
-                        <div class="big-number">8.7 hrs</div>
-                        <div class="stat-desc">
-                            Time to solve 100 scenarios<br>at 5.2 min each using baseline solvers
-                        </div>
-                        <div class="stat-context">
-                            Grid operators typically have a 2-4 hour window. At current speeds, they can evaluate fewer than 30 scenarios — far short of what's needed for robust stochastic planning.
-                        </div>
+
+                    <!-- Smart Meter Intelligence -->
+                    <div class="product-card fade-in">
+                        <span class="maturity-badge badge-research">Research &middot; Published</span>
+                        <h3>Smart Meter Intelligence</h3>
+                        <p>Theft detection and secondary topology discovery using smart meter interval data and power flow analysis &mdash; without relying on GIS data.</p>
+                        <ul class="product-highlights">
+                            <li>Power flow-based tamper detection on interval data</li>
+                            <li>Secondary network topology discovery</li>
+                            <li>Deployed at BC Hydro since 2013</li>
+                        </ul>
+                        <span class="tech-tag">Power Flow Analysis</span>
+                        <span class="tech-tag">Interval Data</span>
                     </div>
+
+                    <!-- Hydro Optimization -->
+                    <div class="product-card fade-in">
+                        <span class="maturity-badge badge-proven">Proven &middot; Prior Work</span>
+                        <h3>Hydro Optimization</h3>
+                        <p>Water routing and hydroelectric generation optimization on the Columbia River system. Founder's prior work at The Energy Authority.</p>
+                        <ul class="product-highlights">
+                            <li>Columbia River water routing &amp; generation scheduling</li>
+                            <li>INFORMS Edelman Award finalist</li>
+                            <li>$700-900M total value delivered</li>
+                        </ul>
+                        <span class="tech-tag">MILP</span>
+                        <span class="tech-tag">Water Routing</span>
+                    </div>
+
+                    <!-- Infrastructure Inspection -->
+                    <div class="product-card fade-in">
+                        <span class="maturity-badge badge-experience">Experience &middot; Prior Work</span>
+                        <h3>Infrastructure Inspection</h3>
+                        <p>Computer vision-based drone inspection for power grid assets. Founder's prior work leading AI/analytics at eSmart Systems.</p>
+                        <ul class="product-highlights">
+                            <li>Semantic segmentation for asset classification</li>
+                            <li>Super resolution for defect detection</li>
+                            <li>Human-in-the-loop ML for global utility clients</li>
+                        </ul>
+                        <span class="tech-tag">Computer Vision</span>
+                        <span class="tech-tag">Drone Inspection</span>
+                    </div>
+
                 </div>
             </div>
         </section>
 
-        <!-- Solution / Pipeline -->
-        <section id="solution">
+        <!-- Technology -->
+        <section id="technology">
             <div class="container">
-                <span class="section-label">Our Approach</span>
-                <h2 class="section-title">ML-guided optimization, not ML-replaced optimization</h2>
-                <p class="section-desc">
-                    We don't replace the solver — we make it faster. Our three-stage pipeline uses ML to intelligently reduce problem size while the solver guarantees feasibility.
-                </p>
-                <div class="pipeline">
-                    <div class="pipeline-step step-1 fade-in">
-                        <div class="step-number">01</div>
-                        <h3>GNN Commitment Prediction</h3>
-                        <p>A graph neural network predicts generator on/off states with calibrated confidence scores. High-confidence predictions are clamped as fixed variables — dramatically reducing the binary search space.</p>
-                        <span class="tech-tag">GATv2 + Monte Carlo Dropout</span>
+                <span class="section-label">Technology</span>
+                <h2 class="section-title">Why these problems are connected</h2>
+                <div class="tech-intro">
+                    <p>Grid problems look different on the surface &mdash; unit commitment, theft detection, asset inspection, hydro scheduling. But underneath, they share deep structure: graph/network topology, physics constraints, time-series data, and combinatorial optimization. MindFlow.ai applies a unified AI toolkit to all of them.</p>
+                </div>
+                <div class="tech-grid">
+                    <div class="tech-card fade-in">
+                        <div class="tech-card-icon">&#129516;</div>
+                        <h3>Graph Neural Networks</h3>
+                        <p>Power grids are graphs. GNNs learn directly on network topology &mdash; buses, branches, generators &mdash; capturing spatial relationships that tabular models miss entirely.</p>
                     </div>
-                    <div class="pipeline-step step-2 fade-in">
-                        <div class="step-number">02</div>
-                        <h3>Congestion-Aware Line Screening</h3>
-                        <p>A learned model predicts which transmission lines will bind. ~89% of 3,200+ constraints are safely deactivated, with lazy re-injection if violations are detected.</p>
-                        <span class="tech-tag">PTDF-Based Screening</span>
+                    <div class="tech-card fade-in">
+                        <div class="tech-card-icon">&#128290;</div>
+                        <h3>Mathematical Optimization</h3>
+                        <p>MIP, LP, constraint programming. Two decades of production optimization experience &mdash; from SCUC to hydro scheduling to Snowflake-native solvers at RelationalAI.</p>
                     </div>
-                    <div class="pipeline-step step-3 fade-in">
-                        <div class="step-number">03</div>
-                        <h3>Reduced MIP Solve</h3>
-                        <p>The massively reduced problem is solved by a standard MIP solver. Feasibility is guaranteed. Uncertain variables remain free. The solver always has the final word.</p>
-                        <span class="tech-tag">HiGHS / Gurobi / CPLEX</span>
+                    <div class="tech-card fade-in">
+                        <div class="tech-card-icon">&#128247;</div>
+                        <h3>Computer Vision</h3>
+                        <p>Semantic segmentation, super resolution, and human-in-loop workflows for physical infrastructure inspection from aerial imagery.</p>
+                    </div>
+                    <div class="tech-card fade-in">
+                        <div class="tech-card-icon">&#9879;</div>
+                        <h3>Physics-Informed AI</h3>
+                        <p>Models that respect engineering constraints &mdash; power balance, thermal limits, ramp rates. AI that accelerates physics, not replaces it.</p>
                     </div>
                 </div>
-                <div class="section-screenshot fade-in">
-                    <span class="screenshot-label">GNN Attention Visualization</span>
-                    <img src="screenshots/gnn_attention.png" alt="GNN attention weights visualized on the transmission network — showing learned edge importance across 4 attention heads">
+                <div class="tech-founder-note fade-in">
+                    <p><strong>The founder's unique position:</strong> PhD in Computer Science, 20+ years at the intersection of AI, optimization, and power systems. From building production optimization systems at The Energy Authority (9 years) to leading AI at eSmart Systems, to graph-native optimization at RelationalAI &mdash; this is a career-long thesis, not a pivot.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Results -->
-        <section id="results">
+        <!-- Dashboard Showcase -->
+        <section id="dashboard">
             <div class="container">
-                <span class="section-label">Benchmarks</span>
+                <span class="section-label">SCUC Dashboard</span>
                 <h2 class="section-title">Validated on real-scale grid models</h2>
                 <p class="section-desc">
                     Tested across 84 scenarios on the ACTIVSg2000 synthetic U.S. grid (2,000 buses), with additional validation on Polish and French grid topologies.
@@ -1173,7 +1712,7 @@
                     <div class="result-card fade-in">
                         <div class="value">10.2x</div>
                         <div class="metric-label">Mean Speedup</div>
-                        <div class="metric-detail">5.2 min → ~31 sec</div>
+                        <div class="metric-detail">5.2 min &rarr; ~31 sec</div>
                     </div>
                     <div class="result-card fade-in">
                         <div class="value">100%</div>
@@ -1202,13 +1741,13 @@
                         <button class="screenshot-tab" data-target="ss-n1">N-1 Security</button>
                     </div>
                     <div class="screenshot-viewer">
-                        <img id="ss-benchmark" class="active" src="screenshots/ml_benchmark.png" alt="ML Benchmark — per-scenario speedup bars and speedup vs gap scatter plot">
-                        <img id="ss-network-map" src="screenshots/network_map.png" alt="Network Map — geographic view of 2000-bus grid with LMP coloring and congested lines">
-                        <img id="ss-commitment" src="screenshots/commitment.png" alt="Commitment — unit commitment heatmap for 83 swing generators over 24 hours">
-                        <img id="ss-dispatch" src="screenshots/dispatch.png" alt="Dispatch — generation stack by fuel type over 24 hours">
-                        <img id="ss-lmp" src="screenshots/lmp.png" alt="LMP Analysis — locational marginal price heatmap and system LMP time series">
-                        <img id="ss-flows" src="screenshots/network_flows.png" alt="Network Flows — line loading heatmap and max loading bar chart">
-                        <img id="ss-n1" src="screenshots/n1_security.png" alt="N-1 Security — post-contingency analysis with geographic overload visualization">
+                        <img id="ss-benchmark" class="active" src="screenshots/ml_benchmark.png" alt="ML Benchmark -- per-scenario speedup bars and speedup vs gap scatter plot">
+                        <img id="ss-network-map" src="screenshots/network_map.png" alt="Network Map -- geographic view of 2000-bus grid with LMP coloring and congested lines">
+                        <img id="ss-commitment" src="screenshots/commitment.png" alt="Commitment -- unit commitment heatmap for 83 swing generators over 24 hours">
+                        <img id="ss-dispatch" src="screenshots/dispatch.png" alt="Dispatch -- generation stack by fuel type over 24 hours">
+                        <img id="ss-lmp" src="screenshots/lmp.png" alt="LMP Analysis -- locational marginal price heatmap and system LMP time series">
+                        <img id="ss-flows" src="screenshots/network_flows.png" alt="Network Flows -- line loading heatmap and max loading bar chart">
+                        <img id="ss-n1" src="screenshots/n1_security.png" alt="N-1 Security -- post-contingency analysis with geographic overload visualization">
                     </div>
                     <div class="screenshot-caption active" id="cap-benchmark">Per-scenario speedup analysis across 30 test scenarios. Red bars show speedup (up to 26x), with the mean 7.6x dashed line. Scatter plot shows speedup vs. objective gap trade-off.</div>
                     <div class="screenshot-caption" id="cap-network-map">Geographic visualization of the ACTIVSg2000 synthetic U.S. grid. Buses colored by locational marginal price (LMP), generators by fuel type. Red lines indicate congested branches (&gt;90% loading).</div>
@@ -1219,99 +1758,149 @@
                     <div class="screenshot-caption" id="cap-n1">Post-contingency (N-1) security analysis using LODF matrices. Geographic view highlights post-outage overloads. Critical for validating grid reliability under contingencies.</div>
                 </div>
                 <div class="results-note">
-                    Benchmarked on <code>ACTIVSg2000</code> · 2,000 buses · 3,206 lines · 24-hour horizon · v12 GNN model · Open-source <code>HiGHS</code> solver
+                    Benchmarked on <code>ACTIVSg2000</code> &middot; 2,000 buses &middot; 3,206 lines &middot; 24-hour horizon &middot; v12 GNN model &middot; Open-source <code>HiGHS</code> solver
                 </div>
             </div>
         </section>
 
-        <!-- Differentiators -->
-        <section id="differentiators">
+        <!-- Research & Publications -->
+        <section id="research">
             <div class="container">
-                <span class="section-label">Why MindFlow</span>
-                <h2 class="section-title">Built for production, not just papers</h2>
+                <span class="section-label">Research &amp; Publications</span>
+                <h2 class="section-title">Grounded in peer-reviewed science</h2>
                 <p class="section-desc">
-                    Every design decision is made with real-world grid operations in mind — auditability, solver compatibility, and market signal quality.
+                    MindFlow.ai's work builds on a foundation of published research, production deployments, and recognized contributions to the field.
                 </p>
-                <div class="diff-grid">
-                    <div class="diff-card fade-in">
-                        <div class="diff-icon">&#128274;</div>
-                        <h3>Guaranteed Feasibility</h3>
-                        <p>ML guides, the solver decides. Every solution satisfies all physical, thermal, and operational constraints — no post-hoc fixing required.</p>
+                <div class="publications-list">
+                    <div class="pub-card fade-in">
+                        <div class="pub-icon patent">&#128196;</div>
+                        <div class="pub-content">
+                            <h3>ML-Accelerated Security-Constrained Unit Commitment</h3>
+                            <div class="pub-meta">Hu, Z. &middot; 2025 &middot; <em>Patent Application Filed</em></div>
+                            <p>GNN-based pipeline for accelerating SCUC via commitment prediction, line screening, and reduced MIP formulation. 10.2x mean speedup with 100% feasibility.</p>
+                            <span class="pub-highlight patent-pending">Patent Pending</span>
+                        </div>
                     </div>
-                    <div class="diff-card fade-in">
-                        <div class="diff-icon">&#128176;</div>
-                        <h3>Market-Grade LMP Quality</h3>
-                        <p>Locational marginal prices deviate only 3.2% from optimal. Congestion-induced price distortion is just $0.08/MWh — negligible for settlement.</p>
+                    <div class="pub-card fade-in">
+                        <div class="pub-icon award">&#127942;</div>
+                        <div class="pub-content">
+                            <h3>Optimizing the Columbia River Hydroelectric System</h3>
+                            <div class="pub-meta">Hu, Z. et al. &middot; 2014 &middot; <em>INFORMS Interfaces</em></div>
+                            <p>Water routing and hydroelectric generation optimization for the Columbia River system. Delivered $700-900M in total value with $1.5M annual recurring revenue.</p>
+                            <span class="pub-highlight edelman">INFORMS Edelman Award Finalist</span>
+                        </div>
                     </div>
-                    <div class="diff-card fade-in">
-                        <div class="diff-icon">&#128268;</div>
-                        <h3>Solver-Agnostic</h3>
-                        <p>Drop into any MIP solver: HiGHS (open-source), Gurobi, CPLEX, or SCIP. No vendor lock-in. No proprietary dependencies.</p>
+                    <div class="pub-card fade-in">
+                        <div class="pub-icon paper">&#128218;</div>
+                        <div class="pub-content">
+                            <h3>Tamper Detection and Topology Discovery Using Smart Meter Interval Data</h3>
+                            <div class="pub-meta">Hu, Z. &middot; 2018 &middot; <em>Published Paper</em></div>
+                            <p>Power flow-based method for detecting energy theft and discovering secondary network topology using only interval meter data. Deployed at BC Hydro since 2013.</p>
+                        </div>
                     </div>
-                    <div class="diff-card fade-in">
-                        <div class="diff-icon">&#128269;</div>
-                        <h3>Fully Auditable</h3>
-                        <p>Every clamped variable has a confidence score. Every deactivated constraint has a rationale. Regulators and operators can trace every decision.</p>
+                </div>
+                <div class="pub-total fade-in">
+                    <div class="total-number">13</div>
+                    <div class="total-text">Peer-reviewed publications across optimization, machine learning, and power systems. Invited speaker at Gurobi, CCRO, and CEATI conferences.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Founder -->
+        <section id="founder">
+            <div class="container">
+                <span class="section-label">Founder</span>
+                <h2 class="section-title">A career built at the intersection of AI and energy</h2>
+                <p class="section-desc">
+                    MindFlow.ai is founded on 20+ years of hands-on experience building production AI and optimization systems for the power industry.
+                </p>
+                <div class="founder-layout">
+                    <div class="founder-bio">
+                        <h3>Zengjian Hu, PhD</h3>
+                        <div class="founder-title">Founder &amp; CEO, MindFlow.ai</div>
+                        <p>
+                            Computer scientist and optimization specialist with two decades of experience applying AI and mathematical optimization to power system operations. From building the industry's most recognized hydro optimization system to pioneering smart meter analytics and leading computer vision R&D for grid inspection.
+                        </p>
+                        <div class="founder-roles">
+                            <div class="founder-role fade-in">
+                                <div class="role-years">2022-now</div>
+                                <div class="role-info">
+                                    <h4>RelationalAI</h4>
+                                    <p>Snowflake-native optimization solver. Graph algorithms, constraint satisfaction, symbolic AI.</p>
+                                </div>
+                            </div>
+                            <div class="founder-role fade-in">
+                                <div class="role-years">2019-2022</div>
+                                <div class="role-info">
+                                    <h4>eSmart Systems</h4>
+                                    <p>Led AI/analytics for drone-based infrastructure inspection. Semantic segmentation, super resolution, human-in-loop ML.</p>
+                                </div>
+                            </div>
+                            <div class="founder-role fade-in">
+                                <div class="role-years">2010-2019</div>
+                                <div class="role-info">
+                                    <h4>The Energy Authority</h4>
+                                    <p>Built hydro optimization &amp; smart meter analytics systems. 9 years in production. Edelman finalist.</p>
+                                </div>
+                            </div>
+                            <div class="founder-role fade-in">
+                                <div class="role-years">Research</div>
+                                <div class="role-info">
+                                    <h4>D-Wave Systems</h4>
+                                    <p>Quantum computing research. Algorithmic foundations for combinatorial optimization.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="diff-card fade-in">
-                        <div class="diff-icon">&#127760;</div>
-                        <h3>Topology-Agnostic</h3>
-                        <p>Validated on U.S. synthetic, Polish, and French grid models with no manual retuning. The GNN learns structure, not memorizes it.</p>
-                    </div>
-                    <div class="diff-card fade-in">
-                        <div class="diff-icon">&#128640;</div>
-                        <h3>Open-Source Ready</h3>
-                        <p>Built on HiGHS (open-source MIP), eliminating six-figure solver licensing costs. Production-ready without commercial dependencies.</p>
+                    <div class="founder-credentials">
+                        <div class="credential-card fade-in">
+                            <div class="cred-value">20+</div>
+                            <h4>Years in AI + Energy</h4>
+                            <p>Continuous track record building production systems at the intersection of machine learning, optimization, and power systems.</p>
+                        </div>
+                        <div class="credential-card fade-in">
+                            <div class="cred-value">$900M</div>
+                            <h4>Value Delivered</h4>
+                            <p>Total economic impact from the Columbia River hydro optimization system alone. INFORMS Edelman Award finalist.</p>
+                        </div>
+                        <div class="credential-card fade-in">
+                            <div class="cred-value">13</div>
+                            <h4>Publications</h4>
+                            <p>Peer-reviewed papers. Invited speaker at Gurobi, CCRO, CEATI. Deep technical credibility in both OR and ML communities.</p>
+                        </div>
+                        <div class="credential-card fade-in">
+                            <div class="cred-value">PhD</div>
+                            <h4>Computer Science</h4>
+                            <p>Research foundation in algorithms, optimization, and machine learning. The technical depth to build, not just manage.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Market -->
-        <section id="market">
+        <!-- Roadmap -->
+        <section id="roadmap">
             <div class="container">
-                <span class="section-label">Opportunity</span>
-                <h2 class="section-title">Who needs faster SCUC?</h2>
+                <span class="section-label">Roadmap</span>
+                <h2 class="section-title">From flagship product to platform</h2>
                 <p class="section-desc">
-                    SCUC is solved daily by every grid operator worldwide. Any organization running unit commitment stands to benefit from order-of-magnitude speedups.
+                    A deliberate path: ship one product exceptionally well, then expand across the grid value chain.
                 </p>
-                <div class="market-segments">
-                    <div class="market-card fade-in">
-                        <div class="diff-icon">&#9889;</div>
-                        <h3>ISOs &amp; RTOs</h3>
-                        <p>Independent system operators run SCUC daily for day-ahead and real-time markets — under tight deadlines that don't scale with grid complexity.</p>
-                    </div>
-                    <div class="market-card fade-in">
-                        <div class="diff-icon">&#127760;</div>
-                        <h3>Transmission Operators</h3>
-                        <p>TSOs in Europe and globally face the same bottleneck as renewable mandates drive scenario proliferation.</p>
-                    </div>
-                    <div class="market-card fade-in">
-                        <div class="diff-icon">&#128161;</div>
-                        <h3>Utilities</h3>
-                        <p>Large generation owners use SCUC for internal dispatch planning and portfolio optimization across their fleet.</p>
-                    </div>
-                    <div class="market-card fade-in">
-                        <div class="diff-icon">&#128295;</div>
-                        <h3>Grid Software Platforms</h3>
-                        <p>EMS vendors could integrate ML acceleration as a module — complementing existing solver stacks without replacing them.</p>
-                    </div>
-                </div>
                 <div class="roadmap">
-                    <div class="roadmap-phase active">
-                        <div class="phase-label">Phase 1 — Q1-Q2 2026</div>
-                        <h3>Foundation</h3>
-                        <p>File provisional patent. Publish benchmarks. Open-source reference implementation for academic validation.</p>
+                    <div class="roadmap-phase active fade-in">
+                        <div class="phase-label">Now</div>
+                        <h3>SCUC Acceleration</h3>
+                        <p>Patent filed. Benchmarks published. Dashboard complete. Seeking pilot partnerships with ISOs and utilities for production validation.</p>
                     </div>
-                    <div class="roadmap-phase">
-                        <div class="phase-label">Phase 2 — Q3-Q4 2026</div>
-                        <h3>Validation</h3>
-                        <p>Pilot with partner ISO using real operational data. Validate on 5,000+ bus systems with N-1 contingency.</p>
+                    <div class="roadmap-phase fade-in">
+                        <div class="phase-label">Next</div>
+                        <h3>Smart Meter Analytics</h3>
+                        <p>Productize proven theft detection and topology discovery methods. Target utility pilot partnerships for North American deployment.</p>
                     </div>
-                    <div class="roadmap-phase">
-                        <div class="phase-label">Phase 3 — 2027+</div>
-                        <h3>Scale</h3>
-                        <p>Scale to 10,000+ bus systems. Expand to real-time market clearing (5-min intervals). Multi-grid deployment.</p>
+                    <div class="roadmap-phase fade-in">
+                        <div class="phase-label">Future</div>
+                        <h3>Unified AI Platform</h3>
+                        <p>Integrated AI platform for grid operations &mdash; bringing together optimization, analytics, and inspection under one roof.</p>
                     </div>
                 </div>
             </div>
@@ -1322,9 +1911,9 @@
             <div class="contact-glow"></div>
             <div class="container">
                 <span class="section-label">Get In Touch</span>
-                <h2 class="section-title">Interested in faster grid optimization?</h2>
+                <h2 class="section-title">Let's build the grid's AI future</h2>
                 <p class="section-desc">
-                    Whether you're an ISO exploring ML acceleration, a utility looking to scale scenario analysis, or a researcher interested in collaboration — we'd like to hear from you.
+                    Whether you're an ISO exploring ML acceleration, a utility modernizing meter analytics, or a researcher interested in collaboration &mdash; we'd like to hear from you.
                 </p>
                 <a href="mailto:contact@mindflow.ai" class="contact-email">contact@mindflow.ai</a>
             </div>
@@ -1341,9 +1930,9 @@
                     <span class="footer-copy">&copy; 2026 MindFlow.ai. All rights reserved.</span>
                 </div>
                 <div class="footer-links">
-                    <a href="#problem">Problem</a>
-                    <a href="#solution">Solution</a>
-                    <a href="#results">Results</a>
+                    <a href="#products">Products</a>
+                    <a href="#technology">Technology</a>
+                    <a href="#research">Research</a>
                     <a href="#contact">Contact</a>
                 </div>
             </div>
@@ -1351,11 +1940,33 @@
     </footer>
 
     <script>
+        // Stealth gate
+        function checkGate() {
+            const input = document.getElementById('gateInput').value;
+            if (input === atob('bWluZGZsb3dfc3RlYWx0aA==')) {
+                document.getElementById('stealthGate').classList.add('unlocked');
+                document.body.classList.remove('gated');
+                sessionStorage.setItem('mf_access', '1');
+            } else {
+                document.getElementById('gateError').textContent = 'Invalid access code.';
+                document.getElementById('gateInput').value = '';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            if (sessionStorage.getItem('mf_access') === '1') {
+                document.getElementById('stealthGate').classList.add('unlocked');
+                document.body.classList.remove('gated');
+            }
+            document.getElementById('gateInput').addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') checkGate();
+            });
+        });
+
         // Intersection Observer for fade-in animations
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
+            entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                    // Stagger animations for sibling elements
                     const siblings = entry.target.parentElement.querySelectorAll('.fade-in');
                     const idx = Array.from(siblings).indexOf(entry.target);
                     setTimeout(() => {
@@ -1382,12 +1993,10 @@
                 const targetId = tab.dataset.target;
                 const capId = 'cap-' + targetId.replace('ss-', '');
 
-                // Deactivate all tabs, images, captions in this showcase
                 showcase.querySelectorAll('.screenshot-tab').forEach(t => t.classList.remove('active'));
                 showcase.querySelectorAll('.screenshot-viewer img').forEach(img => img.classList.remove('active'));
                 showcase.querySelectorAll('.screenshot-caption').forEach(cap => cap.classList.remove('active'));
 
-                // Activate selected
                 tab.classList.add('active');
                 const img = document.getElementById(targetId);
                 if (img) img.classList.add('active');
