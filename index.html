@@ -1,0 +1,1401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindFlow.ai — ML-Accelerated Power Grid Optimization</title>
+    <meta name="description" content="MindFlow.ai delivers order-of-magnitude speedups for Security-Constrained Unit Commitment (SCUC) using graph neural networks — without sacrificing feasibility or market accuracy.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0e1a;
+            --bg-secondary: #111827;
+            --bg-card: #1a2035;
+            --bg-card-hover: #1f2847;
+            --cyan: #22d3ee;
+            --cyan-dim: #0e7490;
+            --green: #34d399;
+            --green-dim: #059669;
+            --blue: #3b82f6;
+            --purple: #8b5cf6;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --border: #1e293b;
+            --glow-cyan: rgba(34, 211, 238, 0.15);
+            --glow-green: rgba(52, 211, 153, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ── Header ── */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            background: rgba(10, 14, 26, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            transition: background 0.3s;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 72px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 44px;
+            width: auto;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 8px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .nav-cta {
+            color: var(--cyan) !important;
+            border: 1px solid var(--cyan-dim);
+        }
+
+        .nav-cta:hover {
+            background: var(--glow-cyan) !important;
+        }
+
+        /* ── Mobile nav ── */
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        /* ── Hero ── */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 120px 0 80px;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 80% 60% at 50% 0%, rgba(34, 211, 238, 0.08) 0%, transparent 60%),
+                radial-gradient(ellipse 60% 40% at 80% 80%, rgba(52, 211, 153, 0.06) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-grid {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(34, 211, 238, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(34, 211, 238, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            mask-image: radial-gradient(ellipse 70% 50% at 50% 50%, black, transparent);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            border-radius: 100px;
+            border: 1px solid var(--cyan-dim);
+            background: var(--glow-cyan);
+            color: var(--cyan);
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .hero-badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--cyan);
+            animation: pulse-dot 2s infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        #hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: 24px;
+        }
+
+        #hero h1 .gradient-text {
+            background: linear-gradient(135deg, var(--cyan) 0%, var(--green) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-sub {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--cyan-dim), var(--green-dim));
+            color: white;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 0 30px var(--glow-cyan), 0 0 60px rgba(34, 211, 238, 0.1);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-secondary);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--text-muted);
+            color: var(--text-primary);
+        }
+
+        .hero-metrics {
+            display: flex;
+            gap: 48px;
+            margin-top: 64px;
+            padding-top: 40px;
+            border-top: 1px solid var(--border);
+        }
+
+        .hero-metric .number {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--cyan);
+        }
+
+        .hero-metric .label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        /* ── Section commons ── */
+        section {
+            padding: 120px 0;
+        }
+
+        .section-label {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--cyan);
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .section-desc {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 640px;
+            margin-bottom: 56px;
+            line-height: 1.7;
+        }
+
+        /* ── Problem ── */
+        #problem {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .problem-points {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .problem-point {
+            display: flex;
+            gap: 16px;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            transition: all 0.3s;
+        }
+
+        .problem-point:hover {
+            border-color: var(--cyan-dim);
+            background: var(--bg-card-hover);
+        }
+
+        .problem-icon {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+        }
+
+        .problem-point h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .problem-point p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .problem-stat-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .problem-stat-box .big-number {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 4rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ef4444, #f97316);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+
+        .problem-stat-box .stat-desc {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-top: 12px;
+            line-height: 1.5;
+        }
+
+        .problem-stat-box .stat-context {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+            line-height: 1.6;
+        }
+
+        /* ── Solution / Pipeline ── */
+        .pipeline {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 64px;
+        }
+
+        .pipeline-step {
+            position: relative;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+            transition: all 0.3s;
+        }
+
+        .pipeline-step:hover {
+            border-color: var(--cyan-dim);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .step-1 .step-number { background: rgba(59, 130, 246, 0.15); color: var(--blue); border: 1px solid rgba(59, 130, 246, 0.3); }
+        .step-2 .step-number { background: rgba(139, 92, 246, 0.15); color: var(--purple); border: 1px solid rgba(139, 92, 246, 0.3); }
+        .step-3 .step-number { background: rgba(52, 211, 153, 0.15); color: var(--green); border: 1px solid rgba(52, 211, 153, 0.3); }
+
+        .pipeline-step h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .pipeline-step p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .pipeline-step .tech-tag {
+            display: inline-block;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 6px;
+            margin-top: 16px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+        }
+
+        .pipeline-connector {
+            display: none;
+        }
+
+        /* ── Results ── */
+        #results {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+
+        .result-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .result-card:hover {
+            border-color: var(--cyan-dim);
+            transform: translateY(-2px);
+        }
+
+        .result-card .value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .result-card:nth-child(1) .value { color: var(--cyan); }
+        .result-card:nth-child(2) .value { color: var(--green); }
+        .result-card:nth-child(3) .value { color: var(--blue); }
+        .result-card:nth-child(4) .value { color: var(--purple); }
+
+        .result-card .metric-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+        }
+
+        .result-card .metric-detail {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .results-note {
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            padding: 20px 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .results-note code {
+            font-family: 'JetBrains Mono', monospace;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+
+        /* ── Differentiators ── */
+        .diff-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .diff-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 28px;
+            transition: all 0.3s;
+        }
+
+        .diff-card:hover {
+            border-color: var(--cyan-dim);
+        }
+
+        .diff-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        .diff-card p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .diff-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            margin-bottom: 16px;
+            background: var(--glow-cyan);
+            border: 1px solid rgba(34, 211, 238, 0.15);
+        }
+
+        /* ── Market ── */
+        #market {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .market-segments {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .market-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 28px;
+            transition: all 0.3s;
+        }
+
+        .market-card:hover {
+            border-color: var(--cyan-dim);
+            transform: translateY(-2px);
+        }
+
+        .market-card .count {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--cyan);
+            margin-bottom: 4px;
+        }
+
+        .market-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .market-card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* ── IP / Roadmap ── */
+        .roadmap {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 56px;
+        }
+
+        .roadmap-phase {
+            padding: 28px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            position: relative;
+        }
+
+        .roadmap-phase .phase-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--cyan);
+            letter-spacing: 0.05em;
+            margin-bottom: 12px;
+        }
+
+        .roadmap-phase h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .roadmap-phase p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .roadmap-phase.active {
+            border-color: var(--cyan-dim);
+            background: linear-gradient(135deg, rgba(34, 211, 238, 0.05), rgba(52, 211, 153, 0.03));
+        }
+
+        /* ── Contact / CTA ── */
+        #contact {
+            text-align: center;
+            position: relative;
+        }
+
+        #contact .section-desc {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-glow {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 50% 50% at 50% 80%, rgba(34, 211, 238, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        #contact .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-email {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.1rem;
+            color: var(--cyan);
+            text-decoration: none;
+            padding: 12px 24px;
+            border: 1px solid var(--cyan-dim);
+            border-radius: 10px;
+            display: inline-block;
+            transition: all 0.2s;
+        }
+
+        .contact-email:hover {
+            background: var(--glow-cyan);
+            box-shadow: 0 0 30px var(--glow-cyan);
+        }
+
+        /* ── Footer ── */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 40px 0;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .footer-left img {
+            height: 28px;
+            opacity: 0.6;
+        }
+
+        .footer-copy {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-links a {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-secondary);
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 1024px) {
+            .results-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .market-segments {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                position: absolute;
+                top: 72px;
+                left: 0;
+                right: 0;
+                background: var(--bg-primary);
+                border-bottom: 1px solid var(--border);
+                padding: 16px;
+            }
+
+            nav.open {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 4px;
+            }
+
+            nav a {
+                display: block;
+                padding: 12px 16px;
+            }
+
+            .hero-metrics {
+                flex-direction: column;
+                gap: 24px;
+            }
+
+            .problem-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pipeline {
+                grid-template-columns: 1fr;
+            }
+
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .diff-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .market-segments {
+                grid-template-columns: 1fr;
+            }
+
+            .roadmap {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        /* ── Screenshot showcase ── */
+        .screenshot-showcase {
+            margin-top: 64px;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+        }
+
+        .screenshot-tabs {
+            display: flex;
+            gap: 0;
+            border-bottom: 1px solid var(--border);
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+
+        .screenshot-tabs::-webkit-scrollbar { display: none; }
+
+        .screenshot-tab {
+            padding: 12px 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            background: none;
+            border: none;
+            border-bottom: 2px solid transparent;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s;
+        }
+
+        .screenshot-tab:hover {
+            color: var(--text-secondary);
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .screenshot-tab.active {
+            color: var(--cyan);
+            border-bottom-color: var(--cyan);
+        }
+
+        .screenshot-viewer {
+            position: relative;
+            background: #0d1117;
+        }
+
+        .screenshot-viewer img {
+            width: 100%;
+            height: auto;
+            display: none;
+        }
+
+        .screenshot-viewer img.active {
+            display: block;
+        }
+
+        .screenshot-caption {
+            padding: 16px 24px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border);
+            display: none;
+        }
+
+        .screenshot-caption.active {
+            display: block;
+        }
+
+        /* ── Inline screenshot (used in sections) ── */
+        .section-screenshot {
+            margin-top: 48px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            position: relative;
+        }
+
+        .section-screenshot::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: 13px;
+            padding: 1px;
+            background: linear-gradient(135deg, rgba(34, 211, 238, 0.3), rgba(52, 211, 153, 0.1), transparent);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .section-screenshot img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .section-screenshot .screenshot-label {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(10, 14, 26, 0.8);
+            backdrop-filter: blur(8px);
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            z-index: 2;
+        }
+
+        /* ── Hero screenshot float ── */
+        .hero-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .hero-screenshot {
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.5),
+                0 0 40px rgba(34, 211, 238, 0.05);
+            position: relative;
+        }
+
+        .hero-screenshot img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .hero-screenshot .glow-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(34, 211, 238, 0.08), transparent 60%);
+            pointer-events: none;
+        }
+
+        @media (max-width: 1024px) {
+            .hero-layout {
+                grid-template-columns: 1fr;
+            }
+            .hero-screenshot {
+                max-width: 600px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .screenshot-showcase {
+                margin-top: 40px;
+            }
+        }
+
+        /* ── Animations ── */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <a href="#" class="logo">
+                <img src="logo/mindflow2.png" alt="MindFlow.ai">
+            </a>
+            <button class="mobile-toggle" onclick="document.querySelector('nav').classList.toggle('open')" aria-label="Toggle menu">&#9776;</button>
+            <nav>
+                <ul>
+                    <li><a href="#problem">Problem</a></li>
+                    <li><a href="#solution">Solution</a></li>
+                    <li><a href="#results">Results</a></li>
+                    <li><a href="#differentiators">Why Us</a></li>
+                    <li><a href="#market">Market</a></li>
+                    <li><a href="#contact" class="nav-cta">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- Hero -->
+        <section id="hero">
+            <div class="hero-bg"></div>
+            <div class="hero-grid"></div>
+            <div class="container">
+                <div class="hero-layout">
+                    <div class="hero-content">
+                        <div class="hero-badge">Patent Pending</div>
+                        <h1>
+                            <span class="gradient-text">10x faster</span> power grid<br>
+                            optimization — with zero<br>
+                            feasibility trade-offs
+                        </h1>
+                        <p class="hero-sub">
+                            MindFlow.ai uses graph neural networks to accelerate Security-Constrained Unit Commitment (SCUC), enabling grid operators to solve 10x more scenarios within market deadlines.
+                        </p>
+                        <div class="hero-actions">
+                            <a href="#solution" class="btn btn-primary">See How It Works</a>
+                            <a href="#results" class="btn btn-secondary">View Benchmarks</a>
+                        </div>
+                    </div>
+                    <div class="hero-screenshot fade-in">
+                        <img src="screenshots/overview.png" alt="SCUC Dashboard — generation dispatch overview with KPIs, fuel mix, and load curve">
+                        <div class="glow-overlay"></div>
+                    </div>
+                </div>
+                <div class="hero-metrics">
+                    <div class="hero-metric">
+                        <div class="number">10.2x</div>
+                        <div class="label">Mean speedup</div>
+                    </div>
+                    <div class="hero-metric">
+                        <div class="number">100%</div>
+                        <div class="label">Feasibility rate</div>
+                    </div>
+                    <div class="hero-metric">
+                        <div class="number">1.9%</div>
+                        <div class="label">Avg. cost gap</div>
+                    </div>
+                    <div class="hero-metric">
+                        <div class="number">~31s</div>
+                        <div class="label">Solve time (2000-bus)</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Problem -->
+        <section id="problem">
+            <div class="container">
+                <span class="section-label">The Bottleneck</span>
+                <h2 class="section-title">Grid operators are running out of time</h2>
+                <p class="section-desc">
+                    Day-ahead energy markets have fixed deadlines. As renewables grow, operators need to evaluate hundreds of scenarios — but current solvers can't keep up.
+                </p>
+                <div class="problem-grid">
+                    <div class="problem-points">
+                        <div class="problem-point fade-in">
+                            <div class="problem-icon">&#9201;</div>
+                            <div>
+                                <h3>Rigid Market Deadlines</h3>
+                                <p>ISOs must clear day-ahead markets on a fixed schedule. The optimization window doesn't expand as grids get more complex.</p>
+                            </div>
+                        </div>
+                        <div class="problem-point fade-in">
+                            <div class="problem-icon">&#9889;</div>
+                            <div>
+                                <h3>Renewable Uncertainty</h3>
+                                <p>40%+ renewable mandates by 2035 mean wind and solar forecast uncertainty is exploding — requiring 10-100x more scenarios to manage risk.</p>
+                            </div>
+                        </div>
+                        <div class="problem-point fade-in">
+                            <div class="problem-icon">&#128200;</div>
+                            <div>
+                                <h3>Problem Scale</h3>
+                                <p>A realistic 2,000-bus SCUC instance has thousands of binary variables, 3,200+ transmission constraints, and 24 hourly periods.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="problem-stat-box fade-in">
+                        <div class="big-number">8.7 hrs</div>
+                        <div class="stat-desc">
+                            Time to solve 100 scenarios<br>at 5.2 min each using baseline solvers
+                        </div>
+                        <div class="stat-context">
+                            Grid operators typically have a 2-4 hour window. At current speeds, they can evaluate fewer than 30 scenarios — far short of what's needed for robust stochastic planning.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Solution / Pipeline -->
+        <section id="solution">
+            <div class="container">
+                <span class="section-label">Our Approach</span>
+                <h2 class="section-title">ML-guided optimization, not ML-replaced optimization</h2>
+                <p class="section-desc">
+                    We don't replace the solver — we make it faster. Our three-stage pipeline uses ML to intelligently reduce problem size while the solver guarantees feasibility.
+                </p>
+                <div class="pipeline">
+                    <div class="pipeline-step step-1 fade-in">
+                        <div class="step-number">01</div>
+                        <h3>GNN Commitment Prediction</h3>
+                        <p>A graph neural network predicts generator on/off states with calibrated confidence scores. High-confidence predictions are clamped as fixed variables — dramatically reducing the binary search space.</p>
+                        <span class="tech-tag">GATv2 + Monte Carlo Dropout</span>
+                    </div>
+                    <div class="pipeline-step step-2 fade-in">
+                        <div class="step-number">02</div>
+                        <h3>Congestion-Aware Line Screening</h3>
+                        <p>A learned model predicts which transmission lines will bind. ~89% of 3,200+ constraints are safely deactivated, with lazy re-injection if violations are detected.</p>
+                        <span class="tech-tag">PTDF-Based Screening</span>
+                    </div>
+                    <div class="pipeline-step step-3 fade-in">
+                        <div class="step-number">03</div>
+                        <h3>Reduced MIP Solve</h3>
+                        <p>The massively reduced problem is solved by a standard MIP solver. Feasibility is guaranteed. Uncertain variables remain free. The solver always has the final word.</p>
+                        <span class="tech-tag">HiGHS / Gurobi / CPLEX</span>
+                    </div>
+                </div>
+                <div class="section-screenshot fade-in">
+                    <span class="screenshot-label">GNN Attention Visualization</span>
+                    <img src="screenshots/gnn_attention.png" alt="GNN attention weights visualized on the transmission network — showing learned edge importance across 4 attention heads">
+                </div>
+            </div>
+        </section>
+
+        <!-- Results -->
+        <section id="results">
+            <div class="container">
+                <span class="section-label">Benchmarks</span>
+                <h2 class="section-title">Validated on real-scale grid models</h2>
+                <p class="section-desc">
+                    Tested across 84 scenarios on the ACTIVSg2000 synthetic U.S. grid (2,000 buses), with additional validation on Polish and French grid topologies.
+                </p>
+                <div class="results-grid">
+                    <div class="result-card fade-in">
+                        <div class="value">10.2x</div>
+                        <div class="metric-label">Mean Speedup</div>
+                        <div class="metric-detail">5.2 min → ~31 sec</div>
+                    </div>
+                    <div class="result-card fade-in">
+                        <div class="value">100%</div>
+                        <div class="metric-label">Feasibility Rate</div>
+                        <div class="metric-detail">All constraints satisfied</div>
+                    </div>
+                    <div class="result-card fade-in">
+                        <div class="value">1.9%</div>
+                        <div class="metric-label">Avg. Cost Gap</div>
+                        <div class="metric-detail">vs. optimal solution</div>
+                    </div>
+                    <div class="result-card fade-in">
+                        <div class="value">3.2%</div>
+                        <div class="metric-label">LMP Median Error</div>
+                        <div class="metric-detail">Market signals preserved</div>
+                    </div>
+                </div>
+                <div class="screenshot-showcase fade-in">
+                    <div class="screenshot-tabs">
+                        <button class="screenshot-tab active" data-target="ss-benchmark">ML Benchmark</button>
+                        <button class="screenshot-tab" data-target="ss-network-map">Network Map</button>
+                        <button class="screenshot-tab" data-target="ss-commitment">Commitment</button>
+                        <button class="screenshot-tab" data-target="ss-dispatch">Dispatch</button>
+                        <button class="screenshot-tab" data-target="ss-lmp">LMP Analysis</button>
+                        <button class="screenshot-tab" data-target="ss-flows">Network Flows</button>
+                        <button class="screenshot-tab" data-target="ss-n1">N-1 Security</button>
+                    </div>
+                    <div class="screenshot-viewer">
+                        <img id="ss-benchmark" class="active" src="screenshots/ml_benchmark.png" alt="ML Benchmark — per-scenario speedup bars and speedup vs gap scatter plot">
+                        <img id="ss-network-map" src="screenshots/network_map.png" alt="Network Map — geographic view of 2000-bus grid with LMP coloring and congested lines">
+                        <img id="ss-commitment" src="screenshots/commitment.png" alt="Commitment — unit commitment heatmap for 83 swing generators over 24 hours">
+                        <img id="ss-dispatch" src="screenshots/dispatch.png" alt="Dispatch — generation stack by fuel type over 24 hours">
+                        <img id="ss-lmp" src="screenshots/lmp.png" alt="LMP Analysis — locational marginal price heatmap and system LMP time series">
+                        <img id="ss-flows" src="screenshots/network_flows.png" alt="Network Flows — line loading heatmap and max loading bar chart">
+                        <img id="ss-n1" src="screenshots/n1_security.png" alt="N-1 Security — post-contingency analysis with geographic overload visualization">
+                    </div>
+                    <div class="screenshot-caption active" id="cap-benchmark">Per-scenario speedup analysis across 30 test scenarios. Red bars show speedup (up to 26x), with the mean 7.6x dashed line. Scatter plot shows speedup vs. objective gap trade-off.</div>
+                    <div class="screenshot-caption" id="cap-network-map">Geographic visualization of the ACTIVSg2000 synthetic U.S. grid. Buses colored by locational marginal price (LMP), generators by fuel type. Red lines indicate congested branches (&gt;90% loading).</div>
+                    <div class="screenshot-caption" id="cap-commitment">Unit commitment schedule for 83 swing generators across 24 hours. The GNN predicts these binary on/off decisions with high confidence, enabling variable clamping.</div>
+                    <div class="screenshot-caption" id="cap-dispatch">Generation stack showing fuel mix dispatch over the day. CCGT and wind/solar dominate, with coal and CT/peakers filling shoulder hours.</div>
+                    <div class="screenshot-caption" id="cap-lmp">LMP heatmap for top-50 buses by price variation, plus system-wide mean LMP with P5/P95 confidence band. Key for validating market signal quality.</div>
+                    <div class="screenshot-caption" id="cap-flows">Transmission line loading analysis. Left: heatmap of top-50 branches over time. Right: max loading for the 30 most stressed branches, colored by congestion severity.</div>
+                    <div class="screenshot-caption" id="cap-n1">Post-contingency (N-1) security analysis using LODF matrices. Geographic view highlights post-outage overloads. Critical for validating grid reliability under contingencies.</div>
+                </div>
+                <div class="results-note">
+                    Benchmarked on <code>ACTIVSg2000</code> · 2,000 buses · 3,206 lines · 24-hour horizon · v12 GNN model · Open-source <code>HiGHS</code> solver
+                </div>
+            </div>
+        </section>
+
+        <!-- Differentiators -->
+        <section id="differentiators">
+            <div class="container">
+                <span class="section-label">Why MindFlow</span>
+                <h2 class="section-title">Built for production, not just papers</h2>
+                <p class="section-desc">
+                    Every design decision is made with real-world grid operations in mind — auditability, solver compatibility, and market signal quality.
+                </p>
+                <div class="diff-grid">
+                    <div class="diff-card fade-in">
+                        <div class="diff-icon">&#128274;</div>
+                        <h3>Guaranteed Feasibility</h3>
+                        <p>ML guides, the solver decides. Every solution satisfies all physical, thermal, and operational constraints — no post-hoc fixing required.</p>
+                    </div>
+                    <div class="diff-card fade-in">
+                        <div class="diff-icon">&#128176;</div>
+                        <h3>Market-Grade LMP Quality</h3>
+                        <p>Locational marginal prices deviate only 3.2% from optimal. Congestion-induced price distortion is just $0.08/MWh — negligible for settlement.</p>
+                    </div>
+                    <div class="diff-card fade-in">
+                        <div class="diff-icon">&#128268;</div>
+                        <h3>Solver-Agnostic</h3>
+                        <p>Drop into any MIP solver: HiGHS (open-source), Gurobi, CPLEX, or SCIP. No vendor lock-in. No proprietary dependencies.</p>
+                    </div>
+                    <div class="diff-card fade-in">
+                        <div class="diff-icon">&#128269;</div>
+                        <h3>Fully Auditable</h3>
+                        <p>Every clamped variable has a confidence score. Every deactivated constraint has a rationale. Regulators and operators can trace every decision.</p>
+                    </div>
+                    <div class="diff-card fade-in">
+                        <div class="diff-icon">&#127760;</div>
+                        <h3>Topology-Agnostic</h3>
+                        <p>Validated on U.S. synthetic, Polish, and French grid models with no manual retuning. The GNN learns structure, not memorizes it.</p>
+                    </div>
+                    <div class="diff-card fade-in">
+                        <div class="diff-icon">&#128640;</div>
+                        <h3>Open-Source Ready</h3>
+                        <p>Built on HiGHS (open-source MIP), eliminating six-figure solver licensing costs. Production-ready without commercial dependencies.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Market -->
+        <section id="market">
+            <div class="container">
+                <span class="section-label">Opportunity</span>
+                <h2 class="section-title">Who needs faster SCUC?</h2>
+                <p class="section-desc">
+                    SCUC is solved daily by every grid operator worldwide. Any organization running unit commitment stands to benefit from order-of-magnitude speedups.
+                </p>
+                <div class="market-segments">
+                    <div class="market-card fade-in">
+                        <div class="diff-icon">&#9889;</div>
+                        <h3>ISOs &amp; RTOs</h3>
+                        <p>Independent system operators run SCUC daily for day-ahead and real-time markets — under tight deadlines that don't scale with grid complexity.</p>
+                    </div>
+                    <div class="market-card fade-in">
+                        <div class="diff-icon">&#127760;</div>
+                        <h3>Transmission Operators</h3>
+                        <p>TSOs in Europe and globally face the same bottleneck as renewable mandates drive scenario proliferation.</p>
+                    </div>
+                    <div class="market-card fade-in">
+                        <div class="diff-icon">&#128161;</div>
+                        <h3>Utilities</h3>
+                        <p>Large generation owners use SCUC for internal dispatch planning and portfolio optimization across their fleet.</p>
+                    </div>
+                    <div class="market-card fade-in">
+                        <div class="diff-icon">&#128295;</div>
+                        <h3>Grid Software Platforms</h3>
+                        <p>EMS vendors could integrate ML acceleration as a module — complementing existing solver stacks without replacing them.</p>
+                    </div>
+                </div>
+                <div class="roadmap">
+                    <div class="roadmap-phase active">
+                        <div class="phase-label">Phase 1 — Q1-Q2 2026</div>
+                        <h3>Foundation</h3>
+                        <p>File provisional patent. Publish benchmarks. Open-source reference implementation for academic validation.</p>
+                    </div>
+                    <div class="roadmap-phase">
+                        <div class="phase-label">Phase 2 — Q3-Q4 2026</div>
+                        <h3>Validation</h3>
+                        <p>Pilot with partner ISO using real operational data. Validate on 5,000+ bus systems with N-1 contingency.</p>
+                    </div>
+                    <div class="roadmap-phase">
+                        <div class="phase-label">Phase 3 — 2027+</div>
+                        <h3>Scale</h3>
+                        <p>Scale to 10,000+ bus systems. Expand to real-time market clearing (5-min intervals). Multi-grid deployment.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact">
+            <div class="contact-glow"></div>
+            <div class="container">
+                <span class="section-label">Get In Touch</span>
+                <h2 class="section-title">Interested in faster grid optimization?</h2>
+                <p class="section-desc">
+                    Whether you're an ISO exploring ML acceleration, a utility looking to scale scenario analysis, or a researcher interested in collaboration — we'd like to hear from you.
+                </p>
+                <a href="mailto:contact@mindflow.ai" class="contact-email">contact@mindflow.ai</a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-left">
+                    <img src="logo/mindflow2.png" alt="MindFlow.ai">
+                    <span class="footer-copy">&copy; 2026 MindFlow.ai. All rights reserved.</span>
+                </div>
+                <div class="footer-links">
+                    <a href="#problem">Problem</a>
+                    <a href="#solution">Solution</a>
+                    <a href="#results">Results</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Intersection Observer for fade-in animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    // Stagger animations for sibling elements
+                    const siblings = entry.target.parentElement.querySelectorAll('.fade-in');
+                    const idx = Array.from(siblings).indexOf(entry.target);
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, idx * 100);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Close mobile nav on link click
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('nav').classList.remove('open');
+            });
+        });
+
+        // Screenshot tab switcher
+        document.querySelectorAll('.screenshot-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                const showcase = tab.closest('.screenshot-showcase');
+                const targetId = tab.dataset.target;
+                const capId = 'cap-' + targetId.replace('ss-', '');
+
+                // Deactivate all tabs, images, captions in this showcase
+                showcase.querySelectorAll('.screenshot-tab').forEach(t => t.classList.remove('active'));
+                showcase.querySelectorAll('.screenshot-viewer img').forEach(img => img.classList.remove('active'));
+                showcase.querySelectorAll('.screenshot-caption').forEach(cap => cap.classList.remove('active'));
+
+                // Activate selected
+                tab.classList.add('active');
+                const img = document.getElementById(targetId);
+                if (img) img.classList.add('active');
+                const cap = document.getElementById(capId);
+                if (cap) cap.classList.add('active');
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,116 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+/* Header */
+header {
+    background: #f4f4f4;
+    padding: 1rem 0;
+}
+
+header img {
+    height: 50px;
+}
+
+nav {
+    float: right;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-left: 20px;
+}
+
+/* Hero Section */
+#hero {
+    background: #3498db;
+    color: #fff;
+    padding: 3rem 0;
+    text-align: center;
+}
+
+#hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+#hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+button {
+    padding: 10px 20px;
+    background: #2ecc71;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+/* Sections */
+section {
+    padding: 3rem 0;
+}
+
+h2 {
+    margin-bottom: 1rem;
+}
+
+ul, ol {
+    margin-left: 2rem;
+}
+
+/* Benefits and Use Cases */
+#benefits, #use-cases {
+    background: #f9f9f9;
+}
+
+/* How It Works */
+#how-it-works ol {
+    counter-reset: step-counter;
+    list-style-type: none;
+}
+
+#how-it-works li {
+    counter-increment: step-counter;
+    margin-bottom: 10px;
+}
+
+#how-it-works li::before {
+    content: counter(step-counter);
+    margin-right: 10px;
+    background-color: #3498db;
+    color: white;
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 3px;
+}
+
+/* Footer */
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+}
