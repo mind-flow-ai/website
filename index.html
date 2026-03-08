@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MindFlow.ai — AI for Power Grid Operations</title>
-    <meta name="description" content="MindFlow.ai builds AI systems for power grid optimization — from unit commitment to asset inspection. Deep domain expertise. Production-proven.">
+    <title>MindFlow.ai — Building the World Model for the Power Grid</title>
+    <meta name="description" content="MindFlow.ai is building a physics-informed world model for the power grid. We sense edge demand, understand infrastructure health, and optimize grid operations using neuro-symbolic AI.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -30,15 +30,8 @@
             --glow-green: rgba(52, 211, 153, 0.15);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -48,364 +41,196 @@
             overflow-x: hidden;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
         /* ── Header ── */
         header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 100;
+            position: fixed; top: 0; width: 100%; z-index: 100;
             background: rgba(10, 14, 26, 0.85);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
             transition: background 0.3s;
         }
-
-        header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 72px;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-        }
-
-        .logo img {
-            height: 44px;
-            width: auto;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 8px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            font-weight: 500;
-            padding: 8px 16px;
-            border-radius: 8px;
-            transition: all 0.2s;
-        }
-
-        nav a:hover {
-            color: var(--text-primary);
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        .nav-cta {
-            color: var(--cyan) !important;
-            border: 1px solid var(--cyan-dim);
-        }
-
-        .nav-cta:hover {
-            background: var(--glow-cyan) !important;
-        }
-
-        /* ── Mobile nav ── */
-        .mobile-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--text-primary);
-            font-size: 1.5rem;
-            cursor: pointer;
-            padding: 8px;
-        }
+        header .container { display: flex; justify-content: space-between; align-items: center; height: 72px; }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo img { height: 44px; width: auto; }
+        nav ul { display: flex; list-style: none; gap: 8px; }
+        nav a { text-decoration: none; color: var(--text-secondary); font-size: 0.9rem; font-weight: 500; padding: 8px 16px; border-radius: 8px; transition: all 0.2s; }
+        nav a:hover { color: var(--text-primary); background: rgba(255,255,255,0.05); }
+        .nav-cta { color: var(--cyan) !important; border: 1px solid var(--cyan-dim); }
+        .nav-cta:hover { background: var(--glow-cyan) !important; }
+        .mobile-toggle { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; padding: 8px; }
 
         /* ── Hero ── */
-        #hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            padding: 120px 0 80px;
-            overflow: hidden;
-        }
-
-        .hero-bg {
-            position: absolute;
-            inset: 0;
-            background:
-                radial-gradient(ellipse 80% 60% at 50% 0%, rgba(34, 211, 238, 0.08) 0%, transparent 60%),
-                radial-gradient(ellipse 60% 40% at 80% 80%, rgba(52, 211, 153, 0.06) 0%, transparent 50%);
-            pointer-events: none;
-        }
-
-        .hero-grid {
-            position: absolute;
-            inset: 0;
-            background-image:
-                linear-gradient(rgba(34, 211, 238, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(34, 211, 238, 0.03) 1px, transparent 1px);
-            background-size: 60px 60px;
-            mask-image: radial-gradient(ellipse 70% 50% at 50% 50%, black, transparent);
-            pointer-events: none;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 6px 16px;
-            border-radius: 100px;
-            border: 1px solid var(--cyan-dim);
-            background: var(--glow-cyan);
-            color: var(--cyan);
-            font-size: 0.8rem;
-            font-weight: 600;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            margin-bottom: 24px;
-        }
-
-        .hero-badge::before {
-            content: '';
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: var(--cyan);
-            animation: pulse-dot 2s infinite;
-        }
-
-        @keyframes pulse-dot {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.3; }
-        }
-
-        #hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 800;
-            line-height: 1.1;
-            letter-spacing: -0.03em;
-            margin-bottom: 24px;
-        }
-
-        #hero h1 .gradient-text {
-            background: linear-gradient(135deg, var(--cyan) 0%, var(--green) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero-sub {
-            font-size: 1.2rem;
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin-bottom: 40px;
-            line-height: 1.7;
-        }
-
-        .hero-actions {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 14px 28px;
-            border-radius: 10px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.2s;
-            cursor: pointer;
-            border: none;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--cyan-dim), var(--green-dim));
-            color: white;
-        }
-
-        .btn-primary:hover {
-            box-shadow: 0 0 30px var(--glow-cyan), 0 0 60px rgba(34, 211, 238, 0.1);
-            transform: translateY(-1px);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--text-secondary);
-            border: 1px solid var(--border);
-        }
-
-        .btn-secondary:hover {
-            border-color: var(--text-muted);
-            color: var(--text-primary);
-        }
-
-        .hero-metrics {
-            display: flex;
-            gap: 48px;
-            margin-top: 64px;
-            padding-top: 40px;
-            border-top: 1px solid var(--border);
-        }
-
-        .hero-metrics-label {
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            margin-bottom: 20px;
-            width: 100%;
-        }
-
-        .hero-metrics-wrap {
-            margin-top: 64px;
-            padding-top: 40px;
-            border-top: 1px solid var(--border);
-        }
-
-        .hero-metrics-row {
-            display: flex;
-            gap: 48px;
-            margin-top: 16px;
-        }
-
-        .hero-metric .number {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--cyan);
-        }
-
-        .hero-metric .label {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-top: 4px;
-        }
+        #hero { min-height: 100vh; display: flex; align-items: center; position: relative; padding: 120px 0 80px; overflow: hidden; }
+        .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(34,211,238,0.08) 0%, transparent 60%), radial-gradient(ellipse 60% 40% at 80% 80%, rgba(52,211,153,0.06) 0%, transparent 50%); pointer-events: none; }
+        .hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(34,211,238,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(34,211,238,0.03) 1px, transparent 1px); background-size: 60px 60px; mask-image: radial-gradient(ellipse 70% 50% at 50% 50%, black, transparent); pointer-events: none; }
+        .hero-content { position: relative; z-index: 2; max-width: 800px; }
+        .hero-badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; border-radius: 100px; border: 1px solid var(--cyan-dim); background: var(--glow-cyan); color: var(--cyan); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 24px; }
+        .hero-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--cyan); animation: pulse-dot 2s infinite; }
+        @keyframes pulse-dot { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+        #hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 24px; }
+        #hero h1 .gradient-text { background: linear-gradient(135deg, var(--cyan) 0%, var(--green) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .hero-sub { font-size: 1.2rem; color: var(--text-secondary); max-width: 600px; margin-bottom: 40px; line-height: 1.7; }
+        .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+        .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: 10px; font-size: 0.95rem; font-weight: 600; text-decoration: none; transition: all 0.2s; cursor: pointer; border: none; }
+        .btn-primary { background: linear-gradient(135deg, var(--cyan-dim), var(--green-dim)); color: white; }
+        .btn-primary:hover { box-shadow: 0 0 30px var(--glow-cyan), 0 0 60px rgba(34,211,238,0.1); transform: translateY(-1px); }
+        .btn-secondary { background: transparent; color: var(--text-secondary); border: 1px solid var(--border); }
+        .btn-secondary:hover { border-color: var(--text-muted); color: var(--text-primary); }
+        .hero-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+        .hero-screenshot { border-radius: 12px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 40px rgba(34,211,238,0.05); position: relative; }
+        .hero-screenshot img { width: 100%; height: auto; display: block; }
+        .hero-screenshot .glow-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(34,211,238,0.08), transparent 60%); pointer-events: none; }
+        .hero-metrics-wrap { margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--border); }
+        .hero-metrics-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 20px; }
+        .hero-metrics-row { display: flex; gap: 48px; margin-top: 16px; }
+        .hero-metric .number { font-family: 'JetBrains Mono', monospace; font-size: 2rem; font-weight: 700; color: var(--cyan); }
+        .hero-metric .label { font-size: 0.85rem; color: var(--text-muted); margin-top: 4px; }
 
         /* ── Section commons ── */
-        section {
-            padding: 120px 0;
-        }
-
-        .section-label {
-            display: inline-block;
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: var(--cyan);
-            margin-bottom: 16px;
-        }
-
-        .section-title {
-            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            margin-bottom: 16px;
-            line-height: 1.2;
-        }
-
-        .section-desc {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-            max-width: 640px;
-            margin-bottom: 56px;
-            line-height: 1.7;
-        }
+        section { padding: 120px 0; }
+        .section-label { display: inline-block; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cyan); margin-bottom: 16px; }
+        .section-title { font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 16px; line-height: 1.2; }
+        .section-desc { color: var(--text-secondary); font-size: 1.1rem; max-width: 640px; margin-bottom: 56px; line-height: 1.7; }
 
         /* ── Vision Section ── */
-        #vision {
-            background: var(--bg-secondary);
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-        }
+        #vision { background: var(--bg-secondary); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+        .vision-content { max-width: 720px; margin-bottom: 64px; }
+        .vision-content p { font-size: 1.15rem; color: var(--text-secondary); line-height: 1.8; margin-bottom: 20px; }
+        .vision-content p strong { color: var(--text-primary); }
 
-        .vision-content {
-            max-width: 720px;
-            margin-bottom: 64px;
-        }
-
-        .vision-content p {
-            font-size: 1.15rem;
-            color: var(--text-secondary);
-            line-height: 1.8;
-            margin-bottom: 20px;
-        }
-
-        .vision-content p strong {
-            color: var(--text-primary);
-        }
-
-        .value-chain {
+        /* ── Sense / Understand / Optimize Loop ── */
+        .loop-visual {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 2px;
             border-radius: 16px;
             overflow: hidden;
             border: 1px solid var(--border);
+            position: relative;
         }
 
-        .value-chain-step {
+        .loop-step {
             background: var(--bg-card);
-            padding: 32px 24px;
+            padding: 36px 28px;
             text-align: center;
             position: relative;
             transition: all 0.3s;
         }
 
-        .value-chain-step:hover {
+        .loop-step:hover {
             background: var(--bg-card-hover);
         }
 
-        .value-chain-step::after {
+        .loop-step::after {
             content: '';
             position: absolute;
             right: -1px;
-            top: 30%;
-            height: 40%;
+            top: 25%;
+            height: 50%;
             width: 2px;
-            background: linear-gradient(180deg, transparent, var(--cyan-dim), transparent);
         }
 
-        .value-chain-step:last-child::after {
-            display: none;
-        }
+        .loop-step:last-child::after { display: none; }
 
-        .chain-icon {
-            font-size: 1.8rem;
+        .loop-step.sense::after { background: linear-gradient(180deg, transparent, var(--blue), transparent); }
+        .loop-step.understand::after { background: linear-gradient(180deg, transparent, var(--purple), transparent); }
+
+        .loop-step-number {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
             margin-bottom: 12px;
         }
 
-        .value-chain-step h3 {
-            font-size: 0.95rem;
+        .loop-step.sense .loop-step-number { color: var(--blue); }
+        .loop-step.understand .loop-step-number { color: var(--purple); }
+        .loop-step.optimize .loop-step-number { color: var(--green); }
+
+        .loop-icon { font-size: 2rem; margin-bottom: 16px; }
+
+        .loop-step h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .loop-step .loop-subtitle {
+            font-size: 0.85rem;
+            color: var(--cyan);
             font-weight: 600;
-            margin-bottom: 6px;
+            margin-bottom: 12px;
         }
 
-        .value-chain-step p {
-            font-size: 0.8rem;
+        .loop-step p {
+            font-size: 0.85rem;
             color: var(--text-muted);
-            line-height: 1.4;
+            line-height: 1.5;
         }
 
-        /* ── Products / Capabilities ── */
+        .loop-convergence {
+            margin-top: 32px;
+            padding: 24px 32px;
+            background: linear-gradient(135deg, rgba(34,211,238,0.05), rgba(52,211,153,0.03));
+            border: 1px solid var(--cyan-dim);
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .loop-convergence p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .loop-convergence strong {
+            color: var(--text-primary);
+        }
+
+        /* ── Capabilities (Sense / Understand / Optimize) ── */
+        .capability-group {
+            margin-bottom: 64px;
+        }
+
+        .capability-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .capability-group-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .capability-group-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .group-sense .capability-group-icon { background: rgba(59,130,246,0.12); border: 1px solid rgba(59,130,246,0.25); }
+        .group-understand .capability-group-icon { background: rgba(139,92,246,0.12); border: 1px solid rgba(139,92,246,0.25); }
+        .group-optimize .capability-group-icon { background: rgba(52,211,153,0.12); border: 1px solid rgba(52,211,153,0.25); }
+
+        .capability-group-header h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .capability-group-header p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
         .products-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -424,7 +249,7 @@
         .product-card:hover {
             border-color: var(--cyan-dim);
             transform: translateY(-4px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
         }
 
         .product-card.flagship {
@@ -433,6 +258,10 @@
             grid-template-columns: 1fr 1fr;
             gap: 36px;
             align-items: center;
+        }
+
+        .product-card.full-width {
+            grid-column: 1 / -1;
         }
 
         .maturity-badge {
@@ -448,1020 +277,190 @@
             margin-bottom: 16px;
         }
 
-        .maturity-badge::before {
-            content: '';
-            width: 5px;
-            height: 5px;
-            border-radius: 50%;
-        }
+        .maturity-badge::before { content: ''; width: 5px; height: 5px; border-radius: 50%; }
+        .badge-shipped { background: rgba(52,211,153,0.12); color: var(--green); border: 1px solid rgba(52,211,153,0.25); }
+        .badge-shipped::before { background: var(--green); }
+        .badge-research { background: rgba(59,130,246,0.12); color: var(--blue); border: 1px solid rgba(59,130,246,0.25); }
+        .badge-research::before { background: var(--blue); }
+        .badge-proven { background: rgba(139,92,246,0.12); color: var(--purple); border: 1px solid rgba(139,92,246,0.25); }
+        .badge-proven::before { background: var(--purple); }
+        .badge-experience { background: rgba(245,158,11,0.12); color: var(--amber); border: 1px solid rgba(245,158,11,0.25); }
+        .badge-experience::before { background: var(--amber); }
 
-        .badge-shipped {
-            background: rgba(52, 211, 153, 0.12);
-            color: var(--green);
-            border: 1px solid rgba(52, 211, 153, 0.25);
-        }
+        .product-card h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 12px; }
+        .product-card > p, .product-card-content > p { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 16px; }
 
-        .badge-shipped::before {
-            background: var(--green);
-        }
+        .product-highlights { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+        .product-highlights li { font-size: 0.85rem; color: var(--text-secondary); padding-left: 20px; position: relative; line-height: 1.5; }
+        .product-highlights li::before { content: ''; position: absolute; left: 0; top: 7px; width: 6px; height: 6px; border-radius: 50%; background: var(--cyan-dim); }
 
-        .badge-research {
-            background: rgba(59, 130, 246, 0.12);
-            color: var(--blue);
-            border: 1px solid rgba(59, 130, 246, 0.25);
-        }
+        .product-card .tech-tag { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; padding: 4px 10px; border-radius: 6px; margin-top: 16px; margin-right: 6px; background: rgba(255,255,255,0.04); border: 1px solid var(--border); color: var(--text-muted); }
 
-        .badge-research::before {
-            background: var(--blue);
-        }
+        .product-stat { display: flex; gap: 24px; margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--border); }
+        .product-stat-item .stat-value { font-family: 'JetBrains Mono', monospace; font-size: 1.3rem; font-weight: 700; color: var(--cyan); }
+        .product-stat-item .stat-label { font-size: 0.75rem; color: var(--text-muted); margin-top: 2px; }
 
-        .badge-proven {
-            background: rgba(139, 92, 246, 0.12);
-            color: var(--purple);
-            border: 1px solid rgba(139, 92, 246, 0.25);
-        }
+        .product-card-screenshot { border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+        .product-card-screenshot img { width: 100%; height: auto; display: block; }
 
-        .badge-proven::before {
-            background: var(--purple);
-        }
-
-        .badge-experience {
-            background: rgba(245, 158, 11, 0.12);
-            color: var(--amber);
-            border: 1px solid rgba(245, 158, 11, 0.25);
-        }
-
-        .badge-experience::before {
-            background: var(--amber);
-        }
-
-        .product-card h3 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 12px;
-        }
-
-        .product-card > p,
-        .product-card-content > p {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
-            margin-bottom: 16px;
-        }
-
-        .product-highlights {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .product-highlights li {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            padding-left: 20px;
-            position: relative;
-            line-height: 1.5;
-        }
-
-        .product-highlights li::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 7px;
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: var(--cyan-dim);
-        }
-
-        .product-card .tech-tag {
-            display: inline-block;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.75rem;
-            padding: 4px 10px;
-            border-radius: 6px;
-            margin-top: 16px;
-            margin-right: 6px;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid var(--border);
-            color: var(--text-muted);
-        }
-
-        .product-stat {
-            display: flex;
-            gap: 24px;
-            margin-top: 20px;
-            padding-top: 20px;
+        /* ── World Model callout ── */
+        .world-model-feed {
+            margin-top: 12px;
+            padding-top: 12px;
             border-top: 1px solid var(--border);
-        }
-
-        .product-stat-item .stat-value {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--cyan);
-        }
-
-        .product-stat-item .stat-label {
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             color: var(--text-muted);
-            margin-top: 2px;
+            font-style: italic;
         }
 
-        .product-card-screenshot {
-            border-radius: 10px;
-            overflow: hidden;
-            border: 1px solid var(--border);
-        }
-
-        .product-card-screenshot img {
-            width: 100%;
-            height: auto;
-            display: block;
+        .world-model-feed strong {
+            color: var(--cyan);
+            font-style: normal;
         }
 
         /* ── Technology Section ── */
-        #technology {
-            background: var(--bg-secondary);
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-        }
+        #technology { background: var(--bg-secondary); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+        .tech-intro { max-width: 720px; margin-bottom: 56px; }
+        .tech-intro p { font-size: 1.05rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 16px; }
+        .tech-intro p strong { color: var(--text-primary); }
 
-        .tech-intro {
-            max-width: 720px;
-            margin-bottom: 56px;
-        }
+        .tech-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .tech-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 28px; transition: all 0.3s; }
+        .tech-card:hover { border-color: var(--cyan-dim); }
+        .tech-card-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin-bottom: 16px; background: var(--glow-cyan); border: 1px solid rgba(34,211,238,0.15); }
+        .tech-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 8px; color: var(--text-primary); }
+        .tech-card p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; }
 
-        .tech-intro p {
-            font-size: 1.05rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
-        }
+        .tech-founder-note { margin-top: 48px; padding: 28px 32px; background: linear-gradient(135deg, rgba(34,211,238,0.05), rgba(52,211,153,0.03)); border: 1px solid var(--cyan-dim); border-radius: 12px; }
+        .tech-founder-note p { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.7; }
+        .tech-founder-note strong { color: var(--text-primary); }
 
-        .tech-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-        }
-
-        .tech-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 28px;
-            transition: all 0.3s;
-        }
-
-        .tech-card:hover {
-            border-color: var(--cyan-dim);
-        }
-
-        .tech-card-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            margin-bottom: 16px;
-            background: var(--glow-cyan);
-            border: 1px solid rgba(34, 211, 238, 0.15);
-        }
-
-        .tech-card h3 {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: var(--text-primary);
-        }
-
-        .tech-card p {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-
-        .tech-founder-note {
-            margin-top: 48px;
-            padding: 28px 32px;
-            background: linear-gradient(135deg, rgba(34, 211, 238, 0.05), rgba(52, 211, 153, 0.03));
-            border: 1px solid var(--cyan-dim);
-            border-radius: 12px;
-        }
-
-        .tech-founder-note p {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
-        }
-
-        .tech-founder-note strong {
-            color: var(--text-primary);
-        }
-
-        /* ── Dashboard Showcase (Results) ── */
-        #dashboard {
-            /* no special background — default bg-primary */
-        }
-
-        .results-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
-            margin-bottom: 48px;
-        }
-
-        .result-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 32px;
-            text-align: center;
-            transition: all 0.3s;
-        }
-
-        .result-card:hover {
-            border-color: var(--cyan-dim);
-            transform: translateY(-2px);
-        }
-
-        .result-card .value {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 2.5rem;
-            font-weight: 700;
-            line-height: 1;
-            margin-bottom: 8px;
-        }
-
+        /* ── Dashboard Showcase ── */
+        .results-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-bottom: 48px; }
+        .result-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 32px; text-align: center; transition: all 0.3s; }
+        .result-card:hover { border-color: var(--cyan-dim); transform: translateY(-2px); }
+        .result-card .value { font-family: 'JetBrains Mono', monospace; font-size: 2.5rem; font-weight: 700; line-height: 1; margin-bottom: 8px; }
         .result-card:nth-child(1) .value { color: var(--cyan); }
         .result-card:nth-child(2) .value { color: var(--green); }
         .result-card:nth-child(3) .value { color: var(--blue); }
         .result-card:nth-child(4) .value { color: var(--purple); }
-
-        .result-card .metric-label {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            margin-bottom: 4px;
-        }
-
-        .result-card .metric-detail {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-
-        .results-note {
-            text-align: center;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            padding: 20px 0;
-            border-top: 1px solid var(--border);
-        }
-
-        .results-note code {
-            font-family: 'JetBrains Mono', monospace;
-            background: rgba(255, 255, 255, 0.05);
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-        }
+        .result-card .metric-label { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 4px; }
+        .result-card .metric-detail { font-size: 0.8rem; color: var(--text-muted); }
+        .results-note { text-align: center; font-size: 0.85rem; color: var(--text-muted); padding: 20px 0; border-top: 1px solid var(--border); }
+        .results-note code { font-family: 'JetBrains Mono', monospace; background: rgba(255,255,255,0.05); padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; }
 
         /* ── Screenshot showcase ── */
-        .screenshot-showcase {
-            margin-top: 64px;
-            border-radius: 16px;
-            overflow: hidden;
-            border: 1px solid var(--border);
-            background: var(--bg-card);
-        }
-
-        .screenshot-tabs {
-            display: flex;
-            gap: 0;
-            border-bottom: 1px solid var(--border);
-            overflow-x: auto;
-            scrollbar-width: none;
-        }
-
+        .screenshot-showcase { margin-top: 64px; border-radius: 16px; overflow: hidden; border: 1px solid var(--border); background: var(--bg-card); }
+        .screenshot-tabs { display: flex; gap: 0; border-bottom: 1px solid var(--border); overflow-x: auto; scrollbar-width: none; }
         .screenshot-tabs::-webkit-scrollbar { display: none; }
-
-        .screenshot-tab {
-            padding: 12px 20px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            color: var(--text-muted);
-            background: none;
-            border: none;
-            border-bottom: 2px solid transparent;
-            cursor: pointer;
-            white-space: nowrap;
-            transition: all 0.2s;
-        }
-
-        .screenshot-tab:hover {
-            color: var(--text-secondary);
-            background: rgba(255, 255, 255, 0.02);
-        }
-
-        .screenshot-tab.active {
-            color: var(--cyan);
-            border-bottom-color: var(--cyan);
-        }
-
-        .screenshot-viewer {
-            position: relative;
-            background: #0d1117;
-        }
-
-        .screenshot-viewer img {
-            width: 100%;
-            height: auto;
-            display: none;
-        }
-
-        .screenshot-viewer img.active {
-            display: block;
-        }
-
-        .screenshot-caption {
-            padding: 16px 24px;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            border-top: 1px solid var(--border);
-            display: none;
-        }
-
-        .screenshot-caption.active {
-            display: block;
-        }
+        .screenshot-tab { padding: 12px 20px; font-size: 0.8rem; font-weight: 500; color: var(--text-muted); background: none; border: none; border-bottom: 2px solid transparent; cursor: pointer; white-space: nowrap; transition: all 0.2s; }
+        .screenshot-tab:hover { color: var(--text-secondary); background: rgba(255,255,255,0.02); }
+        .screenshot-tab.active { color: var(--cyan); border-bottom-color: var(--cyan); }
+        .screenshot-viewer { position: relative; background: #0d1117; }
+        .screenshot-viewer img { width: 100%; height: auto; display: none; }
+        .screenshot-viewer img.active { display: block; }
+        .screenshot-caption { padding: 16px 24px; font-size: 0.85rem; color: var(--text-muted); border-top: 1px solid var(--border); display: none; }
+        .screenshot-caption.active { display: block; }
 
         /* ── Research & Publications ── */
-        #research {
-            background: var(--bg-secondary);
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .publications-list {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            max-width: 860px;
-        }
-
-        .pub-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 28px;
-            display: flex;
-            gap: 20px;
-            align-items: flex-start;
-            transition: all 0.3s;
-        }
-
-        .pub-card:hover {
-            border-color: var(--cyan-dim);
-        }
-
-        .pub-icon {
-            flex-shrink: 0;
-            width: 44px;
-            height: 44px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-        }
-
-        .pub-icon.award {
-            background: rgba(245, 158, 11, 0.1);
-            border: 1px solid rgba(245, 158, 11, 0.2);
-        }
-
-        .pub-icon.paper {
-            background: rgba(59, 130, 246, 0.1);
-            border: 1px solid rgba(59, 130, 246, 0.2);
-        }
-
-        .pub-icon.patent {
-            background: rgba(52, 211, 153, 0.1);
-            border: 1px solid rgba(52, 211, 153, 0.2);
-        }
-
-        .pub-content h3 {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 4px;
-        }
-
-        .pub-content .pub-meta {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-bottom: 8px;
-        }
-
-        .pub-content .pub-meta em {
-            color: var(--text-secondary);
-            font-style: italic;
-        }
-
-        .pub-content p {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-
-        .pub-highlight {
-            display: inline-block;
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            padding: 3px 10px;
-            border-radius: 100px;
-            margin-top: 10px;
-        }
-
-        .pub-highlight.edelman {
-            background: rgba(245, 158, 11, 0.12);
-            color: var(--amber);
-            border: 1px solid rgba(245, 158, 11, 0.25);
-        }
-
-        .pub-highlight.patent-pending {
-            background: rgba(52, 211, 153, 0.12);
-            color: var(--green);
-            border: 1px solid rgba(52, 211, 153, 0.25);
-        }
-
-        .pub-total {
-            margin-top: 32px;
-            padding: 20px 28px;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            max-width: 860px;
-        }
-
-        .pub-total .total-number {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--cyan);
-        }
-
-        .pub-total .total-text {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-        }
+        #research { background: var(--bg-secondary); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+        .publications-list { display: flex; flex-direction: column; gap: 16px; max-width: 860px; }
+        .pub-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 28px; display: flex; gap: 20px; align-items: flex-start; transition: all 0.3s; }
+        .pub-card:hover { border-color: var(--cyan-dim); }
+        .pub-icon { flex-shrink: 0; width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
+        .pub-icon.award { background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.2); }
+        .pub-icon.paper { background: rgba(59,130,246,0.1); border: 1px solid rgba(59,130,246,0.2); }
+        .pub-icon.patent { background: rgba(52,211,153,0.1); border: 1px solid rgba(52,211,153,0.2); }
+        .pub-content h3 { font-size: 1rem; font-weight: 600; margin-bottom: 4px; }
+        .pub-content .pub-meta { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 8px; }
+        .pub-content .pub-meta em { color: var(--text-secondary); font-style: italic; }
+        .pub-content p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; }
+        .pub-highlight { display: inline-block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 3px 10px; border-radius: 100px; margin-top: 10px; }
+        .pub-highlight.edelman { background: rgba(245,158,11,0.12); color: var(--amber); border: 1px solid rgba(245,158,11,0.25); }
+        .pub-highlight.patent-pending { background: rgba(52,211,153,0.12); color: var(--green); border: 1px solid rgba(52,211,153,0.25); }
+        .pub-total { margin-top: 32px; padding: 20px 28px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; display: flex; align-items: center; gap: 16px; max-width: 860px; }
+        .pub-total .total-number { font-family: 'JetBrains Mono', monospace; font-size: 1.8rem; font-weight: 700; color: var(--cyan); }
+        .pub-total .total-text { font-size: 0.9rem; color: var(--text-secondary); }
 
         /* ── Founder ── */
-        .founder-layout {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 56px;
-            align-items: start;
-        }
-
-        .founder-bio h3 {
-            font-size: 1.6rem;
-            font-weight: 700;
-            margin-bottom: 4px;
-        }
-
-        .founder-bio .founder-title {
-            font-size: 0.95rem;
-            color: var(--cyan);
-            margin-bottom: 20px;
-        }
-
-        .founder-bio p {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
-            margin-bottom: 16px;
-        }
-
-        .founder-roles {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin-top: 28px;
-        }
-
-        .founder-role {
-            display: flex;
-            gap: 16px;
-            align-items: flex-start;
-            padding: 16px 20px;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            transition: all 0.3s;
-        }
-
-        .founder-role:hover {
-            border-color: var(--cyan-dim);
-        }
-
-        .role-years {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            white-space: nowrap;
-            padding-top: 2px;
-            min-width: 72px;
-        }
-
-        .role-info h4 {
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 2px;
-        }
-
-        .role-info p {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            line-height: 1.4;
-        }
-
-        .founder-credentials {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .credential-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 24px;
-            transition: all 0.3s;
-        }
-
-        .credential-card:hover {
-            border-color: var(--cyan-dim);
-        }
-
-        .credential-card .cred-value {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--cyan);
-            margin-bottom: 4px;
-        }
-
-        .credential-card h4 {
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 4px;
-        }
-
-        .credential-card p {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            line-height: 1.5;
-        }
+        .founder-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+        .founder-bio h3 { font-size: 1.6rem; font-weight: 700; margin-bottom: 4px; }
+        .founder-bio .founder-title { font-size: 0.95rem; color: var(--cyan); margin-bottom: 20px; }
+        .founder-bio p { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 16px; }
+        .founder-roles { display: flex; flex-direction: column; gap: 12px; margin-top: 28px; }
+        .founder-role { display: flex; gap: 16px; align-items: flex-start; padding: 16px 20px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; transition: all 0.3s; }
+        .founder-role:hover { border-color: var(--cyan-dim); }
+        .role-years { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--text-muted); white-space: nowrap; padding-top: 2px; min-width: 72px; }
+        .role-info h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 2px; }
+        .role-info p { font-size: 0.8rem; color: var(--text-muted); line-height: 1.4; }
+        .founder-credentials { display: flex; flex-direction: column; gap: 16px; }
+        .credential-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; transition: all 0.3s; }
+        .credential-card:hover { border-color: var(--cyan-dim); }
+        .credential-card .cred-value { font-family: 'JetBrains Mono', monospace; font-size: 1.5rem; font-weight: 700; color: var(--cyan); margin-bottom: 4px; }
+        .credential-card h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 4px; }
+        .credential-card p { font-size: 0.8rem; color: var(--text-muted); line-height: 1.5; }
 
         /* ── Roadmap ── */
-        .roadmap {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            margin-top: 56px;
-        }
+        .roadmap { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 56px; }
+        .roadmap-phase { padding: 28px; border-radius: 12px; border: 1px solid var(--border); background: var(--bg-card); position: relative; }
+        .roadmap-phase .phase-label { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; font-weight: 600; color: var(--cyan); letter-spacing: 0.05em; margin-bottom: 12px; }
+        .roadmap-phase h3 { font-size: 1rem; font-weight: 600; margin-bottom: 8px; }
+        .roadmap-phase p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; }
+        .roadmap-phase.active { border-color: var(--cyan-dim); background: linear-gradient(135deg, rgba(34,211,238,0.05), rgba(52,211,153,0.03)); }
 
-        .roadmap-phase {
-            padding: 28px;
-            border-radius: 12px;
-            border: 1px solid var(--border);
-            background: var(--bg-card);
-            position: relative;
-        }
-
-        .roadmap-phase .phase-label {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: var(--cyan);
-            letter-spacing: 0.05em;
-            margin-bottom: 12px;
-        }
-
-        .roadmap-phase h3 {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-
-        .roadmap-phase p {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-
-        .roadmap-phase.active {
-            border-color: var(--cyan-dim);
-            background: linear-gradient(135deg, rgba(34, 211, 238, 0.05), rgba(52, 211, 153, 0.03));
-        }
-
-        /* ── Contact / CTA ── */
-        #contact {
-            text-align: center;
-            position: relative;
-        }
-
-        #contact .section-desc {
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .contact-glow {
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(ellipse 50% 50% at 50% 80%, rgba(34, 211, 238, 0.06) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        #contact .container {
-            position: relative;
-            z-index: 2;
-        }
-
-        .contact-email {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 1.1rem;
-            color: var(--cyan);
-            text-decoration: none;
-            padding: 12px 24px;
-            border: 1px solid var(--cyan-dim);
-            border-radius: 10px;
-            display: inline-block;
-            transition: all 0.2s;
-        }
-
-        .contact-email:hover {
-            background: var(--glow-cyan);
-            box-shadow: 0 0 30px var(--glow-cyan);
-        }
+        /* ── Contact ── */
+        #contact { text-align: center; position: relative; }
+        #contact .section-desc { margin-left: auto; margin-right: auto; }
+        .contact-glow { position: absolute; inset: 0; background: radial-gradient(ellipse 50% 50% at 50% 80%, rgba(34,211,238,0.06) 0%, transparent 70%); pointer-events: none; }
+        #contact .container { position: relative; z-index: 2; }
+        .contact-email { font-family: 'JetBrains Mono', monospace; font-size: 1.1rem; color: var(--cyan); text-decoration: none; padding: 12px 24px; border: 1px solid var(--cyan-dim); border-radius: 10px; display: inline-block; transition: all 0.2s; }
+        .contact-email:hover { background: var(--glow-cyan); box-shadow: 0 0 30px var(--glow-cyan); }
 
         /* ── Footer ── */
-        footer {
-            border-top: 1px solid var(--border);
-            padding: 40px 0;
-        }
-
-        .footer-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .footer-left {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .footer-left img {
-            height: 28px;
-            opacity: 0.6;
-        }
-
-        .footer-copy {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 24px;
-        }
-
-        .footer-links a {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .footer-links a:hover {
-            color: var(--text-secondary);
-        }
-
-        /* ── Hero layout ── */
-        .hero-layout {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 48px;
-            align-items: center;
-        }
-
-        .hero-screenshot {
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid var(--border);
-            box-shadow:
-                0 20px 60px rgba(0, 0, 0, 0.5),
-                0 0 40px rgba(34, 211, 238, 0.05);
-            position: relative;
-        }
-
-        .hero-screenshot img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .hero-screenshot .glow-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(34, 211, 238, 0.08), transparent 60%);
-            pointer-events: none;
-        }
-
-        /* ── Inline screenshot ── */
-        .section-screenshot {
-            margin-top: 48px;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid var(--border);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
-            position: relative;
-        }
-
-        .section-screenshot::before {
-            content: '';
-            position: absolute;
-            inset: -1px;
-            border-radius: 13px;
-            padding: 1px;
-            background: linear-gradient(135deg, rgba(34, 211, 238, 0.3), rgba(52, 211, 153, 0.1), transparent);
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .section-screenshot img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .section-screenshot .screenshot-label {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            background: rgba(10, 14, 26, 0.8);
-            backdrop-filter: blur(8px);
-            padding: 4px 12px;
-            border-radius: 6px;
-            font-size: 0.7rem;
-            font-weight: 600;
-            color: var(--text-muted);
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            z-index: 2;
-        }
+        footer { border-top: 1px solid var(--border); padding: 40px 0; }
+        .footer-inner { display: flex; justify-content: space-between; align-items: center; }
+        .footer-left { display: flex; align-items: center; gap: 12px; }
+        .footer-left img { height: 28px; opacity: 0.6; }
+        .footer-copy { font-size: 0.85rem; color: var(--text-muted); }
+        .footer-links { display: flex; gap: 24px; }
+        .footer-links a { font-size: 0.85rem; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+        .footer-links a:hover { color: var(--text-secondary); }
 
         /* ── Responsive ── */
         @media (max-width: 1024px) {
-            .hero-layout {
-                grid-template-columns: 1fr;
-            }
-            .hero-screenshot {
-                max-width: 600px;
-            }
-            .results-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .value-chain {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .product-card.flagship {
-                grid-template-columns: 1fr;
-            }
-            .founder-layout {
-                grid-template-columns: 1fr;
-            }
+            .hero-layout { grid-template-columns: 1fr; }
+            .hero-screenshot { max-width: 600px; }
+            .results-grid { grid-template-columns: repeat(2, 1fr); }
+            .loop-visual { grid-template-columns: 1fr; }
+            .loop-step::after { display: none; }
+            .product-card.flagship { grid-template-columns: 1fr; }
+            .founder-layout { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 768px) {
-            .mobile-toggle {
-                display: block;
-            }
-
-            nav {
-                display: none;
-                position: absolute;
-                top: 72px;
-                left: 0;
-                right: 0;
-                background: var(--bg-primary);
-                border-bottom: 1px solid var(--border);
-                padding: 16px;
-            }
-
-            nav.open {
-                display: block;
-            }
-
-            nav ul {
-                flex-direction: column;
-                gap: 4px;
-            }
-
-            nav a {
-                display: block;
-                padding: 12px 16px;
-            }
-
-            .hero-metrics-row {
-                flex-direction: column;
-                gap: 24px;
-            }
-
-            .value-chain {
-                grid-template-columns: 1fr;
-            }
-
-            .value-chain-step::after {
-                display: none;
-            }
-
-            .products-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .product-card.flagship {
-                grid-template-columns: 1fr;
-            }
-
-            .tech-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .results-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .roadmap {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-inner {
-                flex-direction: column;
-                gap: 16px;
-                text-align: center;
-            }
-
-            .hero-actions {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .screenshot-showcase {
-                margin-top: 40px;
-            }
-
-            .pub-card {
-                flex-direction: column;
-                gap: 12px;
-            }
+            .mobile-toggle { display: block; }
+            nav { display: none; position: absolute; top: 72px; left: 0; right: 0; background: var(--bg-primary); border-bottom: 1px solid var(--border); padding: 16px; }
+            nav.open { display: block; }
+            nav ul { flex-direction: column; gap: 4px; }
+            nav a { display: block; padding: 12px 16px; }
+            .hero-metrics-row { flex-direction: column; gap: 24px; }
+            .products-grid { grid-template-columns: 1fr; }
+            .product-card.flagship { grid-template-columns: 1fr; }
+            .tech-grid { grid-template-columns: 1fr; }
+            .results-grid { grid-template-columns: 1fr; }
+            .roadmap { grid-template-columns: 1fr; }
+            .footer-inner { flex-direction: column; gap: 16px; text-align: center; }
+            .hero-actions { flex-direction: column; align-items: flex-start; }
+            .screenshot-showcase { margin-top: 40px; }
+            .pub-card { flex-direction: column; gap: 12px; }
         }
 
         /* ── Animations ── */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(24px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* ── Stealth Gate ── */
-        .stealth-gate {
-            position: fixed;
-            inset: 0;
-            z-index: 9999;
-            background: var(--bg-primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: opacity 0.5s ease, visibility 0.5s ease;
-        }
-
-        .stealth-gate.unlocked {
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
-        }
-
-        .stealth-gate-inner {
-            text-align: center;
-            max-width: 400px;
-            padding: 24px;
-        }
-
-        .stealth-gate-inner img {
-            height: 56px;
-            margin-bottom: 32px;
-            opacity: 0.8;
-        }
-
-        .stealth-gate-inner h2 {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-
-        .stealth-gate-inner p {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin-bottom: 28px;
-        }
-
-        .gate-input-wrap {
-            display: flex;
-            gap: 10px;
-        }
-
-        .gate-input-wrap input {
-            flex: 1;
-            padding: 12px 16px;
-            border-radius: 10px;
-            border: 1px solid var(--border);
-            background: var(--bg-card);
-            color: var(--text-primary);
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.9rem;
-            outline: none;
-            transition: border-color 0.2s;
-        }
-
-        .gate-input-wrap input::placeholder {
-            color: var(--text-muted);
-        }
-
-        .gate-input-wrap input:focus {
-            border-color: var(--cyan-dim);
-        }
-
-        .gate-input-wrap button {
-            padding: 12px 24px;
-            border-radius: 10px;
-            border: none;
-            background: linear-gradient(135deg, var(--cyan-dim), var(--green-dim));
-            color: white;
-            font-weight: 600;
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .gate-input-wrap button:hover {
-            box-shadow: 0 0 20px var(--glow-cyan);
-        }
-
-        .gate-error {
-            color: #ef4444;
-            font-size: 0.8rem;
-            margin-top: 12px;
-            min-height: 1.2em;
-        }
-
-        body.gated {
-            overflow: hidden;
-        }
+        .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
     </style>
 </head>
-<body class="gated">
-
-    <!-- Stealth Gate -->
-    <div class="stealth-gate" id="stealthGate">
-        <div class="stealth-gate-inner">
-            <img src="logo/mindflow2.png" alt="MindFlow.ai">
-            <h2>Invitation Only</h2>
-            <p>MindFlow.ai is currently in stealth mode. Enter your access code to continue.</p>
-            <div class="gate-input-wrap">
-                <input type="password" id="gateInput" placeholder="Access code" autocomplete="off">
-                <button onclick="checkGate()">Enter</button>
-            </div>
-            <div class="gate-error" id="gateError"></div>
-        </div>
-    </div>
+<body>
 
     <!-- Header -->
     <header>
@@ -1473,7 +472,7 @@
             <nav>
                 <ul>
                     <li><a href="#vision">Vision</a></li>
-                    <li><a href="#products">Products</a></li>
+                    <li><a href="#capabilities">Capabilities</a></li>
                     <li><a href="#technology">Technology</a></li>
                     <li><a href="#dashboard">Dashboard</a></li>
                     <li><a href="#research">Research</a></li>
@@ -1493,16 +492,16 @@
             <div class="container">
                 <div class="hero-layout">
                     <div class="hero-content">
-                        <div class="hero-badge">AI for the Power Grid</div>
+                        <div class="hero-badge">Physics-Informed AI</div>
                         <h1>
-                            <span class="gradient-text">AI that understands</span><br>
-                            the grid
+                            Building the <span class="gradient-text">world model</span><br>
+                            for the power grid
                         </h1>
                         <p class="hero-sub">
-                            MindFlow.ai builds AI systems for power grid optimization &mdash; from unit commitment to asset inspection. Deep domain expertise. Production-proven.
+                            MindFlow.ai is building a physics-informed world model for grid operations. We sense edge demand, understand infrastructure health, and optimize the grid's hardest decisions &mdash; all through AI that respects the laws of physics.
                         </p>
                         <div class="hero-actions">
-                            <a href="#products" class="btn btn-primary">Explore Capabilities</a>
+                            <a href="#vision" class="btn btn-primary">Our Vision</a>
                             <a href="#dashboard" class="btn btn-secondary">View Dashboard</a>
                         </div>
                     </div>
@@ -1539,128 +538,169 @@
         <section id="vision">
             <div class="container">
                 <span class="section-label">Our Vision</span>
-                <h2 class="section-title">The grid is transforming. Its tools must too.</h2>
+                <h2 class="section-title">Toward the autonomous grid</h2>
                 <div class="vision-content">
                     <p>
-                        The power grid is undergoing the biggest transformation in a century &mdash; renewables, distributed energy resources, electrification, and increasing extreme weather events. Yet the computational tools that run it were built for a simpler era.
+                        The power grid is undergoing the biggest transformation in a century &mdash; renewables, distributed energy resources, electrification, and extreme weather. Running it requires solving thousands of interconnected physics problems in real time. Yet the tools haven't kept up.
                     </p>
                     <p>
-                        <strong>MindFlow.ai brings modern AI to every layer of grid operations.</strong> From generation scheduling to transmission monitoring to customer-level analytics, the grid's hardest problems share common structure: network topology, physics constraints, time-series data, and combinatorial optimization.
+                        <strong>MindFlow.ai is building a physics-informed world model for the grid</strong> &mdash; a learned, continuously-updated representation of how the grid behaves. It captures topology, asset health, load patterns, and physical constraints. It doesn't just mirror the grid; it predicts what happens next.
                     </p>
                     <p>
-                        Modern AI &mdash; graph neural networks, computer vision, foundation models &mdash; can accelerate all of them. But only when paired with deep domain expertise.
+                        Every MindFlow.ai product contributes to and draws from this shared world model. Meter data teaches it demand patterns. Inspections teach it asset health. Optimization teaches it operational constraints. The more you use it, the smarter it gets.
                     </p>
                 </div>
-                <div class="value-chain fade-in">
-                    <div class="value-chain-step">
-                        <div class="chain-icon">&#9889;</div>
-                        <h3>Generation</h3>
-                        <p>Unit commitment, hydro scheduling, dispatch optimization</p>
+                <div class="loop-visual fade-in">
+                    <div class="loop-step sense">
+                        <div class="loop-step-number">01 &mdash; Sense</div>
+                        <div class="loop-icon">&#128225;</div>
+                        <h3>Sense</h3>
+                        <div class="loop-subtitle">Smart Meter Analytics</div>
+                        <p>The grid's nerve endings. Hyper-localized load forecasting, theft detection, and behind-the-meter visibility from interval data.</p>
                     </div>
-                    <div class="value-chain-step">
-                        <div class="chain-icon">&#128268;</div>
-                        <h3>Transmission</h3>
-                        <p>Congestion management, N-1 security, network flows</p>
+                    <div class="loop-step understand">
+                        <div class="loop-step-number">02 &mdash; Understand</div>
+                        <div class="loop-icon">&#129520;</div>
+                        <h3>Understand</h3>
+                        <div class="loop-subtitle">Digital Twins &amp; Inspection</div>
+                        <p>The grid's anatomy. Drone-based CV inspection builds a physical digital twin &mdash; real-time carrying capacity and health of every asset.</p>
                     </div>
-                    <div class="value-chain-step">
-                        <div class="chain-icon">&#127760;</div>
-                        <h3>Distribution</h3>
-                        <p>Topology discovery, asset inspection, fault detection</p>
+                    <div class="loop-step optimize">
+                        <div class="loop-step-number">03 &mdash; Optimize</div>
+                        <div class="loop-icon">&#129504;</div>
+                        <h3>Optimize</h3>
+                        <div class="loop-subtitle">Neuro-Symbolic SCUC</div>
+                        <p>The cognitive engine. Takes real-time demand and physical constraints, then decides which generators run &mdash; down to the second.</p>
                     </div>
-                    <div class="value-chain-step">
-                        <div class="chain-icon">&#128200;</div>
-                        <h3>Customer</h3>
-                        <p>Smart meter analytics, theft detection, load profiling</p>
-                    </div>
+                </div>
+                <div class="loop-convergence fade-in">
+                    <p><strong>The closed loop:</strong> These aren't three separate products &mdash; they're three layers of the same system. Sensing feeds understanding. Understanding constrains optimization. Optimization reveals what to sense next. This is the path to the autonomous grid.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Products / Capabilities -->
-        <section id="products">
+        <!-- Capabilities -->
+        <section id="capabilities">
             <div class="container">
-                <span class="section-label">Products &amp; Capabilities</span>
-                <h2 class="section-title">AI across the grid value chain</h2>
+                <span class="section-label">Capabilities</span>
+                <h2 class="section-title">Sense. Understand. Optimize.</h2>
                 <p class="section-desc">
-                    One shipped product, backed by a deep bench of production-proven experience across power systems, optimization, and machine learning.
+                    Three layers of intelligence, each at a different stage of maturity. Honest about what's shipped, what's proven, and what's next.
                 </p>
-                <div class="products-grid">
 
-                    <!-- Flagship: SCUC -->
-                    <div class="product-card flagship fade-in">
-                        <div class="product-card-content">
-                            <span class="maturity-badge badge-shipped">Shipped &middot; Patent Pending</span>
-                            <h3>Grid Optimization (SCUC)</h3>
-                            <p>ML-accelerated Security-Constrained Unit Commitment. A three-stage pipeline uses graph neural networks to predict generator commitments and screen transmission constraints, dramatically reducing the problem before the solver even starts.</p>
-                            <ul class="product-highlights">
-                                <li>GNN commitment prediction with calibrated confidence</li>
-                                <li>Congestion-aware line screening (~89% constraint reduction)</li>
-                                <li>Solver-agnostic: HiGHS, Gurobi, or CPLEX</li>
-                                <li>100% feasibility &mdash; ML guides, the solver decides</li>
-                            </ul>
-                            <div class="product-stat">
-                                <div class="product-stat-item">
-                                    <div class="stat-value">10.2x</div>
-                                    <div class="stat-label">Mean speedup</div>
+                <!-- OPTIMIZE -->
+                <div class="capability-group group-optimize">
+                    <div class="capability-group-header">
+                        <div class="capability-group-icon">&#129504;</div>
+                        <div>
+                            <h3>Optimize &mdash; Grid Commitment &amp; Dispatch</h3>
+                            <p>The cognitive engine that makes grid-level decisions</p>
+                        </div>
+                    </div>
+                    <div class="products-grid">
+                        <div class="product-card flagship fade-in">
+                            <div class="product-card-content">
+                                <span class="maturity-badge badge-shipped">Shipped &middot; Patent Pending</span>
+                                <h3>SCUC Acceleration</h3>
+                                <p>ML-accelerated Security-Constrained Unit Commitment. A neuro-symbolic pipeline where graph neural networks predict commitments and screen constraints, while the MIP solver guarantees feasibility. The neural part learns patterns; the symbolic part enforces physics.</p>
+                                <ul class="product-highlights">
+                                    <li>GNN commitment prediction with calibrated confidence</li>
+                                    <li>Congestion-aware line screening (~89% constraint reduction)</li>
+                                    <li>Solver-agnostic: HiGHS, Gurobi, or CPLEX</li>
+                                    <li>100% feasibility &mdash; ML guides, the solver decides</li>
+                                </ul>
+                                <div class="product-stat">
+                                    <div class="product-stat-item">
+                                        <div class="stat-value">10.2x</div>
+                                        <div class="stat-label">Mean speedup</div>
+                                    </div>
+                                    <div class="product-stat-item">
+                                        <div class="stat-value">100%</div>
+                                        <div class="stat-label">Feasibility</div>
+                                    </div>
+                                    <div class="product-stat-item">
+                                        <div class="stat-value">1.9%</div>
+                                        <div class="stat-label">Cost gap</div>
+                                    </div>
                                 </div>
-                                <div class="product-stat-item">
-                                    <div class="stat-value">100%</div>
-                                    <div class="stat-label">Feasibility</div>
-                                </div>
-                                <div class="product-stat-item">
-                                    <div class="stat-value">1.9%</div>
-                                    <div class="stat-label">Cost gap</div>
-                                </div>
+                                <div class="world-model-feed"><strong>World model:</strong> Learns grid topology, generator behavior, and congestion patterns to improve predictions over time.</div>
+                            </div>
+                            <div class="product-card-screenshot">
+                                <img src="screenshots/gnn_attention.png" alt="GNN attention weights visualized on the transmission network">
                             </div>
                         </div>
-                        <div class="product-card-screenshot">
-                            <img src="screenshots/gnn_attention.png" alt="GNN attention weights visualized on the transmission network">
+                        <div class="product-card fade-in">
+                            <span class="maturity-badge badge-proven">Proven &middot; Prior Work</span>
+                            <h3>Hydro Optimization</h3>
+                            <p>Water routing and hydroelectric generation optimization on the Columbia River system. Founder's prior work at The Energy Authority.</p>
+                            <ul class="product-highlights">
+                                <li>Columbia River water routing &amp; generation scheduling</li>
+                                <li>INFORMS Edelman Award finalist</li>
+                                <li>$700-900M total value delivered</li>
+                            </ul>
+                            <span class="tech-tag">MILP</span>
+                            <span class="tech-tag">Water Routing</span>
+                            <div class="world-model-feed"><strong>World model:</strong> Contributed hydrological constraints and multi-objective scheduling patterns.</div>
                         </div>
                     </div>
-
-                    <!-- Smart Meter Intelligence -->
-                    <div class="product-card fade-in">
-                        <span class="maturity-badge badge-research">Research &middot; Deployed</span>
-                        <h3>Smart Meter Intelligence</h3>
-                        <p>Theft detection and secondary topology discovery using smart meter interval data and power flow analysis &mdash; without relying on GIS data.</p>
-                        <ul class="product-highlights">
-                            <li>Power flow-based tamper detection on interval data</li>
-                            <li>Secondary network topology discovery</li>
-                            <li>Deployed at U.S. utilities since 2018</li>
-                        </ul>
-                        <span class="tech-tag">Power Flow Analysis</span>
-                        <span class="tech-tag">Interval Data</span>
-                    </div>
-
-                    <!-- Hydro Optimization -->
-                    <div class="product-card fade-in">
-                        <span class="maturity-badge badge-proven">Proven &middot; Prior Work</span>
-                        <h3>Hydro Optimization</h3>
-                        <p>Water routing and hydroelectric generation optimization on the Columbia River system. Founder's prior work at The Energy Authority.</p>
-                        <ul class="product-highlights">
-                            <li>Columbia River water routing &amp; generation scheduling</li>
-                            <li>INFORMS Edelman Award finalist</li>
-                            <li>$700-900M total value delivered</li>
-                        </ul>
-                        <span class="tech-tag">MILP</span>
-                        <span class="tech-tag">Water Routing</span>
-                    </div>
-
-                    <!-- Infrastructure Inspection -->
-                    <div class="product-card fade-in">
-                        <span class="maturity-badge badge-experience">Experience &middot; Prior Work</span>
-                        <h3>Infrastructure Inspection</h3>
-                        <p>Computer vision-based drone inspection for power grid assets. Founder's prior work leading AI/analytics at eSmart Systems.</p>
-                        <ul class="product-highlights">
-                            <li>Semantic segmentation for asset classification</li>
-                            <li>Super resolution for defect detection</li>
-                            <li>Human-in-the-loop ML for global utility clients</li>
-                        </ul>
-                        <span class="tech-tag">Computer Vision</span>
-                        <span class="tech-tag">Drone Inspection</span>
-                    </div>
-
                 </div>
+
+                <!-- SENSE -->
+                <div class="capability-group group-sense">
+                    <div class="capability-group-header">
+                        <div class="capability-group-icon">&#128225;</div>
+                        <div>
+                            <h3>Sense &mdash; Edge Intelligence</h3>
+                            <p>Understanding demand and detecting anomalies at the grid's endpoints</p>
+                        </div>
+                    </div>
+                    <div class="products-grid">
+                        <div class="product-card full-width fade-in">
+                            <span class="maturity-badge badge-research">Research &middot; Deployed</span>
+                            <h3>Smart Meter Intelligence</h3>
+                            <p>Theft detection and secondary topology discovery using smart meter interval data and power flow analysis &mdash; without relying on GIS data. The grid's nerve endings, turning millions of meter readings into actionable intelligence.</p>
+                            <ul class="product-highlights">
+                                <li>Power flow-based tamper detection on interval data</li>
+                                <li>Secondary network topology discovery</li>
+                                <li>Deployed at U.S. utilities since 2018</li>
+                                <li>Foundation for load forecasting and DER visibility</li>
+                            </ul>
+                            <span class="tech-tag">Power Flow Analysis</span>
+                            <span class="tech-tag">Interval Data</span>
+                            <span class="tech-tag">Anomaly Detection</span>
+                            <div class="world-model-feed"><strong>World model:</strong> Teaches demand patterns, customer behavior, and secondary network topology.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- UNDERSTAND -->
+                <div class="capability-group group-understand">
+                    <div class="capability-group-header">
+                        <div class="capability-group-icon">&#129520;</div>
+                        <div>
+                            <h3>Understand &mdash; Physical Infrastructure</h3>
+                            <p>Building the digital twin from real-world observation</p>
+                        </div>
+                    </div>
+                    <div class="products-grid">
+                        <div class="product-card full-width fade-in">
+                            <span class="maturity-badge badge-experience">Experience &middot; Prior Work</span>
+                            <h3>Infrastructure Inspection &amp; Digital Twins</h3>
+                            <p>Computer vision-based drone inspection for power grid assets. Semantic segmentation and super resolution build a continuously-updated physical model of infrastructure health &mdash; the grid's anatomy. Founder's prior work leading AI/analytics at eSmart Systems.</p>
+                            <ul class="product-highlights">
+                                <li>Semantic segmentation for asset classification and defect detection</li>
+                                <li>Super resolution for fine-grained visual inspection</li>
+                                <li>Human-in-the-loop ML workflows for global utility clients</li>
+                                <li>Foundation for physical digital twin with real-time asset health</li>
+                            </ul>
+                            <span class="tech-tag">Computer Vision</span>
+                            <span class="tech-tag">Drone Inspection</span>
+                            <span class="tech-tag">Digital Twin</span>
+                            <div class="world-model-feed"><strong>World model:</strong> Teaches asset health, carrying capacity, and physical constraint reality.</div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -1668,9 +708,10 @@
         <section id="technology">
             <div class="container">
                 <span class="section-label">Technology</span>
-                <h2 class="section-title">Why these problems are connected</h2>
+                <h2 class="section-title">The architecture behind the world model</h2>
                 <div class="tech-intro">
-                    <p>Grid problems look different on the surface &mdash; unit commitment, theft detection, asset inspection, hydro scheduling. But underneath, they share deep structure: graph/network topology, physics constraints, time-series data, and combinatorial optimization. MindFlow.ai applies a unified AI toolkit to all of them.</p>
+                    <p>The physics-informed world model isn't a single algorithm &mdash; it's a convergence of techniques, each chosen because the grid demands it. <strong>The neural part learns complex, non-linear patterns</strong> (weather, load spikes, EV charging). <strong>The symbolic part enforces hard, non-negotiable rules</strong> (minimum uptime, line capacities, Kirchhoff's laws).</p>
+                    <p>This neuro-symbolic architecture is what makes it possible to use AI in a mission-critical physics environment without hallucinating power flows.</p>
                 </div>
                 <div class="tech-grid">
                     <div class="tech-card fade-in">
@@ -1680,22 +721,22 @@
                     </div>
                     <div class="tech-card fade-in">
                         <div class="tech-card-icon">&#128290;</div>
-                        <h3>Mathematical Optimization</h3>
-                        <p>MIP, LP, constraint programming. Two decades of production optimization experience &mdash; from SCUC to hydro scheduling to Snowflake-native solvers at RelationalAI.</p>
+                        <h3>Neuro-Symbolic Optimization</h3>
+                        <p>Neural networks propose. Mathematical solvers (MIP, LP, constraint programming) verify and enforce. The AI never has the final word on physics &mdash; the solver does.</p>
                     </div>
                     <div class="tech-card fade-in">
                         <div class="tech-card-icon">&#128247;</div>
                         <h3>Computer Vision</h3>
-                        <p>Semantic segmentation, super resolution, and human-in-loop workflows for physical infrastructure inspection from aerial imagery.</p>
+                        <p>Semantic segmentation, super resolution, and human-in-loop workflows for physical infrastructure inspection from aerial imagery. The eyes of the digital twin.</p>
                     </div>
                     <div class="tech-card fade-in">
                         <div class="tech-card-icon">&#9879;</div>
                         <h3>Physics-Informed AI</h3>
-                        <p>Models that respect engineering constraints &mdash; power balance, thermal limits, ramp rates. AI that accelerates physics, not replaces it.</p>
+                        <p>Models constrained by Kirchhoff's laws, thermal limits, and power balance equations. AI that accelerates physics, not replaces it. No hallucinated power flows.</p>
                     </div>
                 </div>
                 <div class="tech-founder-note fade-in">
-                    <p><strong>The founder's unique position:</strong> PhD in Computer Science, 20+ years at the intersection of AI, optimization, and power systems. From building production optimization systems at The Energy Authority (9 years) to leading AI at eSmart Systems, to graph-native optimization at RelationalAI &mdash; this is a career-long thesis, not a pivot.</p>
+                    <p><strong>Why this architecture:</strong> Most "pure AI" approaches fail in mission-critical grid operations because neural networks are black boxes. MindFlow.ai's neuro-symbolic approach gets the best of both worlds &mdash; the learning capacity of deep networks with the guarantees of mathematical optimization. This isn't a generic foundation model thrown at the grid; it's an AI architecture engineered for the high-stakes reality of energy transmission.</p>
                 </div>
             </div>
         </section>
@@ -1741,13 +782,13 @@
                         <button class="screenshot-tab" data-target="ss-n1">N-1 Security</button>
                     </div>
                     <div class="screenshot-viewer">
-                        <img id="ss-benchmark" class="active" src="screenshots/ml_benchmark.png" alt="ML Benchmark -- per-scenario speedup bars and speedup vs gap scatter plot">
-                        <img id="ss-network-map" src="screenshots/network_map.png" alt="Network Map -- geographic view of 2000-bus grid with LMP coloring and congested lines">
-                        <img id="ss-commitment" src="screenshots/commitment.png" alt="Commitment -- unit commitment heatmap for 83 swing generators over 24 hours">
-                        <img id="ss-dispatch" src="screenshots/dispatch.png" alt="Dispatch -- generation stack by fuel type over 24 hours">
-                        <img id="ss-lmp" src="screenshots/lmp.png" alt="LMP Analysis -- locational marginal price heatmap and system LMP time series">
-                        <img id="ss-flows" src="screenshots/network_flows.png" alt="Network Flows -- line loading heatmap and max loading bar chart">
-                        <img id="ss-n1" src="screenshots/n1_security.png" alt="N-1 Security -- post-contingency analysis with geographic overload visualization">
+                        <img id="ss-benchmark" class="active" src="screenshots/ml_benchmark.png" alt="ML Benchmark">
+                        <img id="ss-network-map" src="screenshots/network_map.png" alt="Network Map">
+                        <img id="ss-commitment" src="screenshots/commitment.png" alt="Commitment">
+                        <img id="ss-dispatch" src="screenshots/dispatch.png" alt="Dispatch">
+                        <img id="ss-lmp" src="screenshots/lmp.png" alt="LMP Analysis">
+                        <img id="ss-flows" src="screenshots/network_flows.png" alt="Network Flows">
+                        <img id="ss-n1" src="screenshots/n1_security.png" alt="N-1 Security">
                     </div>
                     <div class="screenshot-caption active" id="cap-benchmark">Per-scenario speedup analysis across 30 test scenarios. Red bars show speedup (up to 26x), with the mean 7.6x dashed line. Scatter plot shows speedup vs. objective gap trade-off.</div>
                     <div class="screenshot-caption" id="cap-network-map">Geographic visualization of the ACTIVSg2000 synthetic U.S. grid. Buses colored by locational marginal price (LMP), generators by fuel type. Red lines indicate congested branches (&gt;90% loading).</div>
@@ -1777,7 +818,7 @@
                         <div class="pub-content">
                             <h3>ML-Accelerated Security-Constrained Unit Commitment</h3>
                             <div class="pub-meta">Hu, Z. &middot; 2025 &middot; <em>Patent Application Filed</em></div>
-                            <p>GNN-based pipeline for accelerating SCUC via commitment prediction, line screening, and reduced MIP formulation. 10.2x mean speedup with 100% feasibility.</p>
+                            <p>GNN-based neuro-symbolic pipeline for accelerating SCUC via commitment prediction, line screening, and reduced MIP formulation. 10.2x mean speedup with 100% feasibility.</p>
                             <span class="pub-highlight patent-pending">Patent Pending</span>
                         </div>
                     </div>
@@ -1819,7 +860,7 @@
                         <h3>Zengjian Hu, PhD</h3>
                         <div class="founder-title">Founder &amp; CEO, MindFlow.ai</div>
                         <p>
-                            Computer scientist and optimization specialist with two decades of experience applying AI and mathematical optimization to power system operations. From building the industry's most recognized hydro optimization system to pioneering smart meter analytics and leading computer vision R&D for grid inspection.
+                            Computer scientist and optimization specialist who has spent two decades building every layer of what MindFlow.ai is now unifying &mdash; from the optimization engine (hydro, SCUC) to the sensing layer (smart meters) to the physical understanding layer (drone CV). This isn't a pivot; it's a convergence.
                         </p>
                         <div class="founder-roles">
                             <div class="founder-role fade-in">
@@ -1856,7 +897,7 @@
                         <div class="credential-card fade-in">
                             <div class="cred-value">20+</div>
                             <h4>Years in AI + Energy</h4>
-                            <p>Continuous track record building production systems at the intersection of machine learning, optimization, and power systems.</p>
+                            <p>Built every layer of the Sense/Understand/Optimize stack in production, at different companies, over two decades.</p>
                         </div>
                         <div class="credential-card fade-in">
                             <div class="cred-value">$900M</div>
@@ -1882,25 +923,25 @@
         <section id="roadmap">
             <div class="container">
                 <span class="section-label">Roadmap</span>
-                <h2 class="section-title">From flagship product to platform</h2>
+                <h2 class="section-title">Building the world model, one layer at a time</h2>
                 <p class="section-desc">
-                    A deliberate path: ship one product exceptionally well, then expand across the grid value chain.
+                    Each phase adds a new layer to the physics-informed world model &mdash; from standalone products to integrated intelligence to the closed loop.
                 </p>
                 <div class="roadmap">
                     <div class="roadmap-phase active fade-in">
-                        <div class="phase-label">Now</div>
+                        <div class="phase-label">Now &mdash; Optimize</div>
                         <h3>SCUC Acceleration</h3>
-                        <p>Patent filed. Benchmarks published. Dashboard complete. Seeking pilot partnerships with ISOs and utilities for production validation.</p>
+                        <p>Patent filed. Benchmarks published. Neuro-symbolic pipeline proven. Seeking pilot partnerships with ISOs and utilities for production validation.</p>
                     </div>
                     <div class="roadmap-phase fade-in">
-                        <div class="phase-label">Next</div>
-                        <h3>Smart Meter Analytics</h3>
-                        <p>Productize proven theft detection and topology discovery methods. Target utility pilot partnerships for North American deployment.</p>
+                        <div class="phase-label">Next &mdash; Sense</div>
+                        <h3>Smart Meter Analytics Platform</h3>
+                        <p>Productize proven theft detection and topology discovery. Begin feeding meter intelligence into the world model for improved load forecasting.</p>
                     </div>
                     <div class="roadmap-phase fade-in">
-                        <div class="phase-label">Future</div>
-                        <h3>Unified AI Platform</h3>
-                        <p>Integrated AI platform for grid operations &mdash; bringing together optimization, analytics, and inspection under one roof.</p>
+                        <div class="phase-label">Future &mdash; Close the Loop</div>
+                        <h3>Physics-Informed World Model</h3>
+                        <p>Integrate sensing, digital twins, and optimization into a unified, continuously-learning world model. The foundation for autonomous grid operations.</p>
                     </div>
                 </div>
             </div>
@@ -1911,9 +952,9 @@
             <div class="contact-glow"></div>
             <div class="container">
                 <span class="section-label">Get In Touch</span>
-                <h2 class="section-title">Let's build the grid's AI future</h2>
+                <h2 class="section-title">Let's build the grid's world model together</h2>
                 <p class="section-desc">
-                    Whether you're an ISO exploring ML acceleration, a utility modernizing meter analytics, or a researcher interested in collaboration &mdash; we'd like to hear from you.
+                    Whether you're an ISO exploring ML acceleration, a utility modernizing operations, or a researcher working on physics-informed AI &mdash; we'd like to hear from you.
                 </p>
                 <a href="mailto:contact@mindflow.ai" class="contact-email">contact@mindflow.ai</a>
             </div>
@@ -1930,7 +971,7 @@
                     <span class="footer-copy">&copy; 2026 MindFlow.ai. All rights reserved.</span>
                 </div>
                 <div class="footer-links">
-                    <a href="#products">Products</a>
+                    <a href="#capabilities">Capabilities</a>
                     <a href="#technology">Technology</a>
                     <a href="#research">Research</a>
                     <a href="#contact">Contact</a>
@@ -1940,32 +981,6 @@
     </footer>
 
     <script>
-        // Stealth gate
-        async function checkGate() {
-            const input = document.getElementById('gateInput').value;
-            const data = new TextEncoder().encode(input);
-            const buf = await crypto.subtle.digest('SHA-256', data);
-            const hash = Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
-            if (hash === '9497b9993a3d0029409db004ee92295f45b650c2e0d215124b375ac00c61e4ff') {
-                document.getElementById('stealthGate').classList.add('unlocked');
-                document.body.classList.remove('gated');
-                sessionStorage.setItem('mf_access', '1');
-            } else {
-                document.getElementById('gateError').textContent = 'Invalid access code.';
-                document.getElementById('gateInput').value = '';
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            if (sessionStorage.getItem('mf_access') === '1') {
-                document.getElementById('stealthGate').classList.add('unlocked');
-                document.body.classList.remove('gated');
-            }
-            document.getElementById('gateInput').addEventListener('keydown', (e) => {
-                if (e.key === 'Enter') checkGate();
-            });
-        });
-
         // Intersection Observer for fade-in animations
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
