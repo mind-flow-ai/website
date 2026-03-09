@@ -65,7 +65,8 @@
         #hero { min-height: 100vh; display: flex; align-items: center; position: relative; padding: 120px 0 80px; overflow: hidden; }
         .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(34,211,238,0.08) 0%, transparent 60%), radial-gradient(ellipse 60% 40% at 80% 80%, rgba(52,211,153,0.06) 0%, transparent 50%); pointer-events: none; }
         .hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(34,211,238,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(34,211,238,0.03) 1px, transparent 1px); background-size: 60px 60px; mask-image: radial-gradient(ellipse 70% 50% at 50% 50%, black, transparent); pointer-events: none; }
-        .hero-content { position: relative; z-index: 2; max-width: 800px; }
+        .hero-content { position: relative; z-index: 2; max-width: 800px; text-align: center; margin: 0 auto; }
+        .hero-sub { margin-left: auto; margin-right: auto; }
         .hero-badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; border-radius: 100px; border: 1px solid var(--cyan-dim); background: var(--glow-cyan); color: var(--cyan); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 24px; }
         .hero-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--cyan); animation: pulse-dot 2s infinite; }
         @keyframes pulse-dot { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
@@ -78,10 +79,11 @@
         .btn-primary:hover { box-shadow: 0 0 30px var(--glow-cyan), 0 0 60px rgba(34,211,238,0.1); transform: translateY(-1px); }
         .btn-secondary { background: transparent; color: var(--text-secondary); border: 1px solid var(--border); }
         .btn-secondary:hover { border-color: var(--text-muted); color: var(--text-primary); }
-        .hero-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
-        .hero-screenshot { border-radius: 12px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 40px rgba(34,211,238,0.05); position: relative; }
-        .hero-screenshot img { width: 100%; height: auto; display: block; }
-        .hero-screenshot .glow-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(34,211,238,0.08), transparent 60%); pointer-events: none; }
+        .hero-actions { justify-content: center; }
+        .hero-showcase { margin-top: 64px; border-radius: 16px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 20px 80px rgba(0,0,0,0.5), 0 0 60px rgba(34,211,238,0.06); position: relative; }
+        .hero-showcase img { width: 100%; height: auto; display: block; }
+        .hero-showcase .glow-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(34,211,238,0.1), transparent 50%); pointer-events: none; }
+        .hero-showcase .showcase-label { position: absolute; bottom: 16px; left: 16px; background: rgba(10,14,26,0.85); backdrop-filter: blur(8px); padding: 6px 14px; border-radius: 8px; font-size: 0.75rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.04em; z-index: 2; }
         .hero-metrics-wrap { margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--border); }
         .hero-metrics-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 20px; }
         .hero-metrics-row { display: flex; gap: 48px; margin-top: 16px; }
@@ -428,8 +430,6 @@
 
         /* ── Responsive ── */
         @media (max-width: 1024px) {
-            .hero-layout { grid-template-columns: 1fr; }
-            .hero-screenshot { max-width: 600px; }
             .results-grid { grid-template-columns: repeat(2, 1fr); }
             .loop-visual { grid-template-columns: 1fr; }
             .loop-step::after { display: none; }
@@ -490,28 +490,27 @@
             <div class="hero-bg"></div>
             <div class="hero-grid"></div>
             <div class="container">
-                <div class="hero-layout">
-                    <div class="hero-content">
-                        <div class="hero-badge">Physics-Informed AI</div>
-                        <h1>
-                            Building the <span class="gradient-text">world model</span><br>
-                            for the power grid
-                        </h1>
-                        <p class="hero-sub">
-                            MindFlow.ai is building a physics-informed world model for grid operations. We sense edge demand, understand infrastructure health, and optimize the grid's hardest decisions &mdash; all through AI that respects the laws of physics.
-                        </p>
-                        <div class="hero-actions">
-                            <a href="#vision" class="btn btn-primary">Our Vision</a>
-                            <a href="#dashboard" class="btn btn-secondary">View Dashboard</a>
-                        </div>
-                    </div>
-                    <div class="hero-screenshot fade-in">
-                        <img src="screenshots/overview.png" alt="SCUC Dashboard -- generation dispatch overview with KPIs, fuel mix, and load curve">
-                        <div class="glow-overlay"></div>
+                <div class="hero-content">
+                    <div class="hero-badge">Physics-Informed AI</div>
+                    <h1>
+                        Building the <span class="gradient-text">world model</span><br>
+                        for the power grid
+                    </h1>
+                    <p class="hero-sub">
+                        The power grid is a living system &mdash; thousands of generators, millions of customers, and physics that can't be approximated. MindFlow.ai is building a physics-informed world model that senses edge demand, understands infrastructure health, and optimizes the grid's hardest decisions. AI that respects the laws of physics.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#vision" class="btn btn-primary">Our Vision</a>
+                        <a href="#capabilities" class="btn btn-secondary">Explore Capabilities</a>
                     </div>
                 </div>
+                <div class="hero-showcase fade-in">
+                    <img src="screenshots/network_map.png" alt="2,000-bus synthetic U.S. grid — buses colored by locational marginal price, generators by fuel type, congested branches highlighted">
+                    <div class="glow-overlay"></div>
+                    <div class="showcase-label">ACTIVSg2000 Grid &mdash; 2,000 buses &middot; 3,206 branches &middot; LMP visualization</div>
+                </div>
                 <div class="hero-metrics-wrap">
-                    <div class="hero-metrics-label">Flagship: SCUC Acceleration</div>
+                    <div class="hero-metrics-label">Flagship: SCUC Acceleration (Patent Pending)</div>
                     <div class="hero-metrics-row">
                         <div class="hero-metric">
                             <div class="number">10.2x</div>
@@ -541,13 +540,16 @@
                 <h2 class="section-title">Toward the autonomous grid</h2>
                 <div class="vision-content">
                     <p>
-                        The power grid is undergoing the biggest transformation in a century &mdash; renewables, distributed energy resources, electrification, and extreme weather. Running it requires solving thousands of interconnected physics problems in real time. Yet the tools haven't kept up.
+                        The power grid is undergoing the biggest transformation in a century. Renewable penetration is approaching 40% in many regions. Distributed energy resources &mdash; rooftop solar, batteries, EVs &mdash; are turning passive consumers into active participants. Extreme weather events are stressing infrastructure designed for a more predictable climate.
                     </p>
                     <p>
-                        <strong>MindFlow.ai is building a physics-informed world model for the grid</strong> &mdash; a learned, continuously-updated representation of how the grid behaves. It captures topology, asset health, load patterns, and physical constraints. It doesn't just mirror the grid; it predicts what happens next.
+                        Running this grid requires solving thousands of interconnected physics problems in real time: which generators to commit, how power flows through the network, where equipment is degrading, what demand looks like behind the meter. Today, these problems are solved in isolation by separate teams using separate tools. That's not sustainable.
                     </p>
                     <p>
-                        Every MindFlow.ai product contributes to and draws from this shared world model. Meter data teaches it demand patterns. Inspections teach it asset health. Optimization teaches it operational constraints. The more you use it, the smarter it gets.
+                        <strong>MindFlow.ai is building a physics-informed world model for the grid</strong> &mdash; a learned, continuously-updated representation of how the grid behaves. Unlike a static digital twin, this model is predictive: it simulates what happens if a line trips, if load spikes, if wind drops. It captures topology, asset health, load patterns, and physical constraints in a shared representation that gets smarter with every observation.
+                    </p>
+                    <p>
+                        Every MindFlow.ai product contributes to and draws from this world model. Meter data teaches it demand patterns. Drone inspections teach it asset health. Optimization teaches it operational constraints. Separately, each solves a valuable problem. Together, they enable the autonomous grid.
                     </p>
                 </div>
                 <div class="loop-visual fade-in">
@@ -556,21 +558,21 @@
                         <div class="loop-icon">&#128225;</div>
                         <h3>Sense</h3>
                         <div class="loop-subtitle">Smart Meter Analytics</div>
-                        <p>The grid's nerve endings. Hyper-localized load forecasting, theft detection, and behind-the-meter visibility from interval data.</p>
+                        <p>The grid's nerve endings. Billions of meter readings reveal what's actually happening at the edge &mdash; load patterns, theft anomalies, DER behavior, and secondary topology.</p>
                     </div>
                     <div class="loop-step understand">
                         <div class="loop-step-number">02 &mdash; Understand</div>
                         <div class="loop-icon">&#129520;</div>
                         <h3>Understand</h3>
                         <div class="loop-subtitle">Digital Twins &amp; Inspection</div>
-                        <p>The grid's anatomy. Drone-based CV inspection builds a physical digital twin &mdash; real-time carrying capacity and health of every asset.</p>
+                        <p>The grid's anatomy. Computer vision on aerial imagery maps every asset's condition &mdash; turning periodic inspections into a continuously-updated physical model of the grid.</p>
                     </div>
                     <div class="loop-step optimize">
                         <div class="loop-step-number">03 &mdash; Optimize</div>
                         <div class="loop-icon">&#129504;</div>
                         <h3>Optimize</h3>
                         <div class="loop-subtitle">Neuro-Symbolic SCUC</div>
-                        <p>The cognitive engine. Takes real-time demand and physical constraints, then decides which generators run &mdash; down to the second.</p>
+                        <p>The grid's decision engine. Graph neural networks and mathematical solvers work together to commit generators, route power, and clear markets &mdash; 10x faster than today.</p>
                     </div>
                 </div>
                 <div class="loop-convergence fade-in">
@@ -585,7 +587,7 @@
                 <span class="section-label">Capabilities</span>
                 <h2 class="section-title">Sense. Understand. Optimize.</h2>
                 <p class="section-desc">
-                    Three layers of intelligence, each at a different stage of maturity. Honest about what's shipped, what's proven, and what's next.
+                    Three layers of intelligence building toward a closed loop. Each capability is at a different stage of maturity &mdash; we're transparent about what's shipped, what's been proven at prior organizations, and what's on the roadmap.
                 </p>
 
                 <!-- OPTIMIZE -->
@@ -602,7 +604,7 @@
                             <div class="product-card-content">
                                 <span class="maturity-badge badge-shipped">Shipped &middot; Patent Pending</span>
                                 <h3>SCUC Acceleration</h3>
-                                <p>ML-accelerated Security-Constrained Unit Commitment. A neuro-symbolic pipeline where graph neural networks predict commitments and screen constraints, while the MIP solver guarantees feasibility. The neural part learns patterns; the symbolic part enforces physics.</p>
+                                <p>Every grid operator in the world solves SCUC daily to determine which generators to run &mdash; under rigid market deadlines that don't expand as grids grow more complex. MindFlow.ai's neuro-symbolic pipeline uses graph neural networks to predict commitments and screen constraints, reducing the problem by up to 89% before the MIP solver even starts. The neural part learns complex patterns from historical operations; the symbolic solver enforces every physical constraint. The result: 10x faster decisions with zero feasibility trade-offs.</p>
                                 <ul class="product-highlights">
                                     <li>GNN commitment prediction with calibrated confidence</li>
                                     <li>Congestion-aware line screening (~89% constraint reduction)</li>
@@ -632,11 +634,13 @@
                         <div class="product-card fade-in">
                             <span class="maturity-badge badge-proven">Proven &middot; Prior Work</span>
                             <h3>Hydro Optimization</h3>
-                            <p>Water routing and hydroelectric generation optimization on the Columbia River system. Founder's prior work at The Energy Authority.</p>
+                            <p>The Columbia River system is one of the largest hydroelectric networks in the world &mdash; 31 dams, complex water rights, environmental flow constraints, and generation that must be coordinated across multiple utilities. The optimization model routes water through the entire system while maximizing generation value, respecting fish passage requirements, flood control, and contractual obligations. This system ran in production for nearly a decade and fundamentally changed how the participating utilities scheduled their hydro resources. Founder's prior work at The Energy Authority.</p>
                             <ul class="product-highlights">
-                                <li>Columbia River water routing &amp; generation scheduling</li>
+                                <li>Columbia River water routing &amp; generation scheduling across 31 dams</li>
+                                <li>Multi-objective: generation value, flood control, fish passage, contracts</li>
                                 <li>INFORMS Edelman Award finalist</li>
-                                <li>$700-900M total value delivered</li>
+                                <li>$700-900M total value delivered, $1.5M annual recurring revenue</li>
+                                <li>Published in <em>INFORMS Interfaces</em> (2014)</li>
                             </ul>
                             <span class="tech-tag">MILP</span>
                             <span class="tech-tag">Water Routing</span>
@@ -658,7 +662,7 @@
                         <div class="product-card full-width fade-in">
                             <span class="maturity-badge badge-research">Research &middot; Deployed</span>
                             <h3>Smart Meter Intelligence</h3>
-                            <p>Theft detection and secondary topology discovery using smart meter interval data and power flow analysis &mdash; without relying on GIS data. The grid's nerve endings, turning millions of meter readings into actionable intelligence.</p>
+                            <p>Utilities collect billions of interval meter readings, but most of that data sits unused beyond basic billing. MindFlow.ai's smart meter analytics extract deep intelligence: detecting energy theft through power flow anomalies, discovering secondary network topology without GIS data, and building granular load profiles that reveal what's actually happening at the grid's edge. This is the foundation for understanding distributed energy resources, EV charging patterns, and behind-the-meter behavior.</p>
                             <ul class="product-highlights">
                                 <li>Power flow-based tamper detection on interval data</li>
                                 <li>Secondary network topology discovery</li>
@@ -686,12 +690,13 @@
                         <div class="product-card full-width fade-in">
                             <span class="maturity-badge badge-experience">Experience &middot; Prior Work</span>
                             <h3>Infrastructure Inspection &amp; Digital Twins</h3>
-                            <p>Computer vision-based drone inspection for power grid assets. Semantic segmentation and super resolution build a continuously-updated physical model of infrastructure health &mdash; the grid's anatomy. Founder's prior work leading AI/analytics at eSmart Systems.</p>
+                            <p>Grid operators know their equipment is aging, but they don't know which assets will fail next. Traditional inspection relies on periodic visual checks or time-based replacement &mdash; expensive, slow, and reactive. Drone-based computer vision changes the equation: thousands of poles, insulators, and conductors inspected per day, with ML models that detect cracked insulators, vegetation encroachment, corrosion, and conductor sag from aerial imagery. Semantic segmentation classifies every component in the frame. Super resolution recovers fine-grained detail from standard drone cameras. Human-in-the-loop workflows keep false positive rates low enough for field crews to trust. Founder's prior work leading AI/analytics at eSmart Systems, serving utility clients across North America, Europe, and Asia-Pacific.</p>
                             <ul class="product-highlights">
                                 <li>Semantic segmentation for asset classification and defect detection</li>
-                                <li>Super resolution for fine-grained visual inspection</li>
-                                <li>Human-in-the-loop ML workflows for global utility clients</li>
-                                <li>Foundation for physical digital twin with real-time asset health</li>
+                                <li>Super resolution for fine-grained visual inspection from standard drone cameras</li>
+                                <li>Human-in-the-loop ML workflows serving global utility clients</li>
+                                <li>Foundation for physical digital twin with real-time asset health and degradation tracking</li>
+                                <li>Condition-based maintenance prioritization to replace time-based schedules</li>
                             </ul>
                             <span class="tech-tag">Computer Vision</span>
                             <span class="tech-tag">Drone Inspection</span>
@@ -717,26 +722,26 @@
                     <div class="tech-card fade-in">
                         <div class="tech-card-icon">&#129516;</div>
                         <h3>Graph Neural Networks</h3>
-                        <p>Power grids are graphs. GNNs learn directly on network topology &mdash; buses, branches, generators &mdash; capturing spatial relationships that tabular models miss entirely.</p>
+                        <p>Power grids are graphs &mdash; buses are nodes, transmission lines are edges, generators inject at specific locations. GNNs learn directly on this topology, propagating information along the physical network structure. This means spatial relationships, electrical distance, and congestion patterns are learned natively &mdash; not flattened into a feature table. In SCUC, GNNs predict generator commitments and identify binding constraints by reasoning over the graph structure, not just historical statistics.</p>
                     </div>
                     <div class="tech-card fade-in">
                         <div class="tech-card-icon">&#128290;</div>
                         <h3>Neuro-Symbolic Optimization</h3>
-                        <p>Neural networks propose. Mathematical solvers (MIP, LP, constraint programming) verify and enforce. The AI never has the final word on physics &mdash; the solver does.</p>
+                        <p>The neural network proposes &mdash; predicting which generators should run and which constraints will bind. The mathematical solver verifies and enforces &mdash; solving the reduced MIP with full physical constraints intact. The AI never has the final word on physics; the solver does. This architecture means we get the speed of learned heuristics with the guarantees of exact optimization. Solver-agnostic: works with HiGHS (open-source), Gurobi, or CPLEX.</p>
                     </div>
                     <div class="tech-card fade-in">
                         <div class="tech-card-icon">&#128247;</div>
                         <h3>Computer Vision</h3>
-                        <p>Semantic segmentation, super resolution, and human-in-loop workflows for physical infrastructure inspection from aerial imagery. The eyes of the digital twin.</p>
+                        <p>Deep learning models trained on millions of aerial infrastructure images. Semantic segmentation classifies every component in a drone frame &mdash; poles, insulators, conductors, vegetation. Super resolution recovers detail that standard drone cameras miss. Human-in-the-loop workflows keep precision high enough for field crews to act on results directly. The eyes of the physical digital twin.</p>
                     </div>
                     <div class="tech-card fade-in">
                         <div class="tech-card-icon">&#9879;</div>
                         <h3>Physics-Informed AI</h3>
-                        <p>Models constrained by Kirchhoff's laws, thermal limits, and power balance equations. AI that accelerates physics, not replaces it. No hallucinated power flows.</p>
+                        <p>Every model is constrained by the physics it operates in. Kirchhoff's voltage and current laws. Thermal line limits. Generator ramp rates and minimum up/down times. Power balance equations. These aren't soft penalties &mdash; they're hard constraints enforced by the solver. The result: AI that accelerates physics-based decisions without ever producing an infeasible power flow or violating a transmission limit.</p>
                     </div>
                 </div>
                 <div class="tech-founder-note fade-in">
-                    <p><strong>Why this architecture:</strong> Most "pure AI" approaches fail in mission-critical grid operations because neural networks are black boxes. MindFlow.ai's neuro-symbolic approach gets the best of both worlds &mdash; the learning capacity of deep networks with the guarantees of mathematical optimization. This isn't a generic foundation model thrown at the grid; it's an AI architecture engineered for the high-stakes reality of energy transmission.</p>
+                    <p><strong>Why this architecture:</strong> The power grid is one of the few domains where AI must be <em>correct</em>, not just accurate. A mispredicted line loading can cascade into a blackout. A violated generator constraint can damage physical equipment. Pure neural network approaches fail here because they offer no guarantees &mdash; they're probabilistic black boxes. Pure optimization approaches work but are too slow for the growing complexity of modern grids. MindFlow.ai's neuro-symbolic approach is specifically designed for this tension: neural networks learn patterns and reduce the search space, while mathematical solvers enforce every physical constraint exactly. This isn't a generic foundation model thrown at the grid &mdash; it's an AI architecture engineered for the high-stakes, physics-constrained reality of energy systems.</p>
                 </div>
             </div>
         </section>
@@ -860,7 +865,10 @@
                         <h3>Zengjian Hu, PhD</h3>
                         <div class="founder-title">Founder &amp; CEO, MindFlow.ai</div>
                         <p>
-                            Computer scientist and optimization specialist who has spent two decades building every layer of what MindFlow.ai is now unifying &mdash; from the optimization engine (hydro, SCUC) to the sensing layer (smart meters) to the physical understanding layer (drone CV). This isn't a pivot; it's a convergence.
+                            Computer scientist and optimization specialist who has spent two decades building every layer of what MindFlow.ai is now unifying. At The Energy Authority, he built production optimization systems for hydroelectric generation and smart meter analytics. At eSmart Systems, he led AI/analytics for drone-based infrastructure inspection serving utilities on three continents. At RelationalAI, he built Snowflake-native optimization solvers using graph algorithms and constraint satisfaction. At D-Wave, he explored quantum computing for combinatorial optimization.
+                        </p>
+                        <p>
+                            The common thread: taking hard computational problems in energy infrastructure and solving them with the right combination of mathematical optimization and machine learning. MindFlow.ai isn't a pivot &mdash; it's the convergence of an entire career.
                         </p>
                         <div class="founder-roles">
                             <div class="founder-role fade-in">
@@ -931,17 +939,17 @@
                     <div class="roadmap-phase active fade-in">
                         <div class="phase-label">Now &mdash; Optimize</div>
                         <h3>SCUC Acceleration</h3>
-                        <p>Patent filed. Benchmarks published. Neuro-symbolic pipeline proven. Seeking pilot partnerships with ISOs and utilities for production validation.</p>
+                        <p>Patent filed. Benchmarks validated on 2,000-bus grids with 10.2x mean speedup at 100% feasibility. Seeking pilot partnerships with ISOs and utilities for production validation on real market data. The optimization layer is the first product &mdash; and the highest-stakes proof point for neuro-symbolic AI on the grid.</p>
                     </div>
                     <div class="roadmap-phase fade-in">
                         <div class="phase-label">Next &mdash; Sense</div>
                         <h3>Smart Meter Analytics Platform</h3>
-                        <p>Productize proven theft detection and topology discovery. Begin feeding meter intelligence into the world model for improved load forecasting.</p>
+                        <p>Productize the proven theft detection and secondary topology discovery algorithms. Build granular load profiles from interval data to improve short-term load forecasting. Begin feeding meter intelligence into the world model &mdash; connecting what's happening at the grid edge to what the optimizer needs to know.</p>
                     </div>
                     <div class="roadmap-phase fade-in">
                         <div class="phase-label">Future &mdash; Close the Loop</div>
                         <h3>Physics-Informed World Model</h3>
-                        <p>Integrate sensing, digital twins, and optimization into a unified, continuously-learning world model. The foundation for autonomous grid operations.</p>
+                        <p>Integrate sensing (meter data, weather, DERs), physical understanding (asset health, topology), and optimization (commitment, dispatch, pricing) into a unified, continuously-learning world model. Each layer makes the others smarter. This is the foundation for autonomous grid operations &mdash; where the grid anticipates, not just reacts.</p>
                     </div>
                 </div>
             </div>
