@@ -472,10 +472,11 @@
             <nav>
                 <ul>
                     <li><a href="#vision">Vision</a></li>
-                    <li><a href="#capabilities">Capabilities</a></li>
+                    <li><a href="#capabilities">Platform</a></li>
                     <li><a href="#technology">Technology</a></li>
                     <li><a href="#dashboard">Dashboard</a></li>
                     <li><a href="#research">Research</a></li>
+                    <li><a href="#experience">Experience</a></li>
                     <li><a href="#founder">Founder</a></li>
                     <li><a href="#contact" class="nav-cta">Contact</a></li>
                 </ul>
@@ -587,7 +588,7 @@
                 <span class="section-label">Platform</span>
                 <h2 class="section-title">A configurable simulator built on validated foundations</h2>
                 <p class="section-desc">
-                    The flagship is the configurable LMP simulator. Empirical behavioral modules ship first as standalone signals, validating the foundation while the full simulator integrates. Adjacent capabilities &mdash; meter intelligence, infrastructure inspection &mdash; come from the founder's prior production deployments and inform the broader world model.
+                    The flagship is the configurable LMP simulator. Empirical behavioral modules ship first as standalone signals, validating the foundation while the full simulator integrates.
                 </p>
 
                 <!-- SIMULATE -->
@@ -658,77 +659,6 @@
                             </ul>
                             <span class="tech-tag">Conformal Calibration</span>
                             <span class="tech-tag">Persistence</span>
-                            <div class="world-model-feed"><strong>Honest methodology:</strong> Ships the approach that empirically wins, not the more sophisticated approach that would have been preferable if it had worked.</div>
-                        </div>
-                        <div class="product-card fade-in">
-                            <span class="maturity-badge badge-proven">Proven &middot; Prior Work</span>
-                            <h3>Hydro Optimization</h3>
-                            <p>The Columbia River system &mdash; 31 dams, complex water rights, environmental flow constraints, generation coordinated across multiple utilities. The optimization model routes water through the entire system while maximizing generation value, respecting fish passage, flood control, and contractual obligations. Founder's prior work at The Energy Authority; ran in production for nearly a decade.</p>
-                            <ul class="product-highlights">
-                                <li>Multi-objective MILP across 31 dams</li>
-                                <li>INFORMS Edelman Award finalist</li>
-                                <li>$700&ndash;900M total value delivered, $1.5M ARR</li>
-                                <li>Published in <em>INFORMS Interfaces</em> (2014)</li>
-                            </ul>
-                            <span class="tech-tag">MILP</span>
-                            <span class="tech-tag">Water Routing</span>
-                            <div class="world-model-feed"><strong>Track record:</strong> Multi-objective scheduling under hard physical and contractual constraints &mdash; the same class of problem the simulator solves at market scale.</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- SENSE -->
-                <div class="capability-group group-sense">
-                    <div class="capability-group-header">
-                        <div class="capability-group-icon">&#128225;</div>
-                        <div>
-                            <h3>Sense &mdash; Edge Intelligence</h3>
-                            <p>Understanding demand and detecting anomalies at the grid's endpoints</p>
-                        </div>
-                    </div>
-                    <div class="products-grid">
-                        <div class="product-card full-width fade-in">
-                            <span class="maturity-badge badge-research">Research &middot; Deployed</span>
-                            <h3>Smart Meter Intelligence</h3>
-                            <p>Utilities collect billions of interval meter readings, most of which sit unused beyond basic billing. Power-flow-based analytics extract deeper signal: tamper detection through anomalies in nodal flow conservation, secondary network topology discovery without GIS data, and granular load profiles that inform behind-the-meter behavior. Founder's prior work; deployed at U.S. utilities since 2018.</p>
-                            <ul class="product-highlights">
-                                <li>Power-flow-based tamper detection on interval data</li>
-                                <li>Secondary network topology discovery</li>
-                                <li>Deployed at U.S. utilities since 2018</li>
-                                <li>Feeds load forecasting and DER visibility into the simulator</li>
-                            </ul>
-                            <span class="tech-tag">Power Flow Analysis</span>
-                            <span class="tech-tag">Interval Data</span>
-                            <span class="tech-tag">Anomaly Detection</span>
-                            <div class="world-model-feed"><strong>Simulator input:</strong> Edge demand observability is what makes load forecasts more than a copy of the ISO's MTLF.</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- UNDERSTAND -->
-                <div class="capability-group group-understand">
-                    <div class="capability-group-header">
-                        <div class="capability-group-icon">&#129520;</div>
-                        <div>
-                            <h3>Understand &mdash; Physical Infrastructure</h3>
-                            <p>Asset health and topology grounding for the simulator's network model</p>
-                        </div>
-                    </div>
-                    <div class="products-grid">
-                        <div class="product-card full-width fade-in">
-                            <span class="maturity-badge badge-experience">Experience &middot; Prior Work</span>
-                            <h3>Infrastructure Inspection &amp; Digital Twins</h3>
-                            <p>Drone-based computer vision inspecting thousands of poles, insulators, and conductors per day. Semantic segmentation classifies every component in the frame; super resolution recovers fine-grained detail from standard drone cameras; human-in-the-loop workflows keep false positives low enough for field crews to act on. Founder's prior work leading AI/analytics at eSmart Systems, serving utility clients across North America, Europe, and Asia-Pacific.</p>
-                            <ul class="product-highlights">
-                                <li>Semantic segmentation for asset classification and defect detection</li>
-                                <li>Super resolution from standard drone cameras</li>
-                                <li>Human-in-the-loop ML workflows for global utility clients</li>
-                                <li>Asset health feeds derate and contingency assumptions in the simulator</li>
-                            </ul>
-                            <span class="tech-tag">Computer Vision</span>
-                            <span class="tech-tag">Drone Inspection</span>
-                            <span class="tech-tag">Digital Twin</span>
-                            <div class="world-model-feed"><strong>Simulator input:</strong> Condition-based asset state grounds derate scenarios and contingency lists in observed reality, not nameplate ratings.</div>
                         </div>
                     </div>
                 </div>
@@ -811,7 +741,6 @@
                         <button class="screenshot-tab" data-target="ss-n1">N-1 Security</button>
                         <button class="screenshot-tab" data-target="ss-commitment">Commitment</button>
                         <button class="screenshot-tab" data-target="ss-dispatch">Dispatch</button>
-                        <button class="screenshot-tab" data-target="ss-benchmark">V3 Acceleration</button>
                     </div>
                     <div class="screenshot-viewer">
                         <img id="ss-network-map" class="active" src="screenshots/network_map.png" alt="Network Map">
@@ -820,7 +749,6 @@
                         <img id="ss-n1" src="screenshots/n1_security.png" alt="N-1 Security">
                         <img id="ss-commitment" src="screenshots/commitment.png" alt="Commitment">
                         <img id="ss-dispatch" src="screenshots/dispatch.png" alt="Dispatch">
-                        <img id="ss-benchmark" src="screenshots/ml_benchmark.png" alt="V3 Acceleration Benchmark">
                     </div>
                     <div class="screenshot-caption active" id="cap-network-map">Geographic visualization of the synthetic U.S. grid. Buses colored by locational marginal price, generators by fuel type. Red lines indicate congested branches (&gt;90% loading) &mdash; exactly the diagnostic traders use to identify CRR opportunities.</div>
                     <div class="screenshot-caption" id="cap-lmp">LMP heatmap for the top-50 buses by price variation, plus system-wide mean LMP with P5/P95 band. The simulator decomposes nodal prices into energy, congestion, and loss components &mdash; the diagnostics CRR valuation needs.</div>
@@ -828,7 +756,6 @@
                     <div class="screenshot-caption" id="cap-n1">Post-contingency (N-1) security analysis using LODF matrices. Geographic view highlights post-outage overloads. Lazy enforcement keeps solve time tractable while every binding contingency is checked.</div>
                     <div class="screenshot-caption" id="cap-commitment">Unit commitment schedule for 83 swing generators across 24 hours. Today these come from the behavioral engine's empirical predictions; SCUC replication is a V3 fidelity advancement.</div>
                     <div class="screenshot-caption" id="cap-dispatch">Generation stack showing fuel mix dispatch over the day. CCGT and renewables dominate, with peakers filling shoulder hours &mdash; the same composition Module Two predicts at higher accuracy than the day-ahead market.</div>
-                    <div class="screenshot-caption" id="cap-benchmark">GNN-accelerated SCUC pipeline benchmark &mdash; a V3 capability in research. Per-scenario speedup analysis showing 10.2&times; mean acceleration with 100% feasibility on ACTIVSg2000. Patent filed; deferred until V2 commercial traction reveals client demand.</div>
                 </div>
                 <div class="results-note">
                     Validated on <code>case9</code>, <code>ACTIVSg500</code>, <code>ACTIVSg2000</code> &middot; ERCOT FNM integration in progress &middot; Solver-agnostic: <code>HiGHS</code>, <code>Gurobi</code>, <code>CPLEX</code>
@@ -875,6 +802,59 @@
                 <div class="pub-total fade-in">
                     <div class="total-number">13</div>
                     <div class="total-text">Peer-reviewed publications across optimization, machine learning, and power systems. Invited speaker at Gurobi, CCRO, and CEATI conferences.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Prior Experience -->
+        <section id="experience">
+            <div class="container">
+                <span class="section-label">Prior Experience</span>
+                <h2 class="section-title">Production deployments at prior organizations</h2>
+                <p class="section-desc">
+                    Three production AI/optimization systems shipped at prior companies &mdash; the track record that informs how MindFlow.ai builds and validates its current platform.
+                </p>
+                <div class="products-grid">
+                    <div class="product-card fade-in">
+                        <span class="maturity-badge badge-proven">The Energy Authority &middot; 2010&ndash;2019</span>
+                        <h3>Hydro Optimization</h3>
+                        <p>The Columbia River system &mdash; 31 dams, complex water rights, environmental flow constraints, generation coordinated across multiple utilities. The optimization model routes water through the entire system while maximizing generation value, respecting fish passage, flood control, and contractual obligations. Ran in production for nearly a decade.</p>
+                        <ul class="product-highlights">
+                            <li>Multi-objective MILP across 31 dams</li>
+                            <li>INFORMS Edelman Award finalist</li>
+                            <li>$700&ndash;900M total value delivered, $1.5M ARR</li>
+                            <li>Published in <em>INFORMS Interfaces</em> (2014)</li>
+                        </ul>
+                        <span class="tech-tag">MILP</span>
+                        <span class="tech-tag">Water Routing</span>
+                    </div>
+                    <div class="product-card fade-in">
+                        <span class="maturity-badge badge-research">The Energy Authority &middot; 2018&ndash;</span>
+                        <h3>Smart Meter Intelligence</h3>
+                        <p>Utilities collect billions of interval meter readings, most of which sit unused beyond basic billing. Power-flow-based analytics extract deeper signal: tamper detection through anomalies in nodal flow conservation, secondary network topology discovery without GIS data, and granular load profiles that inform behind-the-meter behavior. Deployed at U.S. utilities since 2018.</p>
+                        <ul class="product-highlights">
+                            <li>Power-flow-based tamper detection on interval data</li>
+                            <li>Secondary network topology discovery without GIS</li>
+                            <li>Deployed at U.S. utilities since 2018</li>
+                            <li>Foundation for load forecasting and DER visibility</li>
+                        </ul>
+                        <span class="tech-tag">Power Flow Analysis</span>
+                        <span class="tech-tag">Anomaly Detection</span>
+                    </div>
+                    <div class="product-card full-width fade-in">
+                        <span class="maturity-badge badge-experience">eSmart Systems &middot; 2019&ndash;2022</span>
+                        <h3>Infrastructure Inspection &amp; Digital Twins</h3>
+                        <p>Drone-based computer vision inspecting thousands of poles, insulators, and conductors per day. Semantic segmentation classifies every component in the frame; super resolution recovers fine-grained detail from standard drone cameras; human-in-the-loop workflows keep false positives low enough for field crews to act on. Led AI/analytics serving utility clients across North America, Europe, and Asia-Pacific.</p>
+                        <ul class="product-highlights">
+                            <li>Semantic segmentation for asset classification and defect detection</li>
+                            <li>Super resolution from standard drone cameras</li>
+                            <li>Human-in-the-loop ML workflows for global utility clients</li>
+                            <li>Condition-based maintenance to replace time-based schedules</li>
+                        </ul>
+                        <span class="tech-tag">Computer Vision</span>
+                        <span class="tech-tag">Drone Inspection</span>
+                        <span class="tech-tag">Digital Twin</span>
+                    </div>
                 </div>
             </div>
         </section>
