@@ -280,6 +280,13 @@
             grid-column: 1 / -1;
         }
 
+        .product-card.use-case {
+            padding: 28px;
+            background: rgba(26, 32, 53, 0.6);
+        }
+        .product-card.use-case h3 { font-size: 1.1rem; margin-bottom: 8px; }
+        .product-card.use-case > p { font-size: 0.9rem; line-height: 1.6; margin-bottom: 0; color: var(--text-secondary); }
+
         .maturity-badge {
             display: inline-flex;
             align-items: center;
@@ -694,8 +701,8 @@
                     <div class="capability-group-header">
                         <div class="capability-group-icon">&#9881;</div>
                         <div>
-                            <h3>Energy Market Forecasting</h3>
-                            <p>For sophisticated trading desks, hedge funds, asset operators, and utility risk managers</p>
+                            <h3>Where it applies</h3>
+                            <p>Configurable forecasting infrastructure plus the use cases it enables</p>
                         </div>
                     </div>
                     <div class="products-grid">
@@ -711,25 +718,21 @@
                             </ul>
                             <div class="world-model-feed"><strong>How it differs:</strong> Statistical platforms produce predictions clients cannot configure. Planning-grade simulators are configurable but too slow for daily operations. Our architecture is engineered for the gap between them.</div>
                         </div>
-                        <div class="product-card fade-in">
-                            <span class="maturity-badge badge-shipped">Shipped</span>
-                            <h3>Thermal Commitment Signal</h3>
-                            <p>A daily signal that predicts how thermal generation actually commits in real time, beyond what day-ahead markets reveal. The divergence between this prediction and the day-ahead clearing correlates with stress events &mdash; a structural pattern that emerges from how two-settlement markets are designed to operate.</p>
-                            <ul class="product-highlights">
-                                <li>Validated on multi-year ISO operational data</li>
-                                <li>Daily output for active trading desks</li>
-                                <li>Architecture portable to other two-settlement markets</li>
-                            </ul>
+                        <div class="product-card use-case fade-in">
+                            <h3>Market Forecasting</h3>
+                            <p>Physics-aware day-ahead and real-time price forecasting, configurable with proprietary information no third-party model captures.</p>
                         </div>
-                        <div class="product-card fade-in">
-                            <span class="maturity-badge badge-shipped">Shipped</span>
-                            <h3>Battery Fleet Outlook</h3>
-                            <p>Forecasts battery fleet dispatch with calibrated uncertainty bounds and zonal allocation. Built around the empirical reality of how operators actually behave at current fleet scale, with uncertainty bounds that adapt as the fleet grows.</p>
-                            <ul class="product-highlights">
-                                <li>Calibrated prediction intervals, transparently auditable</li>
-                                <li>Zonal allocation grounded in operational fleet data</li>
-                                <li>Honest about what learned models can and cannot improve</li>
-                            </ul>
+                        <div class="product-card use-case fade-in">
+                            <h3>CRR &amp; Congestion Analytics</h3>
+                            <p>Congestion revenue rights valuation across forward scenarios, with transmission constraint shadow pricing decomposed into the drivers that actually move basis.</p>
+                        </div>
+                        <div class="product-card use-case fade-in">
+                            <h3>Asset Operations Advisory</h3>
+                            <p>Risk-aware dispatch and bidding for batteries, hybrids, and thermal fleets &mdash; scheduled against physics-consistent forecasts of the environment they'll meet.</p>
+                        </div>
+                        <div class="product-card use-case fade-in">
+                            <h3>Counterfactual Planning</h3>
+                            <p>Scenario analysis for asset siting, retirement impact, transmission outages, and market design changes &mdash; without the latency of project-based consulting.</p>
                         </div>
                     </div>
                 </div>
