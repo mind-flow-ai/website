@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MindFlow.ai — Physics-Aware AI for Electricity Markets</title>
-    <meta name="description" content="MindFlow.ai builds physics-aware AI for electricity markets. A configurable market simulator combining LP-based dispatch with empirical behavioral models — forecasting infrastructure for sophisticated traders and asset operators.">
+    <title>MindFlow.ai — Physics-Aware, Neural-Symbolic AI for Energy</title>
+    <meta name="description" content="MindFlow.ai builds physics-aware, neural-symbolic AI for energy. Neural networks learn patterns; symbolic solvers enforce physical constraints. AI engineered for the high-stakes, mission-critical reality of energy decisions.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -492,42 +492,41 @@
             <div class="hero-grid"></div>
             <div class="container">
                 <div class="hero-content">
-                    <div class="hero-badge">Physics-Aware AI for Energy</div>
+                    <div class="hero-badge">Physics-Aware &middot; Neural-Symbolic</div>
                     <h1>
-                        A <span class="gradient-text">physics-based simulator</span><br>
-                        for electricity markets
+                        AI that respects the <span class="gradient-text">physics of energy</span>
                     </h1>
                     <p class="hero-sub">
-                        Pure ML approaches struggle with the discontinuous, LP-driven structure of nodal prices. MindFlow.ai combines a Linear Programming replica of grid dispatch with empirical models of participant behavior &mdash; configurable forecasting infrastructure that traders inject their own information into, not a black-box prediction to evaluate.
+                        Energy systems are physics-constrained and high-stakes. Pure neural networks offer no guarantees; pure optimization can't keep pace with modern complexity. MindFlow.ai builds AI that combines both &mdash; neural networks learn the patterns, symbolic solvers enforce the physics. Engineered for decisions where being correct matters as much as being accurate.
                     </p>
                     <div class="hero-actions">
-                        <a href="#vision" class="btn btn-primary">Why Physics-Based</a>
-                        <a href="#capabilities" class="btn btn-secondary">Explore the Platform</a>
+                        <a href="#vision" class="btn btn-primary">Why Neural-Symbolic</a>
+                        <a href="#capabilities" class="btn btn-secondary">What We Build</a>
                     </div>
                 </div>
                 <div class="hero-showcase fade-in">
-                    <img src="screenshots/network_map.png" alt="Synthetic U.S. grid — buses colored by locational marginal price, generators by fuel type, congested branches highlighted">
+                    <img src="screenshots/network_map.png" alt="Power grid visualization — nodes colored by physical state, edges showing constraint activity">
                     <div class="glow-overlay"></div>
-                    <div class="showcase-label">Physics engine output &mdash; nodal LMPs, fuel mix, binding congestion on a 2,000-bus network</div>
+                    <div class="showcase-label">Physics-aware AI applied to grid-scale decisions</div>
                 </div>
                 <div class="hero-metrics-wrap">
-                    <div class="hero-metrics-label">Behavioral Engine &mdash; Empirical Validation on ERCOT</div>
+                    <div class="hero-metrics-label">Track Record</div>
                     <div class="hero-metrics-row">
                         <div class="hero-metric">
-                            <div class="number">3.14x</div>
-                            <div class="label">Commitment accuracy vs. day-ahead</div>
+                            <div class="number">20+</div>
+                            <div class="label">Years AI + energy</div>
                         </div>
                         <div class="hero-metric">
-                            <div class="number">+0.52</div>
-                            <div class="label">RT scarcity correlation</div>
+                            <div class="number">$900M</div>
+                            <div class="label">Value delivered, prior work</div>
                         </div>
                         <div class="hero-metric">
-                            <div class="number">5.6x</div>
-                            <div class="label">Scarcity ratio on flagged days</div>
+                            <div class="number">13</div>
+                            <div class="label">Peer-reviewed publications</div>
                         </div>
                         <div class="hero-metric">
-                            <div class="number">22 mo.</div>
-                            <div class="label">Battery fleet validation depth</div>
+                            <div class="number">Patent</div>
+                            <div class="label">Neural-symbolic AI for grid ops</div>
                         </div>
                     </div>
                 </div>
@@ -537,47 +536,47 @@
         <!-- Vision -->
         <section id="vision">
             <div class="container">
-                <span class="section-label">Why Physics-Based</span>
-                <h2 class="section-title">The forecasting problem traders actually face</h2>
+                <span class="section-label">Why Neural-Symbolic</span>
+                <h2 class="section-title">The architecture energy demands</h2>
                 <div class="vision-content">
                     <p>
-                        Locational marginal prices are determined by Security-Constrained Economic Dispatch &mdash; a Linear Program that minimizes generation cost subject to power balance, transmission limits, and ancillary service requirements. The LP's dual variables become LMPs. This mathematical structure has properties that make pure statistical prediction systematically hard.
+                        Energy is one of the few domains where AI must be <strong>correct</strong>, not just accurate. A misjudged dispatch can damage equipment. A violated constraint can cascade into a blackout. A mispriced position can leak material capital. The cost of being wrong is asymmetric and physical.
                     </p>
                     <p>
-                        <strong>LMPs change discontinuously when binding constraints change.</strong> On a normal day, transmission limits are slack and prices reflect the marginal generator. On a stressed day, specific constraints bind and prices jump. The transition is structural, not gradual. State-of-the-art ML &mdash; even Temporal Fusion Transformers &mdash; fits the smooth regime well but breaks on the regime transitions that produce the largest commercial value.
+                        <strong>Pure neural networks offer no guarantees.</strong> They are probabilistic black boxes &mdash; impressive on average, untrustworthy in the regimes that matter most. <strong>Pure mathematical optimization is rigorous but slow</strong>, struggling to keep pace as grids, markets, and asset fleets grow more complex.
                     </p>
                     <p>
-                        Sophisticated traders also have <strong>private information that no third-party model captures</strong>: specific generator outages, weather forecasts they trust more than defaults, fuel constraints, transmission maintenance schedules. They cannot use this information effectively with statistical tools because those tools produce outputs the trader cannot configure with their own knowledge.
+                        <strong>Neural-symbolic AI is the architecture engineered for this tension.</strong> Neural networks learn complex, non-linear patterns from data. Symbolic solvers enforce hard physical constraints exactly. The neural part proposes; the symbolic solver verifies and decides. AI never has the final word on physics.
                     </p>
                     <p>
-                        <strong>MindFlow.ai builds the simulator they need.</strong> A Linear Programming replica of dispatch combined with empirical models of participant behavior, exposed as configurable forecasting infrastructure. Defaults from validated behavioral models for inputs the trader doesn't override; the LP solves with whatever combination of defaults and overrides is specified. The trader stops trying to learn the LP from data and starts solving it directly with the right inputs.
+                        MindFlow.ai applies this architecture across energy decisions &mdash; market forecasting, dispatch optimization, asset health. Each application uses the same underlying principle: <strong>physics-aware AI that respects the laws energy systems actually operate by</strong>.
                     </p>
                 </div>
                 <div class="loop-visual fade-in">
                     <div class="loop-step sense">
-                        <div class="loop-step-number">01 &mdash; Physics</div>
-                        <div class="loop-icon">&#9879;</div>
-                        <h3>Physics Engine</h3>
-                        <div class="loop-subtitle">LP Replica of SCED</div>
-                        <p>Topology-independent power flow with DC-OPF, PTDF/LODF, lazy N-1 contingencies, and generic constraint structures. Validated on academic benchmarks ahead of FNM access.</p>
+                        <div class="loop-step-number">01 &mdash; Neural</div>
+                        <div class="loop-icon">&#129504;</div>
+                        <h3>Learn</h3>
+                        <div class="loop-subtitle">Patterns from data</div>
+                        <p>Neural networks learn how energy systems behave &mdash; participant dispatch patterns, asset health signatures, demand evolution. Where the data is rich and the structure is non-linear, learned models excel.</p>
                     </div>
                     <div class="loop-step understand">
-                        <div class="loop-step-number">02 &mdash; Behavior</div>
-                        <div class="loop-icon">&#129504;</div>
-                        <h3>Behavioral Engine</h3>
-                        <div class="loop-subtitle">Empirical Defaults</div>
-                        <p>Per-fuel commitment prediction, battery fleet dispatch with conformal calibration, default load &amp; renewable forecasts. The methodology that empirically wins for each prediction target.</p>
+                        <div class="loop-step-number">02 &mdash; Symbolic</div>
+                        <div class="loop-icon">&#9879;</div>
+                        <h3>Constrain</h3>
+                        <div class="loop-subtitle">Physics enforced exactly</div>
+                        <p>Mathematical solvers enforce the rules energy systems must obey &mdash; power balance, transmission limits, ramp rates, contractual obligations. These are hard constraints, not soft penalties.</p>
                     </div>
                     <div class="loop-step optimize">
-                        <div class="loop-step-number">03 &mdash; Configure</div>
+                        <div class="loop-step-number">03 &mdash; Hybrid</div>
                         <div class="loop-icon">&#9881;</div>
-                        <h3>Override Mechanism</h3>
-                        <div class="loop-subtitle">Trader-Injected Inputs</div>
-                        <p>Generator outages, custom weather views, transmission derates, contingency scenarios. Each override flows into the LP; the simulator solves with the trader's specific information intact.</p>
+                        <h3>Decide</h3>
+                        <div class="loop-subtitle">Feasible by construction</div>
+                        <p>The combination produces decisions that are both pattern-aware and physically valid. Operators get the speed of learned heuristics with the guarantees of exact optimization &mdash; no hallucinated power flows, no infeasible plans.</p>
                     </div>
                 </div>
                 <div class="loop-convergence fade-in">
-                    <p><strong>The platform thesis:</strong> Pure physics requires every input specified manually. Pure ML cannot represent the LP that actually produces LMPs. The combination &mdash; empirical defaults plus physics-consistent solving plus trader-configurable overrides &mdash; is forecasting infrastructure, not a forecast service.</p>
+                    <p><strong>The architecture thesis:</strong> The transitioning grid &mdash; with growing renewable penetration, distributed energy resources, and market complexity &mdash; needs analytical infrastructure that current tools don't provide. Physics-aware, neural-symbolic AI is engineered for that gap.</p>
                 </div>
             </div>
         </section>
@@ -586,79 +585,56 @@
         <section id="capabilities">
             <div class="container">
                 <span class="section-label">Platform</span>
-                <h2 class="section-title">A configurable simulator built on validated foundations</h2>
+                <h2 class="section-title">Physics-aware AI for energy decisions</h2>
                 <p class="section-desc">
-                    The flagship is the configurable LMP simulator. Empirical behavioral modules ship first as standalone signals, validating the foundation while the full simulator integrates.
+                    Current commercial focus is electricity markets &mdash; physics-aware forecasting infrastructure for sophisticated trading desks, asset operators, and risk managers. Standalone signal modules ship first; the integrated forecasting platform follows.
                 </p>
 
-                <!-- SIMULATE -->
                 <div class="capability-group group-optimize">
                     <div class="capability-group-header">
                         <div class="capability-group-icon">&#9881;</div>
                         <div>
-                            <h3>Simulate &mdash; Market &amp; Dispatch</h3>
-                            <p>Configurable forecasting infrastructure for sophisticated traders, asset operators, and risk managers</p>
+                            <h3>Energy Market Forecasting</h3>
+                            <p>For sophisticated trading desks, hedge funds, asset operators, and utility risk managers</p>
                         </div>
                     </div>
                     <div class="products-grid">
                         <div class="product-card flagship fade-in">
                             <div class="product-card-content">
-                                <span class="maturity-badge badge-research">V2 &middot; In Development</span>
-                                <h3>Configurable LMP Simulator</h3>
-                                <p>An LP replica of ERCOT's Security-Constrained Economic Dispatch composed with empirical defaults from the behavioral engine. Clients run the simulator with no overrides for V2's best default forecast, or override any input through the configuration interface &mdash; specific generator outages, custom wind/solar forecasts, fleet commitment adjustments, transmission derates, contingency scenarios. Each override flows through to the SCED replica; the LP solves with whatever combination of defaults and overrides was specified. Output includes nodal LMPs, transmission flows, binding constraints with shadow prices, and sensitivities &mdash; the same output structure ERCOT's SCED produces.</p>
+                                <span class="maturity-badge badge-research">In Development</span>
+                                <h3>Physics-Aware Forecasting Platform</h3>
+                                <p>Configurable forecasting infrastructure that combines neural prediction of market participant behavior with symbolic dispatch optimization. Sophisticated clients configure the platform with their own information &mdash; outage knowledge, weather views, transmission events &mdash; and receive physics-consistent outcomes that respect both the grid's optimization and their proprietary knowledge.</p>
                                 <ul class="product-highlights">
-                                    <li>LP replica of SCED with full transmission constraints</li>
-                                    <li>Override interface for outages, forecasts, commitments, contingencies</li>
-                                    <li>Day-ahead and real-time horizons; CRR valuation as a fast-follow</li>
-                                    <li>Topology-independent core &mdash; ERCOT first, PJM and CAISO to follow</li>
+                                    <li>Neural-symbolic forecasting at operational timescales</li>
+                                    <li>Configurable client overrides for proprietary information</li>
+                                    <li>Day-ahead and real-time horizons</li>
+                                    <li>Multi-market portable architecture</li>
                                 </ul>
-                                <div class="product-stat">
-                                    <div class="product-stat-item">
-                                        <div class="stat-value">5-min</div>
-                                        <div class="stat-label">SCED interval</div>
-                                    </div>
-                                    <div class="product-stat-item">
-                                        <div class="stat-value">N-1</div>
-                                        <div class="stat-label">Lazy contingencies</div>
-                                    </div>
-                                    <div class="product-stat-item">
-                                        <div class="stat-value">3</div>
-                                        <div class="stat-label">Priority ISOs</div>
-                                    </div>
-                                </div>
-                                <div class="world-model-feed"><strong>How it differs:</strong> Statistical platforms produce predictions you cannot configure. Production cost models are configurable but operate at planning timescales. The simulator runs at operational timescales with full configurability.</div>
+                                <div class="world-model-feed"><strong>How it differs:</strong> Statistical platforms produce predictions clients cannot configure. Planning-grade simulators are configurable but too slow for daily operations. Our architecture is engineered for the gap between them.</div>
                             </div>
                             <div class="product-card-screenshot">
-                                <img src="screenshots/network_map.png" alt="Simulator output: nodal LMPs across a 2,000-bus network with congested branches highlighted">
+                                <img src="screenshots/network_map.png" alt="Grid-scale visualization">
                             </div>
                         </div>
                         <div class="product-card fade-in">
-                            <span class="maturity-badge badge-shipped">Shipped &middot; Module Two</span>
-                            <h3>Commit-Divergence Signal</h3>
-                            <p>Per-fuel, per-hour XGBoost models predicting next-day thermal commitment given pre- and post-DAM information. The day-ahead market is structurally lean relative to real-time operations &mdash; CCGT90 alone is under-committed by roughly 6 GW on average. Module Two predicts true RT commitment and flags hours where DAM divergence is largest, which correlates strongly with real-time scarcity.</p>
+                            <span class="maturity-badge badge-shipped">Shipped</span>
+                            <h3>Thermal Commitment Signal</h3>
+                            <p>A daily signal that predicts how thermal generation actually commits in real time, beyond what day-ahead markets reveal. The divergence between this prediction and the day-ahead clearing correlates with stress events &mdash; a structural pattern that emerges from how two-settlement markets are designed to operate.</p>
                             <ul class="product-highlights">
-                                <li>3.14&times; mean accuracy over DA on CCGT90 (113-day held-out)</li>
-                                <li>+0.52 correlation between |V2 &minus; DA| divergence and RT scarcity</li>
-                                <li>$213 vs. $38 RT max price on top- vs. bottom-quartile divergence days</li>
-                                <li>Seven validated zonal predictions across 32 zone&times;fuel combinations</li>
+                                <li>Validated on multi-year ISO operational data</li>
+                                <li>Daily output for active trading desks</li>
+                                <li>Architecture portable to other two-settlement markets</li>
                             </ul>
-                            <span class="tech-tag">XGBoost</span>
-                            <span class="tech-tag">ERCOT SCED</span>
-                            <span class="tech-tag">Daily Output</span>
-                            <div class="world-model-feed"><strong>Why structural:</strong> The under-commitment gap exists because of how DAM and RT operations are designed to interact &mdash; not weather-specific. The same pattern likely exists in every two-settlement market with reliability unit commitment.</div>
                         </div>
                         <div class="product-card fade-in">
-                            <span class="maturity-badge badge-shipped">Shipped &middot; Module One</span>
-                            <h3>Battery Fleet Advisor</h3>
-                            <p>System-aggregate battery fleet dispatch prediction with calibrated uncertainty bounds and zonal allocation. The shipped predictor is the persistence-D1/D7 mean &mdash; selected as the empirical winner over five XGBoost variants that did not improve on the baseline. Recency-based conformal calibration produces well-calibrated 90% prediction intervals as the fleet grows from 2 GW to 7.5 GW.</p>
+                            <span class="maturity-badge badge-shipped">Shipped</span>
+                            <h3>Battery Fleet Outlook</h3>
+                            <p>Forecasts battery fleet dispatch with calibrated uncertainty bounds and zonal allocation. Built around the empirical reality of how operators actually behave at current fleet scale, with uncertainty bounds that adapt as the fleet grows.</p>
                             <ul class="product-highlights">
-                                <li>22 months of EIA Form 930 battery dispatch validation</li>
-                                <li>87&ndash;93% empirical coverage on 90% intervals</li>
-                                <li>Zonal allocation from operational roster (89 units, 7.6 GW)</li>
-                                <li>Forward-looking pipeline weights (283 ESR sites, 326 units)</li>
+                                <li>Calibrated prediction intervals, transparently auditable</li>
+                                <li>Zonal allocation grounded in operational fleet data</li>
+                                <li>Honest about what learned models can and cannot improve</li>
                             </ul>
-                            <span class="tech-tag">Conformal Calibration</span>
-                            <span class="tech-tag">Persistence</span>
                         </div>
                     </div>
                 </div>
@@ -670,35 +646,34 @@
         <section id="technology">
             <div class="container">
                 <span class="section-label">Technology</span>
-                <h2 class="section-title">Physics + empirical, exposed as infrastructure</h2>
+                <h2 class="section-title">Neural-symbolic, by design</h2>
                 <div class="tech-intro">
-                    <p>The simulator is a composition of three layers, each chosen because the market demands it. <strong>Linear programming</strong> reproduces the optimization that actually clears the market every five minutes. <strong>Empirical behavioral models</strong> fill in the inputs the LP needs from the real world. <strong>A topology-independent core</strong> means the same engine adapts to ERCOT, PJM, and CAISO through parser adapters, not rewrites.</p>
-                    <p>This architecture is what makes it possible to use AI in a mission-critical physics environment without hallucinating power flows &mdash; and to ship it as configurable infrastructure rather than a black-box prediction service.</p>
+                    <p>Four technical principles guide every product MindFlow.ai builds. Each is chosen because the energy domain demands it &mdash; not because the technology is fashionable.</p>
                 </div>
                 <div class="tech-grid">
                     <div class="tech-card fade-in">
-                        <div class="tech-card-icon">&#9879;</div>
-                        <h3>Linear Programming Dispatch</h3>
-                        <p>An LP replica of Security-Constrained Economic Dispatch with continuous variables for generator dispatch, an objective minimizing dispatch cost, and constraints including power balance at each bus plus line flow limits enforced through the physics engine. The same output structure ERCOT's SCED produces &mdash; LMPs, flows, binding constraint shadow prices &mdash; but with every input configurable by the client. Solver-agnostic: HiGHS, Gurobi, or CPLEX.</p>
+                        <div class="tech-card-icon">&#129504;</div>
+                        <h3>Neural Pattern Learning</h3>
+                        <p>Machine learning where it adds real value: complex non-linear patterns in participant behavior, asset health, demand evolution. The architecture chooses the simplest model that empirically wins for each prediction target &mdash; honest about what learned models can and cannot improve.</p>
                     </div>
                     <div class="tech-card fade-in">
-                        <div class="tech-card-icon">&#129504;</div>
-                        <h3>Empirical Behavioral Models</h3>
-                        <p>Per-fuel XGBoost commitment predictors trained on ERCOT historical data, validated at 3.14&times; over the day-ahead market on CCGT90. Battery fleet dispatch using persistence-D1/D7 mean with recency-based conformal calibration, selected as the empirical winner over five XGBoost variants. The methodology that empirically wins for each prediction target, not uniform sophistication.</p>
+                        <div class="tech-card-icon">&#9879;</div>
+                        <h3>Symbolic Constraint Enforcement</h3>
+                        <p>Mathematical solvers enforce the laws energy systems must obey &mdash; power balance, transmission limits, ramp rates, contractual obligations. These are hard constraints, not soft penalties. The AI never has the final word on physics.</p>
                     </div>
                     <div class="tech-card fade-in">
                         <div class="tech-card-icon">&#127760;</div>
-                        <h3>Topology-Independent Physics Engine</h3>
-                        <p>DC-OPF with PTDF/LODF computation, lazy N-1 contingency enforcement, piecewise-linear cost curves, and generic constraint structures (ERCOT GTCs, PJM flowgates, CAISO paths). The engine operates on a canonical internal representation of buses, branches, generators, and constraints &mdash; ERCOT's FNM, PJM's network data, and academic test cases all plug into the same core through their respective parsers. Validated on MATPOWER case9, ACTIVSg500, and ACTIVSg2000 ahead of FNM access.</p>
+                        <h3>Topology-Independent Architecture</h3>
+                        <p>The physics core operates on a canonical representation of energy networks. Different ISOs, asset fleets, and grid topologies plug into the same engine through adapters &mdash; not rewrites. Multi-market expansion is a parser problem, not an architecture problem.</p>
                     </div>
                     <div class="tech-card fade-in">
                         <div class="tech-card-icon">&#9881;</div>
-                        <h3>Override-First Configuration</h3>
-                        <p>Clients override any input through the configuration interface: generator outage status, custom wind/solar forecasts, fleet commitment overrides, transmission derates, contingency scenarios. Each override flows through to the LP as input; the simulator solves with whatever combination of empirical defaults and trader-injected information was specified. Validation logic catches inconsistent overrides before they reach the solver.</p>
+                        <h3>Configurable, Not Prescriptive</h3>
+                        <p>Sophisticated clients have proprietary information no third-party model captures. The platform is engineered to accept client-injected information as a first-class input, not a workaround. Defaults from validated models where the client has no view; client overrides where they do.</p>
                     </div>
                 </div>
                 <div class="tech-founder-note fade-in">
-                    <p><strong>Why this architecture:</strong> The most commercially valuable LMP forecasts &mdash; what happens during stress events when transmission constraints bind unexpectedly &mdash; are exactly where pure ML systematically fails, because the underlying price formation is a Linear Program with discontinuous regime transitions. Pure physics requires every input specified manually, which is impractical for daily operations. MindFlow.ai's hybrid is engineered for the gap: empirical behavioral models for inputs the trader doesn't override, LP-based solving once inputs are specified. <strong>Higher-fidelity capabilities &mdash; AC power flow, SCUC replication, GNN-accelerated scenario search, narrow-scope reinforcement learning &mdash; are deferred to V3</strong>, gated on V2 commercial traction revealing which advancements have the clearest client value.</p>
+                    <p><strong>Why this architecture:</strong> Energy is one of the few domains where AI must be correct, not just accurate. Pure neural networks fail on the regime transitions that produce the largest commercial value, because they offer no physical guarantees. Pure optimization is rigorous but impractical at the timescales operations actually run on. Neural-symbolic AI is engineered for this tension &mdash; learned heuristics where they earn their place, mathematical solvers everywhere physics demands exact enforcement. This isn't a generic foundation model thrown at energy. It's an architecture engineered for the high-stakes, physics-constrained reality of energy systems.</p>
                 </div>
             </div>
         </section>
@@ -706,33 +681,11 @@
         <!-- Dashboard Showcase -->
         <section id="dashboard">
             <div class="container">
-                <span class="section-label">Physics Engine</span>
-                <h2 class="section-title">What the simulator outputs, validated at grid scale</h2>
+                <span class="section-label">In Practice</span>
+                <h2 class="section-title">Physics-aware AI applied at grid scale</h2>
                 <p class="section-desc">
-                    The physics engine produces nodal LMPs, transmission flows, binding constraint shadow prices, and N-1 security analysis &mdash; the same output structure ERCOT's SCED produces. Validated on academic benchmarks (MATPOWER case9, ACTIVSg500, ACTIVSg2000) ahead of ERCOT FNM integration.
+                    The physics-aware engine produces the diagnostics energy decisions actually require &mdash; nodal prices, transmission flows, binding constraints, contingency security. Validated on standard benchmarks before commercial deployment.
                 </p>
-                <div class="results-grid">
-                    <div class="result-card fade-in">
-                        <div class="value">2,000</div>
-                        <div class="metric-label">Bus Network</div>
-                        <div class="metric-detail">ACTIVSg2000 &middot; 3,206 branches</div>
-                    </div>
-                    <div class="result-card fade-in">
-                        <div class="value">100%</div>
-                        <div class="metric-label">Feasibility Rate</div>
-                        <div class="metric-detail">All physical constraints satisfied</div>
-                    </div>
-                    <div class="result-card fade-in">
-                        <div class="value">N-1</div>
-                        <div class="metric-label">Lazy Contingencies</div>
-                        <div class="metric-detail">LODF-based post-outage screening</div>
-                    </div>
-                    <div class="result-card fade-in">
-                        <div class="value">3</div>
-                        <div class="metric-label">Benchmark Networks</div>
-                        <div class="metric-detail">case9, ACTIVSg500, ACTIVSg2000</div>
-                    </div>
-                </div>
                 <div class="screenshot-showcase fade-in">
                     <div class="screenshot-tabs">
                         <button class="screenshot-tab active" data-target="ss-network-map">Network Map</button>
@@ -750,15 +703,15 @@
                         <img id="ss-commitment" src="screenshots/commitment.png" alt="Commitment">
                         <img id="ss-dispatch" src="screenshots/dispatch.png" alt="Dispatch">
                     </div>
-                    <div class="screenshot-caption active" id="cap-network-map">Geographic visualization of the synthetic U.S. grid. Buses colored by locational marginal price, generators by fuel type. Red lines indicate congested branches (&gt;90% loading) &mdash; exactly the diagnostic traders use to identify CRR opportunities.</div>
-                    <div class="screenshot-caption" id="cap-lmp">LMP heatmap for the top-50 buses by price variation, plus system-wide mean LMP with P5/P95 band. The simulator decomposes nodal prices into energy, congestion, and loss components &mdash; the diagnostics CRR valuation needs.</div>
-                    <div class="screenshot-caption" id="cap-flows">Transmission line loading. Left: heatmap of top-50 branches over time. Right: max loading on the 30 most stressed branches, colored by congestion severity. The same constraints whose shadow prices drive LMP basis.</div>
-                    <div class="screenshot-caption" id="cap-n1">Post-contingency (N-1) security analysis using LODF matrices. Geographic view highlights post-outage overloads. Lazy enforcement keeps solve time tractable while every binding contingency is checked.</div>
-                    <div class="screenshot-caption" id="cap-commitment">Unit commitment schedule for 83 swing generators across 24 hours. Today these come from the behavioral engine's empirical predictions; SCUC replication is a V3 fidelity advancement.</div>
-                    <div class="screenshot-caption" id="cap-dispatch">Generation stack showing fuel mix dispatch over the day. CCGT and renewables dominate, with peakers filling shoulder hours &mdash; the same composition Module Two predicts at higher accuracy than the day-ahead market.</div>
+                    <div class="screenshot-caption active" id="cap-network-map">Grid-scale visualization with locational price signals and physical congestion overlaid. The diagnostic operators and traders actually need to see physics binding in real time.</div>
+                    <div class="screenshot-caption" id="cap-lmp">Locational price evolution across the network. The architecture decomposes nodal prices into their physical drivers, surfacing what's actually moving the market.</div>
+                    <div class="screenshot-caption" id="cap-flows">Transmission loading at scale. Highlights the constraints whose physics is most consequential for downstream prices and reliability.</div>
+                    <div class="screenshot-caption" id="cap-n1">Contingency security analysis. Surfaces post-outage overloads while keeping the analysis tractable at grid scale.</div>
+                    <div class="screenshot-caption" id="cap-commitment">Generator commitment over time. The behavioral layer learns how operators actually commit; the physics layer enforces the resulting schedule's feasibility.</div>
+                    <div class="screenshot-caption" id="cap-dispatch">Generation stack across the operating day. The architecture produces the full output structure energy operations actually consume.</div>
                 </div>
                 <div class="results-note">
-                    Validated on <code>case9</code>, <code>ACTIVSg500</code>, <code>ACTIVSg2000</code> &middot; ERCOT FNM integration in progress &middot; Solver-agnostic: <code>HiGHS</code>, <code>Gurobi</code>, <code>CPLEX</code>
+                    Validated on standard power-systems benchmarks. Commercial integration with ISO data sources in progress.
                 </div>
             </div>
         </section>
@@ -775,10 +728,10 @@
                     <div class="pub-card fade-in">
                         <div class="pub-icon patent">&#128196;</div>
                         <div class="pub-content">
-                            <h3>ML-Accelerated Security-Constrained Unit Commitment</h3>
+                            <h3>Neural-Symbolic AI for Power System Optimization</h3>
                             <div class="pub-meta">Hu, Z. &middot; 2025 &middot; <em>Patent Application Filed</em></div>
-                            <p>GNN-based neuro-symbolic pipeline for accelerating SCUC via commitment prediction, line screening, and reduced MIP formulation. 10.2&times; mean speedup with 100% feasibility on ACTIVSg2000. Foundational research for V3 simulator fidelity &mdash; integrated when client demand for SCUC counterfactuals justifies the engineering investment.</p>
-                            <span class="pub-highlight patent-pending">Patent Pending &middot; V3 Capability</span>
+                            <p>Architecture combining graph neural networks with mathematical programming to accelerate large-scale grid optimization while preserving physical feasibility. The technical foundation underpinning MindFlow.ai's physics-aware AI approach.</p>
+                            <span class="pub-highlight patent-pending">Patent Pending</span>
                         </div>
                     </div>
                     <div class="pub-card fade-in">
@@ -812,48 +765,37 @@
                 <span class="section-label">Prior Experience</span>
                 <h2 class="section-title">Production deployments at prior organizations</h2>
                 <p class="section-desc">
-                    Three production AI/optimization systems shipped at prior companies &mdash; the track record that informs how MindFlow.ai builds and validates its current platform.
+                    Production AI and optimization systems shipped at prior companies &mdash; the track record that informs how MindFlow.ai builds and validates physics-aware AI today.
                 </p>
                 <div class="products-grid">
                     <div class="product-card fade-in">
                         <span class="maturity-badge badge-proven">The Energy Authority &middot; 2010&ndash;2019</span>
                         <h3>Hydro Optimization</h3>
-                        <p>The Columbia River system &mdash; 31 dams, complex water rights, environmental flow constraints, generation coordinated across multiple utilities. The optimization model routes water through the entire system while maximizing generation value, respecting fish passage, flood control, and contractual obligations. Ran in production for nearly a decade.</p>
+                        <p>Large-scale hydroelectric system optimization &mdash; coordinating generation across dozens of dams while respecting water rights, environmental flow constraints, and contractual obligations. Ran in production for nearly a decade across multiple utilities.</p>
                         <ul class="product-highlights">
-                            <li>Multi-objective MILP across 31 dams</li>
                             <li>INFORMS Edelman Award finalist</li>
                             <li>$700&ndash;900M total value delivered, $1.5M ARR</li>
                             <li>Published in <em>INFORMS Interfaces</em> (2014)</li>
                         </ul>
-                        <span class="tech-tag">MILP</span>
-                        <span class="tech-tag">Water Routing</span>
                     </div>
                     <div class="product-card fade-in">
                         <span class="maturity-badge badge-research">The Energy Authority &middot; 2018&ndash;</span>
                         <h3>Smart Meter Intelligence</h3>
-                        <p>Utilities collect billions of interval meter readings, most of which sit unused beyond basic billing. Power-flow-based analytics extract deeper signal: tamper detection through anomalies in nodal flow conservation, secondary network topology discovery without GIS data, and granular load profiles that inform behind-the-meter behavior. Deployed at U.S. utilities since 2018.</p>
+                        <p>Analytics on utility interval-meter data, surfacing what billions of readings reveal about distribution-grid behavior &mdash; from anomaly detection to topology discovery to behind-the-meter visibility. Deployed at U.S. utilities since 2018.</p>
                         <ul class="product-highlights">
-                            <li>Power-flow-based tamper detection on interval data</li>
-                            <li>Secondary network topology discovery without GIS</li>
-                            <li>Deployed at U.S. utilities since 2018</li>
+                            <li>Production at multiple U.S. utilities</li>
                             <li>Foundation for load forecasting and DER visibility</li>
                         </ul>
-                        <span class="tech-tag">Power Flow Analysis</span>
-                        <span class="tech-tag">Anomaly Detection</span>
                     </div>
                     <div class="product-card full-width fade-in">
                         <span class="maturity-badge badge-experience">eSmart Systems &middot; 2019&ndash;2022</span>
                         <h3>Infrastructure Inspection &amp; Digital Twins</h3>
-                        <p>Drone-based computer vision inspecting thousands of poles, insulators, and conductors per day. Semantic segmentation classifies every component in the frame; super resolution recovers fine-grained detail from standard drone cameras; human-in-the-loop workflows keep false positives low enough for field crews to act on. Led AI/analytics serving utility clients across North America, Europe, and Asia-Pacific.</p>
+                        <p>Computer vision for drone-based inspection of grid infrastructure at scale. Led AI/analytics serving utility clients across North America, Europe, and Asia-Pacific &mdash; turning periodic visual inspection into continuously-updated asset health intelligence.</p>
                         <ul class="product-highlights">
-                            <li>Semantic segmentation for asset classification and defect detection</li>
-                            <li>Super resolution from standard drone cameras</li>
-                            <li>Human-in-the-loop ML workflows for global utility clients</li>
-                            <li>Condition-based maintenance to replace time-based schedules</li>
+                            <li>Production deployments across three continents</li>
+                            <li>Human-in-the-loop workflows trusted by field operations</li>
+                            <li>Condition-based maintenance replacing time-based schedules</li>
                         </ul>
-                        <span class="tech-tag">Computer Vision</span>
-                        <span class="tech-tag">Drone Inspection</span>
-                        <span class="tech-tag">Digital Twin</span>
                     </div>
                 </div>
             </div>
@@ -912,7 +854,7 @@
                         <div class="credential-card fade-in">
                             <div class="cred-value">20+</div>
                             <h4>Years in AI + Energy</h4>
-                            <p>Built every layer of the Sense/Understand/Optimize stack in production, at different companies, over two decades.</p>
+                            <p>Production AI and optimization systems shipped at multiple companies across two decades. The convergence of an entire career.</p>
                         </div>
                         <div class="credential-card fade-in">
                             <div class="cred-value">$900M</div>
@@ -938,25 +880,25 @@
         <section id="roadmap">
             <div class="container">
                 <span class="section-label">Roadmap</span>
-                <h2 class="section-title">From ERCOT pilot to multi-market simulator</h2>
+                <h2 class="section-title">Building toward physics-aware energy AI</h2>
                 <p class="section-desc">
-                    Behavioral modules ship first as standalone signals. The configurable simulator follows once ERCOT FNM integration completes. Multi-market expansion and V3 fidelity advancements are gated on commercial traction.
+                    Standalone signals first. Integrated forecasting next. Higher-fidelity capabilities as commercial traction reveals where the architecture earns deeper investment.
                 </p>
                 <div class="roadmap">
                     <div class="roadmap-phase active fade-in">
-                        <div class="phase-label">Now &mdash; V2 ERCOT</div>
-                        <h3>Behavioral Engine + Configurable Simulator</h3>
-                        <p>Module Two (commit-divergence) and Module One (battery fleet advisor) in pilot engagements. Configurable LMP simulator targeting demo-ready at month 2&ndash;3 from current state, with first commercial revenue at the simulator tier realistic at month 4&ndash;6 if pilots convert. ERCOT FNM integration is the immediate post-FNM work &mdash; 4&ndash;8 weeks for end-to-end SCED replication on historical data.</p>
+                        <div class="phase-label">Now</div>
+                        <h3>Energy Markets, First ISO</h3>
+                        <p>Standalone behavioral signal modules in pilot engagements with sophisticated trading desks and asset operators. The integrated physics-aware forecasting platform follows as commercial validation matures.</p>
                     </div>
                     <div class="roadmap-phase fade-in">
-                        <div class="phase-label">Next &mdash; V2 Multi-Market</div>
-                        <h3>PJM, then CAISO</h3>
-                        <p>The physics engine is topology-independent and the behavioral engine's core predictors are ISO-agnostic &mdash; only data ingestion adapters are market-specific. PJM is the priority expansion target (largest public data transparency, growing battery fleet, capacity market). CAISO follows (largest operational battery fleet, three-settlement structure). The under-commitment pattern likely exists in every two-settlement market with reliability unit commitment.</p>
+                        <div class="phase-label">Next</div>
+                        <h3>Multi-Market Expansion</h3>
+                        <p>The architecture is portable across U.S. electricity markets by design. Adjacent ISOs follow once the first market is commercially validated &mdash; data adapters, not architectural rewrites.</p>
                     </div>
                     <div class="roadmap-phase fade-in">
-                        <div class="phase-label">Future &mdash; V3 Fidelity</div>
-                        <h3>Higher-Fidelity Simulator</h3>
-                        <p>Progressive advancements gated on validated client demand: AC power flow modeling for voltage-stressed regimes, SCUC replication for counterfactual commitment analysis (the patent-pending GNN acceleration work plugs in here), GNN scenario acceleration for real-time use cases, dynamic reliability constraint handling, narrow-scope reinforcement learning for SOC scheduling. Toward a high-fidelity computational replica of electricity market operations.</p>
+                        <div class="phase-label">Future</div>
+                        <h3>Higher-Fidelity Capabilities</h3>
+                        <p>Progressive advancements gated on validated client demand. Each advancement enables additional product categories that benefit from deeper physical fidelity. Toward a comprehensive physics-aware AI platform for the energy stack.</p>
                     </div>
                 </div>
             </div>
@@ -967,9 +909,9 @@
             <div class="contact-glow"></div>
             <div class="container">
                 <span class="section-label">Get In Touch</span>
-                <h2 class="section-title">Configure the simulator with your information</h2>
+                <h2 class="section-title">Let's build physics-aware AI together</h2>
                 <p class="section-desc">
-                    Trading desks, hedge funds, asset operators with active hedging programs, utilities running scenario-based risk management, ISOs exploring physics-aware AI, researchers working on energy systems &mdash; we'd like to hear from you.
+                    Trading desks, hedge funds, asset operators, utilities, ISOs, and researchers working at the intersection of AI and energy &mdash; we'd like to hear from you.
                 </p>
                 <a href="mailto:contact@mindflow.ai" class="contact-email">contact@mindflow.ai</a>
             </div>
