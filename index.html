@@ -86,6 +86,16 @@
         .hero-metric .number { font-family: 'JetBrains Mono', monospace; font-size: 2rem; font-weight: 700; color: var(--cyan); }
         .hero-metric .label { font-size: 0.85rem; color: var(--text-muted); margin-top: 4px; }
 
+        /* ── Hero architecture illustration ── */
+        .hero-illustration { margin-top: 64px; padding: 32px; border-radius: 16px; background: rgba(26, 32, 53, 0.4); border: 1px solid var(--border); position: relative; overflow: hidden; }
+        .hero-illustration svg { width: 100%; height: auto; display: block; max-width: 1100px; margin: 0 auto; }
+        @keyframes flow-dash { to { stroke-dashoffset: -20; } }
+        .hero-illustration .flow-line { animation: flow-dash 2s linear infinite; }
+        .hero-illustration .pulse { animation: pulse-ring 3s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
+        @keyframes pulse-ring { 0%, 100% { opacity: 0.6; } 50% { opacity: 1; } }
+
+        .contact-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; align-items: center; }
+
         /* ── Section commons ── */
         section { padding: 120px 0; }
         .section-label { display: inline-block; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cyan); margin-bottom: 16px; }
@@ -426,9 +436,113 @@
                         Energy systems are physics-constrained and high-stakes. Pure neural networks offer no guarantees; pure optimization can't keep pace with modern complexity. MindFlow.ai builds AI that combines both &mdash; neural networks learn the patterns, symbolic solvers enforce the physics. Engineered for decisions where being correct matters as much as being accurate.
                     </p>
                     <div class="hero-actions">
-                        <a href="#vision" class="btn btn-primary">Why Neural-Symbolic</a>
-                        <a href="#capabilities" class="btn btn-secondary">What We Build</a>
+                        <a href="mailto:contact@mindflow.ai?subject=Request%20a%20demo" class="btn btn-primary">Request a Demo</a>
+                        <a href="#vision" class="btn btn-secondary">Why Neural-Symbolic</a>
                     </div>
+                </div>
+                <div class="hero-illustration fade-in">
+                    <svg viewBox="0 0 1200 360" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" role="img" aria-labelledby="archTitle archDesc">
+                        <title id="archTitle">Physics-aware AI architecture</title>
+                        <desc id="archDesc">Neural pattern learning combined with symbolic constraint enforcement produces physics-aware decisions for energy systems.</desc>
+                        <defs>
+                            <pattern id="bggrid" width="40" height="40" patternUnits="userSpaceOnUse">
+                                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#22d3ee" stroke-width="0.5" opacity="0.08"/>
+                            </pattern>
+                            <radialGradient id="neuralGrad" cx="50%" cy="50%" r="50%">
+                                <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.35"/>
+                                <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
+                            </radialGradient>
+                            <radialGradient id="symbolicGrad" cx="50%" cy="50%" r="50%">
+                                <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.35"/>
+                                <stop offset="100%" stop-color="#22d3ee" stop-opacity="0"/>
+                            </radialGradient>
+                            <radialGradient id="decisionGrad" cx="50%" cy="50%" r="50%">
+                                <stop offset="0%" stop-color="#34d399" stop-opacity="0.35"/>
+                                <stop offset="100%" stop-color="#34d399" stop-opacity="0"/>
+                            </radialGradient>
+                        </defs>
+
+                        <rect width="1200" height="360" fill="url(#bggrid)"/>
+
+                        <!-- Connecting flow lines -->
+                        <line class="flow-line" x1="290" y1="180" x2="510" y2="180" stroke="#22d3ee" stroke-width="1.6" stroke-dasharray="6 4" opacity="0.5"/>
+                        <path d="M 502 175 L 512 180 L 502 185" stroke="#22d3ee" stroke-width="1.6" fill="none" opacity="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+                        <line class="flow-line" x1="690" y1="180" x2="910" y2="180" stroke="#34d399" stroke-width="1.6" stroke-dasharray="6 4" opacity="0.5"/>
+                        <path d="M 902 175 L 912 180 L 902 185" stroke="#34d399" stroke-width="1.6" fill="none" opacity="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+
+                        <!-- NEURAL -->
+                        <g transform="translate(200, 180)">
+                            <circle r="100" fill="url(#neuralGrad)" class="pulse"/>
+                            <circle r="60" fill="none" stroke="#3b82f6" stroke-width="1.5" opacity="0.55"/>
+                            <g stroke="#3b82f6" fill="#3b82f6">
+                                <g opacity="0.35">
+                                    <line x1="-25" y1="-15" x2="0" y2="-22"/>
+                                    <line x1="-25" y1="-15" x2="0" y2="-7"/>
+                                    <line x1="-25" y1="0" x2="0" y2="-7"/>
+                                    <line x1="-25" y1="0" x2="0" y2="7"/>
+                                    <line x1="-25" y1="0" x2="0" y2="22"/>
+                                    <line x1="-25" y1="15" x2="0" y2="7"/>
+                                    <line x1="-25" y1="15" x2="0" y2="22"/>
+                                    <line x1="0" y1="-22" x2="25" y2="-7"/>
+                                    <line x1="0" y1="-7" x2="25" y2="-7"/>
+                                    <line x1="0" y1="-7" x2="25" y2="7"/>
+                                    <line x1="0" y1="7" x2="25" y2="-7"/>
+                                    <line x1="0" y1="7" x2="25" y2="7"/>
+                                    <line x1="0" y1="22" x2="25" y2="7"/>
+                                </g>
+                                <circle cx="-25" cy="-15" r="3.2"/>
+                                <circle cx="-25" cy="0" r="3.2"/>
+                                <circle cx="-25" cy="15" r="3.2"/>
+                                <circle cx="0" cy="-22" r="3.2"/>
+                                <circle cx="0" cy="-7" r="3.2"/>
+                                <circle cx="0" cy="7" r="3.2"/>
+                                <circle cx="0" cy="22" r="3.2"/>
+                                <circle cx="25" cy="-7" r="3.2"/>
+                                <circle cx="25" cy="7" r="3.2"/>
+                            </g>
+                            <text x="0" y="100" text-anchor="middle" fill="#3b82f6" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="700" letter-spacing="0.12em">NEURAL</text>
+                            <text x="0" y="122" text-anchor="middle" fill="#94a3b8" font-family="Inter, sans-serif" font-size="12">Patterns from data</text>
+                        </g>
+
+                        <!-- SYMBOLIC -->
+                        <g transform="translate(600, 180)">
+                            <circle r="100" fill="url(#symbolicGrad)" class="pulse" style="animation-delay: 1s"/>
+                            <circle r="60" fill="none" stroke="#22d3ee" stroke-width="1.5" opacity="0.55"/>
+                            <g stroke="#22d3ee" stroke-width="1.4" fill="none" opacity="0.85">
+                                <path d="M -22 16 L 22 16 L 0 -22 Z" stroke-linejoin="round"/>
+                                <line x1="-30" y1="28" x2="30" y2="28" opacity="0.55"/>
+                                <line x1="-30" y1="33" x2="30" y2="33" opacity="0.55"/>
+                            </g>
+                            <text x="0" y="3" text-anchor="middle" fill="#22d3ee" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600" opacity="0.85">x &#8804; X&#772;</text>
+                            <text x="0" y="100" text-anchor="middle" fill="#22d3ee" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="700" letter-spacing="0.12em">SYMBOLIC</text>
+                            <text x="0" y="122" text-anchor="middle" fill="#94a3b8" font-family="Inter, sans-serif" font-size="12">Physics enforced</text>
+                        </g>
+
+                        <!-- DECIDE -->
+                        <g transform="translate(1000, 180)">
+                            <circle r="100" fill="url(#decisionGrad)" class="pulse" style="animation-delay: 2s"/>
+                            <circle r="60" fill="none" stroke="#34d399" stroke-width="1.5" opacity="0.55"/>
+                            <g stroke="#34d399" fill="#34d399">
+                                <g opacity="0.45" stroke-width="1.1">
+                                    <line x1="-22" y1="-18" x2="0" y2="-2"/>
+                                    <line x1="22" y1="-18" x2="0" y2="-2"/>
+                                    <line x1="-26" y1="12" x2="0" y2="-2"/>
+                                    <line x1="26" y1="14" x2="0" y2="-2"/>
+                                    <line x1="-22" y1="-18" x2="22" y2="-18"/>
+                                    <line x1="-26" y1="12" x2="26" y2="14"/>
+                                    <line x1="-22" y1="-18" x2="-26" y2="12"/>
+                                    <line x1="22" y1="-18" x2="26" y2="14"/>
+                                </g>
+                                <circle cx="-22" cy="-18" r="3.2"/>
+                                <circle cx="22" cy="-18" r="3.2"/>
+                                <circle cx="-26" cy="12" r="3.2"/>
+                                <circle cx="0" cy="-2" r="3.4"/>
+                                <circle cx="26" cy="14" r="3.2"/>
+                            </g>
+                            <text x="0" y="100" text-anchor="middle" fill="#34d399" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="700" letter-spacing="0.12em">DECIDE</text>
+                            <text x="0" y="122" text-anchor="middle" fill="#94a3b8" font-family="Inter, sans-serif" font-size="12">Feasible by construction</text>
+                        </g>
+                    </svg>
                 </div>
                 <div class="hero-metrics-wrap">
                     <div class="hero-metrics-label">Track Record</div>
@@ -748,7 +862,10 @@
                 <p class="section-desc">
                     Trading desks, hedge funds, asset operators, utilities, ISOs, and researchers working at the intersection of AI and energy &mdash; we'd like to hear from you.
                 </p>
-                <a href="mailto:contact@mindflow.ai" class="contact-email">contact@mindflow.ai</a>
+                <div class="contact-actions">
+                    <a href="mailto:contact@mindflow.ai?subject=Request%20a%20demo" class="btn btn-primary">Request a Demo</a>
+                    <a href="mailto:contact@mindflow.ai" class="contact-email">contact@mindflow.ai</a>
+                </div>
             </div>
         </section>
 
