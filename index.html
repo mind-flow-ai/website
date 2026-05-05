@@ -438,6 +438,7 @@
                     <li><a href="#vision">Vision</a></li>
                     <li><a href="#capabilities">Platform</a></li>
                     <li><a href="#technology">Technology</a></li>
+                    <li><a href="#generative-ai">Generative AI</a></li>
                     <li><a href="#experience">Experience</a></li>
                     <li><a href="#founder">Founder</a></li>
                     <li><a href="#contact" class="nav-cta">Contact</a></li>
@@ -773,6 +774,37 @@
                 </div>
                 <div class="tech-founder-note fade-in">
                     <p><strong>Why this architecture:</strong> Energy is one of the few domains where AI must be correct, not just accurate. Pure neural networks fail on the regime transitions that produce the largest commercial value, because they offer no physical guarantees. Pure optimization is rigorous but impractical at the timescales operations actually run on. Neural-symbolic AI is engineered for this tension &mdash; learned heuristics where they earn their place, mathematical solvers everywhere physics demands exact enforcement. This isn't a generic foundation model thrown at energy. It's an architecture engineered for the high-stakes, physics-constrained reality of energy systems.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Generative AI -->
+        <section id="generative-ai">
+            <div class="container">
+                <span class="section-label">Generative AI</span>
+                <h2 class="section-title">Complementary to ChatGPT, Claude, Gemini &mdash; not competing</h2>
+                <div class="vision-content">
+                    <p>
+                        Sophisticated buyers reasonably ask whether general-purpose large language models eventually subsume what we build. The honest answer is that <strong>LLMs and physics-aware AI occupy different layers of the same stack</strong> &mdash; and the strongest deployments use both.
+                    </p>
+                    <p>
+                        LLMs are statistical models of language. They cannot enforce <strong>Kirchhoff's laws, line thermal limits, or generator ramp constraints</strong>, because those are not statistical regularities but hard equalities the dispatch optimization must satisfy exactly. The most commercially valuable outcomes &mdash; counterfactual scenarios (&ldquo;what if this 800 MW unit trips at peak load&rdquo;) and tail events (scarcity pricing, Winter Storm Uri-class conditions) &mdash; are by construction underrepresented in any LLM's training prior. And regulators require reproducible, provenance-stamped derivations, the opposite of stochastic decoding from models whose weights drift across versions. <strong>These limits are structural, not current-generation.</strong> Larger models will not close the gap.
+                    </p>
+                </div>
+                <div class="tech-grid">
+                    <div class="tech-card fade-in">
+                        <div class="tech-card-icon">&#128172;</div>
+                        <h3>What LLMs do best</h3>
+                        <p>Translate trader intent into structured scenario inputs. Narrate complex outputs into clear summaries. Draft reports and surface anomalies in natural language. <strong>The cortex of the system</strong> &mdash; language, planning, explanation.</p>
+                    </div>
+                    <div class="tech-card fade-in">
+                        <div class="tech-card-icon">&#9881;</div>
+                        <h3>What physics-aware AI delivers</h3>
+                        <p>Solves the dispatch LP. Computes locational marginal prices with congestion decomposition traceable to specific binding constraints. Returns numbers a trader can book against and an auditor can reproduce. <strong>The cerebellum</strong> &mdash; physics, exact computation, provenance.</p>
+                    </div>
+                </div>
+                <div class="tech-founder-note fade-in">
+                    <p><strong>The composition is the product.</strong> LLMs make physics-aware AI accessible &mdash; conversational scenario configuration, natural-language explanation. Physics-aware AI makes LLM outputs trustworthy in energy &mdash; the numbers behind the narration are computed, not generated. <strong>LLMs are the source of fluency. Physics-aware AI is the source of truth.</strong></p>
                 </div>
             </div>
         </section>
