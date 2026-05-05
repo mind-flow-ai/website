@@ -286,6 +286,9 @@
         }
         .product-card.use-case h3 { font-size: 1.1rem; margin-bottom: 8px; }
         .product-card.use-case > p { font-size: 0.9rem; line-height: 1.6; margin-bottom: 0; color: var(--text-secondary); }
+        .use-case-badge { display: inline-block; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 9px; border-radius: 100px; margin-bottom: 12px; }
+        .use-case-badge.available { background: rgba(52,211,153,0.10); color: var(--green); border: 1px solid rgba(52,211,153,0.28); }
+        .use-case-badge.roadmap { background: rgba(148,163,184,0.08); color: var(--text-muted); border: 1px solid rgba(148,163,184,0.20); }
 
         .maturity-badge {
             display: inline-flex;
@@ -565,15 +568,15 @@
                     </svg>
                 </div>
                 <div class="hero-metrics-wrap">
-                    <div class="hero-metrics-label">Track Record</div>
+                    <div class="hero-metrics-label">Founder Track Record</div>
                     <div class="hero-metrics-row">
                         <div class="hero-metric">
                             <div class="number">20+</div>
                             <div class="label">Years AI + energy</div>
                         </div>
                         <div class="hero-metric">
-                            <div class="number">$900M</div>
-                            <div class="label">Value delivered, prior work</div>
+                            <div class="number">2014</div>
+                            <div class="label">Edelman Laureate</div>
                         </div>
                         <div class="hero-metric">
                             <div class="number">13</div>
@@ -644,16 +647,13 @@
                 <h2 class="section-title">The architecture energy demands</h2>
                 <div class="vision-content">
                     <p>
-                        Energy is one of the few domains where AI must be <strong>correct</strong>, not just accurate. A misjudged dispatch can damage equipment. A violated constraint can cascade into a blackout. A mispriced position can leak material capital. The cost of being wrong is asymmetric and physical.
-                    </p>
-                    <p>
-                        <strong>Pure neural networks offer no guarantees.</strong> They are probabilistic black boxes &mdash; impressive on average, untrustworthy in the regimes that matter most. <strong>Pure mathematical optimization is rigorous but slow</strong>, struggling to keep pace as grids, markets, and asset fleets grow more complex.
+                        Energy is one of the few domains where AI must be <strong>correct</strong>, not just accurate. A misjudged dispatch can damage equipment; a violated constraint can cascade into a blackout; a mispriced position can leak material capital. <strong>Pure neural networks offer no guarantees</strong> in the regimes that matter most. <strong>Pure mathematical optimization is rigorous but slow</strong>, struggling to keep pace as grids, markets, and asset fleets grow more complex.
                     </p>
                     <p>
                         <strong>Neural-symbolic AI is the architecture engineered for this tension.</strong> Neural networks learn complex, non-linear patterns from data. Symbolic solvers enforce hard physical constraints exactly. The neural part proposes; the symbolic solver verifies and decides. AI never has the final word on physics.
                     </p>
                     <p>
-                        MindFlow.ai applies this architecture across energy decisions &mdash; market forecasting, dispatch optimization, asset health. Each application uses the same underlying principle: <strong>physics-aware AI that respects the laws energy systems actually operate by</strong>.
+                        MindFlow.ai applies this architecture across energy decisions &mdash; <strong>physics-aware AI that respects the laws energy systems actually operate by</strong>.
                     </p>
                 </div>
                 <div class="loop-visual fade-in">
@@ -691,7 +691,7 @@
                 <span class="section-label">Platform</span>
                 <h2 class="section-title">Physics-aware AI for energy decisions</h2>
                 <p class="section-desc">
-                    Current commercial focus is electricity markets &mdash; physics-aware forecasting infrastructure for sophisticated trading desks, asset operators, and risk managers. Standalone signal modules ship first; the integrated forecasting platform follows.
+                    Current commercial focus: physics-aware forecasting infrastructure for ERCOT market participants &mdash; sophisticated trading desks, asset operators, and risk managers &mdash; with PJM and CAISO on the roadmap. Prior production deployments below inform the broader vision.
                 </p>
 
                 <div class="capability-group group-optimize">
@@ -716,18 +716,22 @@
                             <div class="world-model-feed"><strong>How it differs:</strong> Statistical platforms produce predictions clients cannot configure. Planning-grade simulators are configurable but too slow for daily operations. Our architecture is engineered for the gap between them.</div>
                         </div>
                         <div class="product-card use-case fade-in">
+                            <span class="use-case-badge available">Available</span>
                             <h3>Market Forecasting</h3>
                             <p>Physics-aware day-ahead and real-time price forecasting, configurable with proprietary information no third-party model captures.</p>
                         </div>
                         <div class="product-card use-case fade-in">
+                            <span class="use-case-badge roadmap">On the roadmap</span>
                             <h3>CRR &amp; Congestion Analytics</h3>
                             <p>Congestion revenue rights valuation across forward scenarios, with transmission constraint shadow pricing decomposed into the drivers that actually move basis.</p>
                         </div>
                         <div class="product-card use-case fade-in">
+                            <span class="use-case-badge available">Available</span>
                             <h3>Asset Operations Advisory</h3>
                             <p>Risk-aware dispatch and bidding for batteries, hybrids, and thermal fleets &mdash; scheduled against physics-consistent forecasts of the environment they'll meet.</p>
                         </div>
                         <div class="product-card use-case fade-in">
+                            <span class="use-case-badge roadmap">On the roadmap</span>
                             <h3>Counterfactual Planning</h3>
                             <p>Scenario analysis for asset siting, retirement impact, transmission outages, and market design changes &mdash; without the latency of project-based consulting.</p>
                         </div>
@@ -797,7 +801,7 @@
                         <h3>Hydro Optimization</h3>
                         <p>Large-scale hydroelectric system optimization &mdash; coordinating generation across dozens of dams while respecting water rights, environmental flow constraints, and contractual obligations. Ran in production for nearly a decade across multiple utilities.</p>
                         <ul class="product-highlights">
-                            <li>INFORMS Edelman Award finalist</li>
+                            <li>2014 INFORMS Franz Edelman Laureate &mdash; OR's highest honor for applied analytics</li>
                             <li>$700&ndash;900M total value delivered</li>
                             <li>Published in <em>INFORMS Interfaces</em> (2014)</li>
                         </ul>
@@ -858,7 +862,7 @@
                         <h3>Zengjian Hu, PhD</h3>
                         <div class="founder-title">Founder &amp; CEO, MindFlow.ai</div>
                         <p>
-                            Computer scientist and optimization specialist who has spent two decades building every layer of what MindFlow.ai is now unifying. At The Energy Authority, he built production optimization systems for hydroelectric generation and smart meter analytics. At eSmart Systems, he led AI/analytics for drone-based infrastructure inspection serving utilities on three continents. At RelationalAI, he built Snowflake-native optimization solvers using graph algorithms and constraint satisfaction. At D-Wave, he explored quantum computing for combinatorial optimization.
+                            Computer scientist and optimization specialist who has spent two decades building every layer of what MindFlow.ai is now unifying. At The Energy Authority, he built the production optimization system for the Columbia River hydroelectric network &mdash; recognized with the 2014 INFORMS Franz Edelman Award, operations research's highest honor for applied analytics &mdash; and led smart meter analytics deployed at U.S. utilities. At eSmart Systems, he led AI/analytics for drone-based infrastructure inspection serving utilities on three continents. At RelationalAI, he built Snowflake-native optimization solvers using graph algorithms and constraint satisfaction. At D-Wave, he explored quantum computing for combinatorial optimization.
                         </p>
                         <p>
                             The common thread: taking hard computational problems in energy infrastructure and solving them with the right combination of mathematical optimization and machine learning. MindFlow.ai isn't a pivot &mdash; it's the convergence of an entire career.
@@ -882,7 +886,7 @@
                                 <div class="role-years">2010-2019</div>
                                 <div class="role-info">
                                     <h4>The Energy Authority</h4>
-                                    <p>Built hydro optimization &amp; smart meter analytics systems. 9 years in production. Edelman finalist.</p>
+                                    <p>Built hydro optimization &amp; smart meter analytics systems. 9 years in production. 2014 Edelman Laureate.</p>
                                 </div>
                             </div>
                             <div class="founder-role fade-in">
@@ -901,9 +905,9 @@
                             <p>Production AI and optimization systems shipped at multiple companies across two decades. The convergence of an entire career.</p>
                         </div>
                         <div class="credential-card fade-in">
-                            <div class="cred-value">$900M</div>
-                            <h4>Value Delivered</h4>
-                            <p>Total economic impact from the Columbia River hydro optimization system alone. INFORMS Edelman Award finalist.</p>
+                            <div class="cred-value">2014</div>
+                            <h4>Edelman Laureate</h4>
+                            <p>INFORMS Franz Edelman Award for the Columbia River hydro optimization system. OR's highest honor for applied analytics. $700&ndash;900M total value delivered.</p>
                         </div>
                         <div class="credential-card fade-in">
                             <div class="cred-value">13</div>
